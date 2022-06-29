@@ -1,9 +1,14 @@
 import {useState, useEffect} from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
-import {firebase, auth} from './util/firebase';
+import {firebase, auth} from './util/Firebase';
+import Login from './Pages/Auth/Login/Login';
+import Register from './Pages/Auth/Register/Register';
+
 const App = () => {
+  const history = useNavigate();
+
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -14,6 +19,7 @@ const App = () => {
   }, []);
 
   const login = (email, password) => {
+    console.log("login");
     return auth.signInWithEmailAndPassword(email, password);
   }
 
@@ -44,13 +50,12 @@ const App = () => {
 
   const logout = () => {
     auth.signOut();
+    history("/");
   }
-
-
 
   return (
     <>
-      <Header/>
+      <Header Logout={logout} CurrentUser={currentUser} />
       <Routes>
         //? Dashboard
         <Route path="dashboard" element={<p>asdasdas</p>}>
@@ -72,8 +77,8 @@ const App = () => {
         <Route path="about-us" element={<p>asdasdas</p>} />
         <Route path="faq" element={<p>asdasdas</p>} />
 
-        <Route path="login" element={currentUser ? <Navigate to="/"/> : <p>asdasdas</p>} login={login}/>
-        <Route path="signup" element={currentUser ? <Navigate to="/"/> : <p>asdasdas</p>} signUp={signUp}/>
+        <Route path="login" element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
+        <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>} />
         {/* //! Password Activation
         {currentUser ? <Navigate to="/"/> : <Route path="forgot-password" element={<p>asdasdas</p>} forgotPassword={forgotPassword}/>}
         {currentUser ? <Navigate to="/"/> : <Route path="confirm-password" element={<p>asdasdas</p>} confirmPassword={confirmPassword} />}
