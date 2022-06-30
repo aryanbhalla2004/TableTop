@@ -5,6 +5,12 @@ import Footer from './Components/Footer/Footer';
 import {firebase, auth} from './util/Firebase';
 import Login from './Pages/Auth/Login/Login';
 import Register from './Pages/Auth/Register/Register';
+import Auth from './Pages/Auth/Auth';
+import ForgotPassword from './Pages/Auth/ForgotPassword/ForgotPassword';
+import Main from './Pages/Main/LandingPage/Main';
+import ConfirmActivation from './Pages/Auth/ConfirmActivation/ConfirmActivation';
+import ConfirmPassword from './Pages/Auth/ConfirmPassword/ConfirmPassword';
+import EmailActivation from './Pages/Auth/EmailActivation/EmailActivation';
 
 const App = () => {
   const history = useNavigate();
@@ -50,12 +56,13 @@ const App = () => {
 
   const logout = () => {
     auth.signOut();
-    history("/");
+    history("/auth/login");
   }
+
 
   return (
     <>
-      <Header Logout={logout} CurrentUser={currentUser} />
+      
       <Routes>
         //? Dashboard
         <Route path="dashboard" element={<p>asdasdas</p>}>
@@ -69,25 +76,25 @@ const App = () => {
           //! Vendor          
           <Route path="business/profile" element={<p>asdasdas</p>} />
         </Route> 
-          
 
         //? Main
-        
-        <Route path="/" element={<p>asdasdas</p>} />
-        <Route path="about-us" element={<p>asdasdas</p>} />
-        <Route path="faq" element={<p>asdasdas</p>} />
+        <Route path='/' element={<Main CurrentUser={currentUser} Logout={logout}/>}>
+          <Route path="home" element={<p>Home</p>} />
+          <Route path="about-us" element={<p>About</p>} />
+          <Route path="faq" element={<p>Faq</p>} />
+        </Route>
 
-        <Route path="login" element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
-        <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>} />
-        {/* //! Password Activation
-        {currentUser ? <Navigate to="/"/> : <Route path="forgot-password" element={<p>asdasdas</p>} forgotPassword={forgotPassword}/>}
-        {currentUser ? <Navigate to="/"/> : <Route path="confirm-password" element={<p>asdasdas</p>} confirmPassword={confirmPassword} />}
-        //! Email Activation
-        {currentUser ? <Navigate to="/"/> : <Route path="email-activation" element={<p>asdasdas</p>} emailActivation={emailActivation}/>}
-        {currentUser ? <Navigate to="/"/> : <Route path="confirm-activation" element={<p>asdasdas</p>} confirmActivation={confirmActivation}/>} */}
-
+        //? Authentication
+        <Route path='auth' element={<Auth/>}>
+          <Route path="login" element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
+          <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>} />
+          <Route path="forgot-password" element={currentUser ? <Navigate to="/"/> : <ForgotPassword ForgotPassword={forgotPassword}/>} forgotPassword={forgotPassword}/>
+          <Route path="confirm-password" element={currentUser ? <Navigate to="/"/> : <ConfirmPassword/>} confirmPassword={confirmPassword} />
+          <Route path="email-activation" element={<EmailActivation/>} emailActivation={emailActivation}/>
+          <Route path="confirm-activation" element={<ConfirmActivation/>} confirmActivation={confirmActivation}/>
+        </Route>
       </Routes>
-      <Footer/>
+      
     </>
   )
 }
