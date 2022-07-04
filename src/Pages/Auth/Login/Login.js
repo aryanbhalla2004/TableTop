@@ -1,7 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 const Login = (props) => {
+  const [loginMessage, setLoginMessage] = useOutletContext();
   const [message, setMessage] = useState('');
   const history = useNavigate();
   const [userInput, setUserInput] = useState({
@@ -87,6 +88,7 @@ const Login = (props) => {
       </div>
       {message && <div class="alert alert-danger mt-0" role="alert">{message}</div>}
       {fieldError.message && <div class="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
+      {loginMessage && <div class="alert alert-success mt-0" role="alert">{loginMessage}</div>}
       <form>
         <div class="mb-3">
           <label for="emailAddress" class="form-label">Email Address</label>

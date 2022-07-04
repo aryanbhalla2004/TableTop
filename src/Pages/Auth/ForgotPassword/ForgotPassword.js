@@ -49,7 +49,7 @@ const ForgotPassword = (props) => {
         <div class="d-grid my-4">
           <button class="btn btn-primary full-width height-10px" type="submit">Send Email</button>
         </div>
-        <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth/login">Login</Link></p>
+        <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth">Login</Link></p>
       </form>
     </motion.div>
   )

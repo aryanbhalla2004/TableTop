@@ -11,15 +11,22 @@ import Main from './Pages/Main/LandingPage/Main';
 import ConfirmActivation from './Pages/Auth/ConfirmActivation/ConfirmActivation';
 import ConfirmPassword from './Pages/Auth/ConfirmPassword/ConfirmPassword';
 import EmailActivation from './Pages/Auth/EmailActivation/EmailActivation';
+import AccountType from './Pages/Auth/Register/RegisterProcess/AccountType';
+import AccountInformation from './Pages/Auth/Register/RegisterProcess/AccountInformation';
+import AccountVendor from './Pages/Auth/Register/RegisterProcess/AccountVendor';
+import EmailConformations from './Pages/Auth/EmailConformations';
 
 const App = () => {
   const history = useNavigate();
-
   const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
+      setLoading(false);
     });
+
+    
 
     return unsubscribe;
   }, []);
@@ -61,8 +68,8 @@ const App = () => {
 
 
   return (
+    !loading && 
     <>
-      
       <Routes>
         //? Dashboard
         <Route path="dashboard" element={<p>asdasdas</p>}>
@@ -84,14 +91,21 @@ const App = () => {
           <Route path="faq" element={<p>Faq</p>} />
         </Route>
 
+        //? Email Links
+        <Route path="user-auth-email-system" element={<EmailConformations/>}/>
+
         //? Authentication
         <Route path='auth' element={<Auth/>}>
-          <Route path="login" element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
-          <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>} />
-          <Route path="forgot-password" element={currentUser ? <Navigate to="/"/> : <ForgotPassword ForgotPassword={forgotPassword}/>} forgotPassword={forgotPassword}/>
-          <Route path="confirm-password" element={currentUser ? <Navigate to="/"/> : <ConfirmPassword/>} confirmPassword={confirmPassword} />
-          <Route path="email-activation" element={<EmailActivation/>} emailActivation={emailActivation}/>
-          <Route path="confirm-activation" element={<ConfirmActivation/>} confirmActivation={confirmActivation}/>
+          <Route index element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
+          <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>}>
+            {/* <Route index element={<AccountType/>}/> */}
+            <Route index element={<AccountInformation SignUp={signUp}/>}/>
+            {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
+          </Route>
+          <Route path="forgot-password" element={currentUser ? <Navigate to="/"/> : <ForgotPassword ForgotPassword={forgotPassword}/>}/>
+          <Route path="confirm-password" element={currentUser ? <Navigate to="/"/> : <ConfirmPassword ConfirmPassword={confirmPassword}/>}  />
+          <Route path="email-activation" element={currentUser ? !currentUser.emailVerified ? <EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/> : <Navigate to="/"/> : <Navigate to="/auth"/>} />
+          <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation}/>} />
         </Route>
       </Routes>
       
