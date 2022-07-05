@@ -14,6 +14,7 @@ const ConfirmPassword = (props) => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [userInfo, setUserInfo] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     verifyCode();
@@ -53,6 +54,7 @@ const ConfirmPassword = (props) => {
   }
 
   const onSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     if(userInput.password != "") {
@@ -68,6 +70,8 @@ const ConfirmPassword = (props) => {
               setError(e.message);
             }
           } else {
+            setLoading(false);
+
             setFieldError(prevInput => ({
               ...prevInput, confirmPassword: true
             }));
@@ -78,6 +82,8 @@ const ConfirmPassword = (props) => {
             }));
           }
         } else {
+          setLoading(false);
+
           setFieldError(prevInput => ({
             ...prevInput, confirmPassword: true
           }));
@@ -88,6 +94,8 @@ const ConfirmPassword = (props) => {
           }));
         }
       } else {
+          setLoading(false);
+
           setFieldError(prevInput => ({
             ...prevInput, password: true
           }));
@@ -97,6 +105,8 @@ const ConfirmPassword = (props) => {
           }));
         }
     } else {
+      setLoading(false);
+      
         setFieldError(prevInput => ({
           ...prevInput, password: true
         }));
@@ -133,7 +143,14 @@ const ConfirmPassword = (props) => {
           {fieldError.confirmPassword && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">{fieldError.error}</div>}
         </div>
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={error ? true : false }>Continue</button>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={error ? true : false || loading ? true : false}>
+            { 
+              loading ? 
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> : "Continue"
+            }
+          </button>
        </div>
         <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth">Login</Link></p>
       </form>

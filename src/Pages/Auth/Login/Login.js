@@ -33,6 +33,7 @@ const Login = (props) => {
   }
 
   const onSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();    
     if(userInput.email != "" && userInput.password != "") {
       if(userInput.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
@@ -116,7 +117,7 @@ const Login = (props) => {
           <div class="col text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
         </div>
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false} onClick={() => setLoading(true)}>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
             { 
               loading ? 
               <div class="spinner-border" role="status">

@@ -22,6 +22,7 @@ const ForgotPassword = (props) => {
   }
 
   const onSubmitForm = async (e) => {
+    setLoading(true);
     setError({email: '', all: ''});
     setMessage('');
     e.preventDefault();
@@ -52,7 +53,7 @@ const ForgotPassword = (props) => {
           <input type="email" class="form-control" id="emailAddress" name="email" required="" onChange={updateUserInput} placeholder="Enter Your Email" />
         </div>
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false} onClick={() => setLoading(true)}>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
             { 
               loading ? 
               <div class="spinner-border" role="status">
