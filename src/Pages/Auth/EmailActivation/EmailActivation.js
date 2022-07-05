@@ -6,7 +6,7 @@ const EmailActivation = (props) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     emailVerified();
   }, [])
@@ -26,6 +26,40 @@ const EmailActivation = (props) => {
       setLoading(false);
     }
   }
+
+  const emailProvider = (props.CurrentUser.email).split("@")[1];
+  const [validProvider, setValidProvider] = useState(false);
+  const [providerLink, setProviderLink] = useState("");
+
+  useEffect(() => {
+    checkProvider();
+  }, [])
+
+  const checkProvider = () => {
+    switch (emailProvider.toLowerCase()) {
+      case "gmail.com":
+        setValidProvider(true);
+        setProviderLink("https://gmail.com");
+        break;
+      case "yahoo.com":
+        setValidProvider(true);
+        setProviderLink("https://mail.yahoo.com");
+        break;
+      case "hotmail.com":
+        setValidProvider(true);
+        setProviderLink("https://hotmail.com");
+        break;
+      case "outlook.com":
+        setValidProvider(true);
+        setProviderLink("https://outlook.com");
+        break;
+      default:
+        setValidProvider(false);
+        // put link when support page is ready 
+        setProviderLink("");
+        break;
+    }
+  }
   
   return (
     <>
@@ -39,7 +73,7 @@ const EmailActivation = (props) => {
       <p class="text-muted mb-4">An Email has been send to <a><b>{props.CurrentUser.email}</b></a> with a link to verify your account. If you have not received the email after a few minutes. please check your spam folder</p>
       <div class="d-flex justify-content-between">
           <button class="btn btn-primary general-btn height-10px" onClick={() => emailVerified("resend")}>Resend Email</button>
-          <button class="btn btn-primary ghost-btn general-btn height-10px" type="submit">Contact Support</button>
+          <button class="btn btn-primary ghost-btn general-btn height-10px" onClick={() => window.open(providerLink, '_blank', 'noopener,noreferrer')}>{validProvider ? "Go To Email" : "Contact Support"}</button>
       </div>
     </motion.div> : <h1>Loading</h1> }
     </> 

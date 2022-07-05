@@ -8,6 +8,7 @@ const AccountInformation = (props) => {
   const history = useNavigate();
   const [userInput, setUserInput, setFieldError, fieldError] = useOutletContext();
   const [score, setScore] = useState();
+  const [loading, setLoading] = useState(false);
   const updateUserInput = (e) => {
     setUserInput(prevInput => ({
       ...prevInput, [e.target.name]: e.target.value
@@ -56,6 +57,8 @@ const AccountInformation = (props) => {
               }
               
             } catch(e) {
+              setLoading(false);
+
               setFieldError(prevInput => ({
                 ...prevInput, message: e.message
               }));
@@ -63,27 +66,37 @@ const AccountInformation = (props) => {
             
 
           } else {
+            setLoading(false);
+
             setFieldError(prevInput => ({
               ...prevInput, confirmPassword: true
             }));
           }
         } else {
+          setLoading(false);
+
           setFieldError(prevInput => ({
             ...prevInput, message: 'Your password is a bit weak; a little extra effort will secure your account.'
           }));
         }
       } else {
-          setFieldError(prevInput => ({
-            ...prevInput, email: true
-          }));
+        setLoading(false);
+
+        setFieldError(prevInput => ({
+          ...prevInput, email: true
+        }));
       } else {
         if(!userInput.firstName.match(/^[a-zA-Z]+$/)) {
+          setLoading(false);
+
           setFieldError(prevInput => ({
             ...prevInput, firstName: true
           }));
         }
 
         if(!userInput.lastName.match(/^[a-zA-Z]+$/)) {
+          setLoading(false);
+
           setFieldError(prevInput => ({
             ...prevInput, lastName: true
           }));
@@ -92,30 +105,40 @@ const AccountInformation = (props) => {
     } else {
 
       if(userInput.lastName == "") {
+        setLoading(false);
+
         setFieldError(prevInput => ({
           ...prevInput, lastName: true
         }));
       }
 
       if(userInput.email == "") {
+        setLoading(false);
+
         setFieldError(prevInput => ({
           ...prevInput, email: true
         }));
       } 
 
       if(userInput.password == "") {
+        setLoading(false);
+
         setFieldError(prevInput => ({
           ...prevInput, password: true
         }));
       }
 
       if(userInput.firstName == "") {
+        setLoading(false);
+
         setFieldError(prevInput => ({
           ...prevInput, firstName: true
         }));
       }
 
       if(userInput.confirmPassword == "") {
+        setLoading(false);
+        
         setFieldError(prevInput => ({
           ...prevInput, confirmPassword: true
         }));
@@ -136,7 +159,7 @@ const AccountInformation = (props) => {
       <h3 class="title-auth">1. Account Information</h3>
       <p class="text-muted mb-4">Please choose an account type below. Various pieces of information will be requested depending on your choice.</p>
       {fieldError.message && <div class="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
-      <form>
+      <form onSubmit={onSubmit}>
         <div class="d-flex">
           <div class="mb-3 col-md-6 rm-padding-left">
             <label for="emailAddress" class="form-label">First Name</label>
@@ -168,7 +191,14 @@ const AccountInformation = (props) => {
         </div>
         
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="button" onClick={onSubmit}>Continue</button>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false} onClick={() => setLoading(true)}>
+            { 
+              loading ? 
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> : "Continue"
+            }
+          </button>
         </div>
         <p class="text-2 text-dark text-center mt-4 mb-0"><i class="bi bi-arrow-left"></i> Go Back</p>
       </form>

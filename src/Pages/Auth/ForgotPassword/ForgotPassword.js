@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 const ForgotPassword = (props) => {
+  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState({
     email: '',
     all: ''
@@ -26,11 +28,14 @@ const ForgotPassword = (props) => {
     if(userInput.email !== "") {
       try {
         await props.ForgotPassword(userInput.email);
+        setLoading(false);
         setMessage(`Please Check the inbox of ${userInput.email} for password reset link. More further instruction will be included in the email.`);
       } catch(e) {
+        setLoading(false);
         setError({all: e.message});
       }
     } else {
+      setLoading(false);
       setError({email: 'Email field is empty'})
     }
   }
@@ -47,7 +52,14 @@ const ForgotPassword = (props) => {
           <input type="email" class="form-control" id="emailAddress" name="email" required="" onChange={updateUserInput} placeholder="Enter Your Email" />
         </div>
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit">Send Email</button>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false} onClick={() => setLoading(true)}>
+            { 
+              loading ? 
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> : "Send Email"
+            }
+          </button>
         </div>
         <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth">Login</Link></p>
       </form>
