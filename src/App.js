@@ -38,6 +38,7 @@ const App = () => {
 
   const signUp = (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
+
   }
 
   const forgotPassword = (email) => {
@@ -58,6 +59,7 @@ const App = () => {
   }
 
   const confirmActivation = (code) => {
+    console.log(code);
     return auth.applyActionCode(code);
   }
 
@@ -73,7 +75,7 @@ const App = () => {
       <Routes>
         //? Dashboard
         <Route path="dashboard" element={<p>asdasdas</p>}>
-          //! Both Accounts
+          //! Both Accountsnp
           <Route path="home" element={<p>asdasdas</p>} />
           <Route path="messages" element={<p>asdasdas</p>} />
           <Route path="notifications" element={<p>asdasdas</p>} />
@@ -99,12 +101,12 @@ const App = () => {
           <Route index element={currentUser ? <Navigate to="/"/> : <Login Login={login}/>}/>
           <Route path="signup" element={currentUser ? <Navigate to="/"/> : <Register SignUp={signUp}/>}>
             {/* <Route index element={<AccountType/>}/> */}
-            <Route index element={<AccountInformation SignUp={signUp}/>}/>
+            <Route index element={<AccountInformation SignUp={signUp} SetLoading={setLoading}/>}/>
             {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
           </Route>
           <Route path="forgot-password" element={currentUser ? <Navigate to="/"/> : <ForgotPassword ForgotPassword={forgotPassword}/>}/>
           <Route path="confirm-password" element={currentUser ? <Navigate to="/"/> : <ConfirmPassword ConfirmPassword={confirmPassword}/>}  />
-          <Route path="email-activation" element={currentUser ? !currentUser.emailVerified ? <EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/> : <Navigate to="/"/> : <Navigate to="/auth"/>} />
+          <Route path="email-activation" element={currentUser ? !currentUser.emailVerified ? <EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation} /> : <Navigate to="/"/> : <Navigate to="/auth"/>} />
           <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation}/>} />
         </Route>
       </Routes>

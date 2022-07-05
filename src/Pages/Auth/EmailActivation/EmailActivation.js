@@ -6,10 +6,7 @@ const EmailActivation = (props) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    emailVerified();
-  }, [])
+
 
   const emailVerified = async (param) => {
     setLoading(true);

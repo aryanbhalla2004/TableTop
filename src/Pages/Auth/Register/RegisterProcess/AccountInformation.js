@@ -38,6 +38,7 @@ const AccountInformation = (props) => {
             // }]
 
             try {
+              props.SetLoading(true);
               let informationUser = await props.SignUp(userInput.email, userInput.password);
               let userId = informationUser.user.uid;
               console.log(userId);
@@ -54,7 +55,7 @@ const AccountInformation = (props) => {
               } else {
                 history('/auth/email-activation');
               }
-              
+              props.SetLoading(false);
             } catch(e) {
               setFieldError(prevInput => ({
                 ...prevInput, message: e.message
