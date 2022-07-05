@@ -1,6 +1,6 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Login = (props) => {
   const [loginMessage, setLoginMessage] = useOutletContext();
   const [message, setMessage] = useState('');
@@ -10,6 +10,7 @@ const Login = (props) => {
     password: '',
     rememberMe: false
   });
+  const [loading, setLoading] = useState(false);
 
   const [fieldError, setFieldError] = useState({
     email: false,
@@ -32,6 +33,7 @@ const Login = (props) => {
   }
 
   const onSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();    
     if(userInput.email != "" && userInput.password != "") {
       if(userInput.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
@@ -44,9 +46,12 @@ const Login = (props) => {
             history("/auth/email-activation");
           }
         } catch (e) {
+          setLoading(false);
           setMessage(e.message);
         }
       } else {
+        setLoading(false);
+
         setFieldError(prevInput => ({
           ...prevInput, email: true
         }));
@@ -56,6 +61,8 @@ const Login = (props) => {
         }));
       }
     } else {
+      setLoading(false);
+
       if(userInput.email == "") {
         setFieldError(prevInput => ({
           ...prevInput, email: true
@@ -89,7 +96,7 @@ const Login = (props) => {
       {message && <div class="alert alert-danger mt-0" role="alert">{message}</div>}
       {fieldError.message && <div class="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
       {loginMessage && <div class="alert alert-success mt-0" role="alert">{loginMessage}</div>}
-      <form>
+      <form onSubmit={onSubmit}>
         <div class="mb-3">
           <label for="emailAddress" class="form-label">Email Address</label>
           <input type="email" className={fieldError.email ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="email" value={userInput.email} onChange={updateUserInput} placeholder="Enter Your Email"/>
@@ -110,7 +117,14 @@ const Login = (props) => {
           <div class="col text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
         </div>
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="button" onClick={onSubmit}>Login</button>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
+            { 
+              loading ? 
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> : "Login"
+            }
+          </button>
         </div>
         <p class="text-2 text-dark">Not a member? <Link class="fw-500" to="/auth/signup">Register</Link></p>
       </form>

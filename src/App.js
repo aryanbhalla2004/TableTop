@@ -15,6 +15,13 @@ import AccountType from './Pages/Auth/Register/RegisterProcess/AccountType';
 import AccountInformation from './Pages/Auth/Register/RegisterProcess/AccountInformation';
 import AccountVendor from './Pages/Auth/Register/RegisterProcess/AccountVendor';
 import EmailConformations from './Pages/Auth/EmailConformations';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Home from './Pages/Dashboard/Home/Home';
+import Messages from './Pages/Dashboard/Messages/Messages';
+import Notifications from './Pages/Dashboard/Notifications/Notifications';
+import Settings from './Pages/Dashboard/Settings/Settings';
+import Favorite from './Pages/Dashboard/Favorite/Favorite';
+import Profile from './Pages/Dashboard/Profile/Profile';
 
 const App = () => {
   const history = useNavigate();
@@ -64,26 +71,29 @@ const App = () => {
   }
 
   const logout = () => {
-    auth.signOut();
-    history("/auth/login");
+    auth.signOut().then((res) => {
+      history("/auth");
+      return res
+    }).catch((err) => {
+      return err
+    })
   }
-
 
   return (
     !loading && 
     <>
       <Routes>
         //? Dashboard
-        <Route path="dashboard" element={<p>asdasdas</p>}>
-          //! Both Accountsnp
-          <Route path="home" element={<p>asdasdas</p>} />
-          <Route path="messages" element={<p>asdasdas</p>} />
-          <Route path="notifications" element={<p>asdasdas</p>} />
-          <Route path="settings" element={<p>asdasdas</p>} />
+        <Route path="dashboard" element={<Dashboard />}>
+          //! Both Accounts
+          <Route path="home" element={<Home />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="settings" element={<Settings />} />
           //! Client
-          <Route path="favorite" element={<p>asdasdas</p>} />
+          <Route path="favorite" element={<Favorite />} />
           //! Vendor          
-          <Route path="business/profile" element={<p>asdasdas</p>} />
+          <Route path="business/profile" element={<Profile />} />
         </Route> 
 
         //? Main
