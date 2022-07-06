@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Dashboard } from "./Dashboard/Dashboard";
+import { SideBarMenu } from "./SideBarMenu/SideBarMenu";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<div>Landing Page</div>} />=
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<SideBarMenu />} />
       </Routes>
     </Router>
   );

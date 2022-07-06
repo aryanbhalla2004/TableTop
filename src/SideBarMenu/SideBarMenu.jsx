@@ -1,9 +1,9 @@
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "../SideBarMenu/SideBarMenu.module.css";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { useState } from "react";
 import { BiMessage } from "react-icons/bi";
-const Dashboard = () => {
+const SideBarMenu = () => {
   const [inputValue, setInputValue] = useState(false);
   const handleClickOnSlide = (e) => {
     setInputValue(!inputValue);
@@ -57,4 +57,4 @@ const Dashboard = () => {
   );
 };
 
-export { Dashboard };
+export { SideBarMenu };
