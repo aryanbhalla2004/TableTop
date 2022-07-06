@@ -14,13 +14,6 @@ body {
   top: 1rem;
   left: 10rem;
 }
-.fa-message {
-  color: white;
-}
-.fa-message {
-  margin-right: 0.5rem;
-  transform: rotateY(180deg);
-}
 .website-name {
   position: relative;
   bottom: 0.45rem;

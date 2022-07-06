@@ -2,6 +2,7 @@ import styles from "../Dashboard/Dashboard.module.css";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { useState } from "react";
+import { BiMessage } from "react-icons/bi";
 const Dashboard = () => {
   const [inputValue, setInputValue] = useState(false);
   const handleClickOnSlide = (e) => {
@@ -40,7 +41,11 @@ const Dashboard = () => {
           style={{ display: inputValue && "flex" }}
         >
           <Link to="#">
-            <i className="far fa-message"></i>
+            <BiMessage
+              size="3.5rem"
+              color="white"
+              style={{ transform: "rotateY(180deg)" }}
+            />
           </Link>
 
           <div className={styles["website-name"]}>
