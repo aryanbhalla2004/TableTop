@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+.logo {
+  display: flex;
+  font-size: 3rem;
+  position: relative;
+  top: 1rem;
+  left: 10rem;
+}
+.fa-message {
+  color: white;
+}
+.fa-message {
+  margin-right: 0.5rem;
+  transform: rotateY(180deg);
+}
+.website-name {
+  position: relative;
+  bottom: 0.45rem;
+}
+.website-name a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.slide {
+  background-color: #191e3a;
+  width: 30rem;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s ease;
+  transform: translateX(-25rem);
+  cursor: pointer;
+}
+.toggle-menu {
+  position: absolute;
+  z-index: 1;
+  top: -0.2rem;
+  left: 0.5rem;
+  width: 3rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.toggle-menu > span {
+  position: absolute;
+  height: 5px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 0.3s ease;
+}
+
+.toggle-menu .top_line {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.toggle-menu .middle_line {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-menu .bottom_line {
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  display: none;
+}

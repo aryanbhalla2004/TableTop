@@ -1,0 +1,7 @@
+.fa-message {
+  color: white;
+}
+.fa-message {
+  margin-right: 0.5rem;
+  transform: rotateY(180deg);
+}
