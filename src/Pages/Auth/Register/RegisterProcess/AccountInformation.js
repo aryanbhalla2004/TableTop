@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { motion } from "framer-motion";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate, Link } from "react-router-dom";
 import moment from 'moment';
 import {firebase} from "../../../../util/Firebase";
 const AccountInformation = (props) => {
@@ -30,116 +30,106 @@ const AccountInformation = (props) => {
     e.preventDefault();    
     if(userInput.email != "" && userInput.password != "" && userInput.firstName != "" && userInput.lastName != "") {
       if(userInput.firstName.match(/^[a-zA-Z]+$/) && userInput.lastName.match(/^[a-zA-Z]+$/))
-      if(userInput.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
-        if(score > 2) {
-          if(userInput.password == userInput.confirmPassword) {
+        if(userInput.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+          if(score > 2) {
+            if(userInput.password == userInput.confirmPassword) {
             // if(userInput.accountType !== "Regular") {
             //   history("/auth/signup/account-vendor")
             // } else {
             //   history("/auth/")
             // }]
 
-            try {
-              let informationUser = await props.SignUp(userInput.email, userInput.password);
-              let userId = informationUser.user.uid;
-              console.log(userId);
-              const user = {
-                firstName: userInput.firstName,
-                lastName: userInput.lastName,
-                email: userInput.email,
-                createdDate: moment().format("YYYY MM DD")
-              }
-              await firebase.firestore().collection("Users").doc(userId).set(user);
-
-              if(informationUser.user.emailVerified) {
-                history('/');
-              } else {
-                history('/auth/email-activation');
+              try {
+                let informationUser = await props.SignUp(userInput.email, userInput.password);
+                let userId = informationUser.user.uid;
+                console.log(userId);
+                const user = {
+                  firstName: userInput.firstName,
+                  lastName: userInput.lastName,
+                  email: userInput.email,
+                  createdDate: moment().format("YYYY MM DD")
+                }
+                await firebase.firestore().collection("Users").doc(userId).set(user);
+              
+                if(informationUser.user.emailVerified) {
+                  history('/');
+                } else {
+                  history('/auth/email-activation');
+                }
+                
+              } catch(e) {
+                setLoading(false);
+              
+                setFieldError(prevInput => ({
+                  ...prevInput, message: e.message
+                }));
               }
               
-            } catch(e) {
+            
+            } else {
               setLoading(false);
-
+            
               setFieldError(prevInput => ({
-                ...prevInput, message: e.message
+                ...prevInput, confirmPassword: true
               }));
             }
-            
-
           } else {
             setLoading(false);
-
+          
             setFieldError(prevInput => ({
-              ...prevInput, confirmPassword: true
+              ...prevInput, message: 'Your password is a bit weak; a little extra effort will secure your account.'
             }));
           }
         } else {
           setLoading(false);
-
+        
           setFieldError(prevInput => ({
-            ...prevInput, message: 'Your password is a bit weak; a little extra effort will secure your account.'
+            ...prevInput, email: true
           }));
+        } else {
+          if(!userInput.firstName.match(/^[a-zA-Z]+$/)) {
+            setLoading(false);
+          
+            setFieldError(prevInput => ({
+              ...prevInput, firstName: true
+            }));
+          }
+        
+          if(!userInput.lastName.match(/^[a-zA-Z]+$/)) {
+            setLoading(false);
+          
+            setFieldError(prevInput => ({
+              ...prevInput, lastName: true
+            }));
+          }
         }
-      } else {
-        setLoading(false);
-
-        setFieldError(prevInput => ({
-          ...prevInput, email: true
-        }));
-      } else {
-        if(!userInput.firstName.match(/^[a-zA-Z]+$/)) {
-          setLoading(false);
-
-          setFieldError(prevInput => ({
-            ...prevInput, firstName: true
-          }));
-        }
-
-        if(!userInput.lastName.match(/^[a-zA-Z]+$/)) {
-          setLoading(false);
-
-          setFieldError(prevInput => ({
-            ...prevInput, lastName: true
-          }));
-        }
-      }
     } else {
-
+      setLoading(false);
       if(userInput.lastName == "") {
-        setLoading(false);
-
         setFieldError(prevInput => ({
           ...prevInput, lastName: true
         }));
       }
 
       if(userInput.email == "") {
-        setLoading(false);
-
         setFieldError(prevInput => ({
           ...prevInput, email: true
         }));
       } 
 
       if(userInput.password == "") {
-        setLoading(false);
-
         setFieldError(prevInput => ({
           ...prevInput, password: true
         }));
       }
 
       if(userInput.firstName == "") {
-        setLoading(false);
-
         setFieldError(prevInput => ({
           ...prevInput, firstName: true
         }));
       }
 
       if(userInput.confirmPassword == "") {
-        setLoading(false);
-        
         setFieldError(prevInput => ({
           ...prevInput, confirmPassword: true
         }));
@@ -182,6 +172,7 @@ const AccountInformation = (props) => {
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
           <input type="password" className={fieldError.password ? 'form-control is-invalid' : 'form-control'} id="password" required="" name="password" value={userInput.password} onChange={updateUserInput} placeholder="Enter Password"/>
+          {fieldError.password && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">Please provide a valid password.</div>}
         </div>
         <small id="passwordHelpBlock" class="form-text text-muted light-under-field-text">Your password must be 8-20 characters long.</small>
         <PasswordStrengthBar password={userInput.password} onChangeScore={changeScore}/>
@@ -201,7 +192,9 @@ const AccountInformation = (props) => {
             }
           </button>
         </div>
-        <p class="text-2 text-dark text-center mt-4 mb-0"><i class="bi bi-arrow-left"></i> Go Back</p>
+        <Link to="/auth">
+          <p class="text-2 text-dark text-center mt-4 mb-0"><i class="bi bi-arrow-left"></i> Go Back</p>
+        </Link>
       </form>
     </motion.div>
   )
