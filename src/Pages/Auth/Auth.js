@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Outlet} from "react-router-dom";
 import "./Auth.css"
+import "./Responsive.css"
+
 const Auth = () => {
   const [loginMessage, setLoginMessage] = useState();
   return (
