@@ -16,12 +16,16 @@ import AccountInformation from './Pages/Auth/Register/RegisterProcess/AccountInf
 import AccountVendor from './Pages/Auth/Register/RegisterProcess/AccountVendor';
 import EmailConformations from './Pages/Auth/EmailConformations';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import Home from './Pages/Dashboard/Home/Home';
+import DashboardHome from './Pages/Dashboard/Home/Home';
+import Home from './Pages/Main/Home/Home';
 import Messages from './Pages/Dashboard/Messages/Messages';
 import Notifications from './Pages/Dashboard/Notifications/Notifications';
 import Settings from './Pages/Dashboard/Settings/Settings';
 import Favorite from './Pages/Dashboard/Favorite/Favorite';
 import Profile from './Pages/Dashboard/Profile/Profile';
+import AboutUs from './Pages/Main/About/About';
+import Faq from './Pages/Main/Faq/Faq';
+import Vendor from './Pages/Main/Vendor/Vendor';
 
 const App = () => {
   const history = useNavigate();
@@ -84,7 +88,7 @@ const App = () => {
         //? Dashboard
         <Route path="dashboard" element={<Dashboard />}>
           //! Both Accounts
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={<DashboardHome />} />
           <Route path="messages" element={<Messages />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="settings" element={<Settings />} />
@@ -96,9 +100,11 @@ const App = () => {
 
         //? Main
         <Route path='/' element={<Main CurrentUser={currentUser} Logout={logout}/>}>
-          <Route path="home" element={<p>Home</p>} />
-          <Route path="about-us" element={<p>About</p>} />
-          <Route path="faq" element={<p>Faq</p>} />
+          <Route path="home" element={<Home />} />
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="faq" element={<Faq />} />
+          <Route path="/vendor/:id" element={<Vendor />}
+        />
         </Route>
 
         //? Email Links
