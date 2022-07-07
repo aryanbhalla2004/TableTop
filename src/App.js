@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SideBarMenu } from "./SideBarMenu/SideBarMenu";
+import { SideBarMenu } from "./components/SideBarMenu/SideBarMenu";
 
 const App = () => {
   return (
