@@ -71,3 +71,11 @@ body {
 .logo {
   display: none;
 }
+
+/**navigation link**/
+.sidebar_links {
+  position: relative;
+  top: 5rem;
+  width: 470px;
+  height: 400px;
+}

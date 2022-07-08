@@ -2,10 +2,13 @@ import styles from "../SideBarMenu/SideBarMenu.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BiMessage } from "react-icons/bi";
+import { MdDashboard } from "react-icons/md";
+import { FiSettings } from "react-icons/fi";
+import { SideBarLink } from "../SideBarLink/SideBarLink";
 const SideBarMenu = () => {
-  const [inputValue, setInputValue] = useState(false);
+  const [sideBarStatus, setSideBarStatus] = useState(false);
   const handleClickOnSlide = (e) => {
-    setInputValue(!inputValue);
+    setSideBarStatus(!sideBarStatus);
   };
   return (
     <>
@@ -13,31 +16,31 @@ const SideBarMenu = () => {
         <span
           className={styles["top_line"]}
           style={{
-            transform: inputValue && "rotate(45deg)",
-            top: inputValue && "2.5rem",
+            transform: sideBarStatus && "rotate(45deg)",
+            top: sideBarStatus && "2.5rem",
           }}
         ></span>
         <span
           className={styles["middle_line"]}
           style={{
-            transform: inputValue && "rotate(-45deg)",
+            transform: sideBarStatus && "rotate(-45deg)",
           }}
         ></span>
         <span
           className={styles["bottom_line"]}
           style={{
-            display: inputValue && "none",
+            display: sideBarStatus && "none",
           }}
         ></span>
       </div>
       <div
         className={styles["slide"]}
         onClick={handleClickOnSlide}
-        style={{ transform: inputValue && "translateX(0)" }}
+        style={{ transform: sideBarStatus && "translateX(0)" }}
       >
         <div
           className={styles["logo"]}
-          style={{ display: inputValue && "flex" }}
+          style={{ display: sideBarStatus && "flex" }}
         >
           <Link to="#">
             <BiMessage
@@ -50,6 +53,18 @@ const SideBarMenu = () => {
           <div className={styles["website-name"]}>
             <Link to="#">TableTop</Link>
           </div>
+        </div>
+        <div className={styles["sidebar_links"]}>
+          <SideBarLink
+            sidebarStatus={sideBarStatus}
+            linkName={"Dashboard"}
+            icon={<MdDashboard />}
+          />
+          <SideBarLink
+            sidebarStatus={sideBarStatus}
+            linkName={"Settings"}
+            icon={<FiSettings />}
+          />
         </div>
       </div>
     </>
