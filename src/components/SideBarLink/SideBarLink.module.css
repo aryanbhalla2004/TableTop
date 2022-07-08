@@ -1,0 +1,20 @@
+.link > svg {
+  position: absolute;
+  right: 1rem;
+  font-size: 3rem;
+  color: #4a58a6;
+  margin-top: 0.5rem;
+}
+.link {
+  display: flex;
+  padding-left: 2rem;
+  height: 5rem;
+  text-decoration: none;
+}
+.link_name {
+  position: relative;
+  font-size: 1.5rem;
+  top: 1rem;
+  left: 1rem;
+  color: #a9abb6;
+}
