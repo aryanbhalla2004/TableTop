@@ -13,17 +13,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border: 1px solid red;
+  
   overflow: hidden;
 }
 
-.col-information-wrapper::after {
+.background-layer-wrapper{
   background-color: #0c68f1ab;
-  z-index: 999;
   width: 100%;
+  padding: 20px;
   height: 100%;
-  content: "";
-  position: absolute;
 }
+
 
 .col-form-wrapper {
   width: 60%;

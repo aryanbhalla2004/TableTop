@@ -1,0 +1,9 @@
+@media only screen and (max-width: 980px) {
+  .col-information-wrapper {
+		display: none;
+	}
+
+	.col-form-wrapper {
+		width: 80%;
+	}
+}

@@ -83,50 +83,50 @@ const Login = (props) => {
 
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-      <h3 class="title-auth">Log In to Your Account</h3>
-      <div class="social-login-button">
-        <Link to=""><i class="bi bi-google"></i> <span class="mx-3">Log in with Google</span></Link>
-        <Link to=""><i class="bi bi-facebook"></i> <span class="mx-3">Log in with Facebook</span></Link>
+      <h3 className="title-auth">Log In to Your Account</h3>
+      <div className="social-login-button">
+        <Link to=""><i className="bi bi-google"></i> <span className="mx-3">Log in with Google</span></Link>
+        <Link to=""><i className="bi bi-facebook"></i> <span className="mx-3">Log in with Facebook</span></Link>
       </div>
-      <div class="divider-line">
-        <hr class="small-line" />
-        <span class="mx-3 text-2 text-muted">OR</span>
-        <hr class="big-line" />
+      <div className="divider-line">
+        <hr className="small-line" />
+        <span className="mx-3 text-2 text-muted">OR</span>
+        <hr className="big-line" />
       </div>
-      {message && <div class="alert alert-danger mt-0" role="alert">{message}</div>}
-      {fieldError.message && <div class="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
-      {loginMessage && <div class="alert alert-success mt-0" role="alert">{loginMessage}</div>}
+      {message && <div className="alert alert-danger mt-0" role="alert">{message}</div>}
+      {fieldError.message && <div className="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
+      {loginMessage && <div className="alert alert-success mt-0" role="alert">{loginMessage}</div>}
       <form onSubmit={onSubmit}>
-        <div class="mb-3">
-          <label for="emailAddress" class="form-label">Email Address</label>
+        <div className="mb-3">
+          <label for="emailAddress" className="form-label">Email Address</label>
           <input type="email" className={fieldError.email ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="email" value={userInput.email} onChange={updateUserInput} placeholder="Enter Your Email"/>
-         {fieldError.email && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">Please provide a valid email.</div>}
+         {fieldError.email && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid email.</div>}
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+        <div className="mb-3">
+          <label for="password" className="form-label">Password</label>
           <input type="password" className={fieldError.password ? 'form-control is-invalid' : 'form-control'} id="password" required="" name="password" value={userInput.password} onChange={updateUserInput} placeholder="Enter Password"/>
-          {fieldError.password && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">Please provide a valid password.</div>}
+          {fieldError.password && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid password.</div>}
         </div>
-        <div class="row mt-4 center-content">
-          <div class="col">
-            <div class="form-check">
-              <input id="remember-me" name="remember" class="form-check-input" type="checkbox"/>
-              <label class="form-check-label" for="remember-me">Remember Me</label>
+        <div className="row mt-4 center-content">
+          <div className="col">
+            <div className="form-check">
+              <input id="remember-me" name="remember" className="form-check-input" type="checkbox"/>
+              <label className="form-check-label" for="remember-me">Remember Me</label>
             </div>
           </div>
-          <div class="col text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
+          <div className="col text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
         </div>
-        <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
+        <div className="d-grid my-4">
+          <button className="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
             { 
               loading ? 
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div> : "Login"
             }
           </button>
         </div>
-        <p class="text-2 text-dark">Not a member? <Link class="fw-500" to="/auth/signup">Register</Link></p>
+        <p className="text-2 text-dark">Not a member? <Link className="fw-500" to="/auth/signup">Register</Link></p>
       </form>
     </motion.div>
   )
