@@ -1,8 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import TopNavbar from "../../Components/TopNavbar/TopNavbar";
 import "../Dashboard/Dashboard.css";
 const Dashboard = () => {
+  const [collapsedStatus, setCollapsedStatus] = useState(true);
   return (
     // <div>
     // 	<h1>Dashboard</h1>
@@ -16,17 +18,19 @@ const Dashboard = () => {
     // </div>
     <>
       <div className="sidebar_container">
-        <Sidebar></Sidebar>
+        <Sidebar collapsedStatus={collapsedStatus}></Sidebar>
         <div className="navbar_container">
-          <TopNavbar />
-          <h1>Content</h1>
-          <p>
-            You'll find the CSS styles used in Revindex Storefront follows
-            closely the Bootstrap 3.x and DNN UX standard therefore making it
-            very easy to style module elements simply by overriding the style
-            rules in your portal CSS. Please see the video tutorial below on how
-            to override styles from your portal CSS.
-          </p>
+          <TopNavbar setCollapsedStatus={setCollapsedStatus} collapsedStatus={collapsedStatus}/>
+          <div className="dashboard-container">
+            <div className="page-header">
+              <div className="page-info">
+                <h2>Setting</h2>
+                <p>Welcome Intez Settings Profile page</p>
+              </div>
+              <span className="path">Dashboard > Settings > Profile</span>
+            </div>
+            <Outlet/>
+          </div>
         </div>
       </div>
     </>
