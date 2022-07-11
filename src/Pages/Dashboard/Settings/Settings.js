@@ -1,4 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "../Settings/Settings.css";
 
 const Settings = () => {
   return (
@@ -8,16 +10,42 @@ const Settings = () => {
     //   <Outlet />
     //   <Link to="/dashboard">Back</Link>
     // </div>
-    <>
-      <h1>Settings/Account</h1>
-      <p>
-        You'll find the CSS styles used in Revindex Storefront follows closely
-        the Bootstrap 3.x and DNN UX standard therefore making it very easy to
-        style module elements simply by overriding the style rules in your
-        portal CSS. Please see the video tutorial below on how to override
-        styles from your portal CSS.
-      </p>
-    </>
+    <div className="account_container">
+      <img
+        src="https://placekitten.com/200/300"
+        alt="profile photo"
+        className="profile_photo"
+      />
+      <form className="account_form">
+        <div className="input_fields_container">
+          <div className="name_container">
+            <div className="input_field">
+              <label>First Name</label>
+              <input type="text" />
+            </div>
+            <div className="input_field">
+              <label>Last Name</label>
+              <input type="text" />
+            </div>
+          </div>
+          <div className="email_contact_container">
+            <div className="input_field">
+              <label>Contact-Number</label>
+              <input type="text" />
+            </div>
+            <div className="input_field">
+              <label>Email</label>
+              <input type="text" />
+            </div>
+          </div>
+          <div className="input_field">
+            <label>Password</label>
+            <input type="password" />
+          </div>
+        </div>
+        <Button className="save_btn">Save</Button>
+      </form>
+    </div>
   );
 };
 
