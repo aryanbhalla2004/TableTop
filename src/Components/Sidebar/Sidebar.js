@@ -44,12 +44,11 @@ const Sidebar = () => {
               <Link to={"messages"} />
               Messages
             </MenuItem>
-            <SubMenu title="Favorite" icon={<FaIcons.FaHeart />}>
-              <MenuItem>Component 1</MenuItem>
-              <MenuItem>Component 2</MenuItem>
-            </SubMenu>
             <SubMenu title="Settings" icon={<FiIcons.FiSettings />}>
-              <MenuItem>Accounts</MenuItem>
+              <MenuItem>
+                <Link to={"settings/account"} />
+                Accounts
+              </MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
