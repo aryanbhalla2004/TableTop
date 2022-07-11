@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link, useNavigate, useOutletContext} from 'react-router-dom';
 import { motion } from "framer-motion";
 import PasswordStrengthBar from 'react-password-strength-bar';
-import {firebase, auth} from '../../../util/Firebase';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
+import {auth} from '../../../util/Firebase';
 const ConfirmPassword = (props) => {
   const [loginMessage, setLoginMessage] = useOutletContext();
   const queryString = window.location.search;
@@ -125,34 +124,34 @@ const ConfirmPassword = (props) => {
 
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-      <h3 class="title-auth">Create New Password</h3>
-      <p class="text-muted mb-4">Enter the email address or mobile number associated with your account.</p>
-      {message && <div class="alert alert-success mt-0" role="alert">Password reset was confirmed for {userInfo.data.email}, Please enter the new password for you account and proceed.</div>}
-      {error && <div class="alert alert-danger mt-0" role="alert">{error}</div>}
+      <h3 className="title-auth">Create New Password</h3>
+      <p className="text-muted mb-4">Enter the email address or mobile number associated with your account.</p>
+      {message && <div className="alert alert-success mt-0" role="alert">Password reset was confirmed for {userInfo.data.email}, Please enter the new password for you account and proceed.</div>}
+      {error && <div className="alert alert-danger mt-0" role="alert">{error}</div>}
       <form onSubmit={onSubmit}>
-        <div class="mb-3">
-          <label for="Password" class="form-label">New Password</label>
+        <div className="mb-3">
+          <label for="Password" className="form-label">New Password</label>
           <input type="password" className={fieldError.password ? 'form-control is-invalid' : 'form-control'} value={userInput.password} name="password" onChange={updateUserInput} id="Password" required="" placeholder="Enter New Password" />
-          {fieldError.password && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">{fieldError.error}</div>}
+          {fieldError.password && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">{fieldError.error}</div>}
           </div>
-        <small id="passwordHelpBlock" class="form-text text-muted light-under-field-text">Your password must be 8-20 characters long.</small>
+        <small id="passwordHelpBlock" className="form-text text-muted light-under-field-text">Your password must be 8-20 characters long.</small>
         <PasswordStrengthBar password={userInput.password} onChangeScore={changeScore}/>
-        <div class="mb-3">
-          <label for="rePassword" class="form-label">Verify New Password</label>
+        <div className="mb-3">
+          <label for="rePassword" className="form-label">Verify New Password</label>
           <input type="password" className={fieldError.confirmPassword ? 'form-control is-invalid' : 'form-control'} value={userInput.confirmPassword} name="confirmPassword" onChange={updateUserInput} id="rePassword" required="" placeholder="Confirm New Password" />
-          {fieldError.confirmPassword && <div id="validationServer03Feedback" class="invalid-feedback mt-0 mb-0">{fieldError.error}</div>}
+          {fieldError.confirmPassword && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">{fieldError.error}</div>}
         </div>
-        <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={error ? true : false || loading ? true : false}>
+        <div className="d-grid my-4">
+          <button className="btn btn-primary full-width height-10px" type="submit" disabled={error ? true : false || loading ? true : false}>
             { 
               loading ? 
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div> : "Continue"
             }
           </button>
        </div>
-        <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth">Login</Link></p>
+        <p className="text-2 text-dark">Return to <Link className="fw-500" to="/auth">Login</Link></p>
       </form>
     </motion.div>
   )

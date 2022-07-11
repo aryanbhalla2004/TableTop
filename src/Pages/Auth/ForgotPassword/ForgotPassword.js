@@ -42,27 +42,27 @@ const ForgotPassword = (props) => {
   }
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-      <h3 class="title-auth">Forgot password?</h3>
-      <p class="text-muted mb-4">Enter the email address or mobile number associated with your account.</p>
-      {message && <div class="alert alert-success mt-0" role="alert">{message}</div>}
-      {error.email && <div class="alert alert-danger mt-0" role="alert">{error.email}</div>}
-      {error.all && <div class="alert alert-danger mt-0" role="alert">{error.all}</div>}
+      <h3 className="title-auth">Forgot password?</h3>
+      <p className="text-muted mb-4">Enter the email address or mobile number associated with your account.</p>
+      {message && <div className="alert alert-success mt-0" role="alert">{message}</div>}
+      {error.email && <div className="alert alert-danger mt-0" role="alert">{error.email}</div>}
+      {error.all && <div className="alert alert-danger mt-0" role="alert">{error.all}</div>}
       <form onSubmit={onSubmitForm}>
-        <div class="mb-3">
-          <label for="emailAddress" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="emailAddress" name="email" required="" onChange={updateUserInput} placeholder="Enter Your Email" />
+        <div className="mb-3">
+          <label for="emailAddress" className="form-label">Email Address</label>
+          <input type="email" className="form-control" id="emailAddress" name="email" required="" onChange={updateUserInput} placeholder="Enter Your Email" />
         </div>
-        <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
+        <div className="d-grid my-4">
+          <button className="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
             { 
               loading ? 
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div> : "Send Email"
             }
           </button>
         </div>
-        <p class="text-2 text-dark">Return to <Link class="fw-500" to="/auth">Login</Link></p>
+        <p className="text-2 text-dark">Return to <Link className="fw-500" to="/auth">Login</Link></p>
       </form>
     </motion.div>
   )
