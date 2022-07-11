@@ -35,10 +35,12 @@
 
 /**Right arrow**/
 .right_arrow {
-  font-size: 6rem;
+  font-size: 4rem;
+
   /* border-width: 1px;
   border-color: black;
   border-style: solid; */
+  margin-top: 1rem;
   cursor: pointer;
 }
 .menu_open {

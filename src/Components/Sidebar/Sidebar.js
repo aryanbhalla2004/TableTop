@@ -16,7 +16,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const [collapsedStatus, setCollapsedStatus] = useState(false);
+  const [collapsedStatus, setCollapsedStatus] = useState(true);
   const handleClickOnSideBar = (e) => {
     setCollapsedStatus(!collapsedStatus);
   };
@@ -51,12 +51,14 @@ const Sidebar = () => {
         </SidebarContent>
         <SidebarFooter className="sidebar_footer">Footer</SidebarFooter>
       </ProSidebar>
-      <AiIcons.AiOutlineRight
-        className={
-          collapsedStatus ? "right_arrow menu_close" : "right_arrow menu_open"
-        }
-        onClick={handleClickOnSideBar}
-      />
+      <div>
+        <AiIcons.AiOutlineRight
+          className={
+            collapsedStatus ? "right_arrow menu_close" : "right_arrow menu_open"
+          }
+          onClick={handleClickOnSideBar}
+        />
+      </div>
     </>
   );
 };
