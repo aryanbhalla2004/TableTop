@@ -33,7 +33,7 @@ const Login = (props) => {
   }
 
   const onSubmit = async (e) => {
-    setLoading(true);
+    setLoading(true)
     e.preventDefault();    
     if(userInput.email != "" && userInput.password != "") {
       if(userInput.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {

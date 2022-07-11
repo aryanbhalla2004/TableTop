@@ -26,6 +26,7 @@ const AccountInformation = (props) => {
   }
 
   const onSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();    
     if(userInput.email != "" && userInput.password != "" && userInput.firstName != "" && userInput.lastName != "") {
       if(userInput.firstName.match(/^[a-zA-Z]+$/) && userInput.lastName.match(/^[a-zA-Z]+$/))
@@ -192,7 +193,7 @@ const AccountInformation = (props) => {
         </div>
         
         <div class="d-grid my-4">
-          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false} onClick={() => setLoading(true)}>
+          <button class="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>
             { 
               loading ? 
               <div class="spinner-border" role="status">
