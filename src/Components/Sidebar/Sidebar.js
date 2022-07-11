@@ -17,7 +17,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {
-
   return (
     <>
       <ProSidebar className="sidebar" collapsed={props.collapsedStatus}>
@@ -30,9 +29,6 @@ const Sidebar = (props) => {
           >
             TableTop
           </div>
-          <div>
-        
-      </div>
         </SidebarHeader>
         <SidebarContent>
           <Menu>

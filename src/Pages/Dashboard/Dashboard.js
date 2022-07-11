@@ -20,16 +20,21 @@ const Dashboard = () => {
       <div className="sidebar_container">
         <Sidebar collapsedStatus={collapsedStatus}></Sidebar>
         <div className="navbar_container">
-          <TopNavbar setCollapsedStatus={setCollapsedStatus} collapsedStatus={collapsedStatus}/>
+          <TopNavbar
+            setCollapsedStatus={setCollapsedStatus}
+            collapsedStatus={collapsedStatus}
+          />
           <div className="dashboard-container">
             <div className="page-header">
               <div className="page-info">
                 <h2>Setting</h2>
                 <p>Welcome Intez Settings Profile page</p>
               </div>
-              <span className="path">Dashboard > Settings > Profile</span>
+              <span className="path">
+                Dashboard {">"} Settings {">"}Profile
+              </span>
             </div>
-            <Outlet/>
+            <Outlet />
           </div>
         </div>
       </div>
