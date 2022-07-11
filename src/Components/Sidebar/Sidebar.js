@@ -12,6 +12,7 @@ import {
 import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";
 import * as AiIcons from "react-icons/ai";
+import * as FiIcons from "react-icons/fi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -46,6 +47,9 @@ const Sidebar = () => {
             <SubMenu title="Favorite" icon={<FaIcons.FaHeart />}>
               <MenuItem>Component 1</MenuItem>
               <MenuItem>Component 2</MenuItem>
+            </SubMenu>
+            <SubMenu title="Settings" icon={<FiIcons.FiSettings />}>
+              <MenuItem>Accounts</MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
