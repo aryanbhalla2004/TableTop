@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import TopNavbar from "../../Components/TopNavbar/TopNavbar";
+import DashboardHeading from "../../Components/DashboardHeading/DashboardHeading";
 import "../Dashboard/Dashboard.css";
 const Dashboard = () => {
   const [collapsedStatus, setCollapsedStatus] = useState(true);
@@ -25,15 +26,7 @@ const Dashboard = () => {
             collapsedStatus={collapsedStatus}
           />
           <div className="dashboard-container">
-            <div className="page-header">
-              <div className="page-info">
-                <h2>Setting</h2>
-                <p>Welcome Intez Settings Profile page</p>
-              </div>
-              <span className="path">
-                Dashboard {">"} Settings {">"}Profile
-              </span>
-            </div>
+            <DashboardHeading />
             <Outlet />
           </div>
         </div>
