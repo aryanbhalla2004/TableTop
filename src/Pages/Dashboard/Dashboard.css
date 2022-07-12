@@ -15,14 +15,7 @@
 }
 
 .dashboard-container {
-  padding: 20px ;
+  padding: 20px;
 }
 
 /* Component Style Page Header */
-
-.page-header {
-  border: 1px solid red;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}

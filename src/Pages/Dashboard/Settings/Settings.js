@@ -45,6 +45,7 @@ const Settings = () => {
         </div>
         <Button className="save_btn">Save</Button>
       </form>
+      <Outlet />
     </div>
   );
 };
