@@ -11,15 +11,23 @@ const DashboardHeading = ({ pageName }) => {
     pathnameArray[pathnameArray.length - 1]
   );
   const getPathOfCurrentPage = () => {
-    const path = pathnameArray.map((word) => {
+    const path = pathnameArray.map((word, index) => {
       return capitalizeFirstLetter(word) === currentPage ? (
-        <div className="current_page">{capitalizeFirstLetter(word)}</div>
+        <div className="current_page" key={index}>
+          {capitalizeFirstLetter(word)}
+        </div>
       ) : (
-        <>
+        <div className="previous_page_wrapper" key={index}>
           <div className="previous_page">{capitalizeFirstLetter(word)}</div>
           <i className="bi bi-chevron-right"></i>
-        </>
+        </div>
       );
+
+      // return (
+      //   <div key={index}>
+      //     <h1>{word}</h1>
+      //   </div>
+      // );
     });
     console.log(path);
     return path;

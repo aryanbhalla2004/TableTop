@@ -17,6 +17,10 @@
   justify-content: space-around;
 }
 
+.previous_page_wrapper {
+  display: flex;
+}
+
 .current_page {
   background-color: #007bff;
   border-radius: 10px;
