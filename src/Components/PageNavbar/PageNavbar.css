@@ -1,0 +1,18 @@
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  padding: 0.2rem 2rem 0 2rem !important;
+}
+.btn-dark {
+  background-color: #5c5c5c;
+  padding: 0 2rem;
+}
