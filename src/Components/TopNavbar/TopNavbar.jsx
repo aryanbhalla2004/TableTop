@@ -3,8 +3,11 @@ import { VscBellDot } from "react-icons/vsc";
 import { IoLogOutOutline } from "react-icons/io5";
 import NavbarSearchForm from "../NavbarSearchForm/NavbarSearchForm";
 import { useState, useEffect } from "react";
+import { Dropdown } from "react-bootstrap";
+import NavbarDropDown from "../NavbarDropDown/NavbarDropDown";
 
 const TopNavbar = (props) => {
+  const [dropdownStatus, setDropdownStatus] = useState(false);
   const handleClick = () => {
     console.log(props.collapsedStatus);
     props.setCollapsedStatus(!props.collapsedStatus);
@@ -27,8 +30,14 @@ const TopNavbar = (props) => {
             <div className="username">Grandpa Joe</div>
             <div className="role">Admin</div>
           </div>
-          <div className="drop-down-profile-aero">
+          <div
+            className="drop-down-profile-aero"
+            onClick={() => {
+              setDropdownStatus(!dropdownStatus);
+            }}
+          >
             <i className="bi bi-chevron-down"></i>
+            {dropdownStatus && <NavbarDropDown />}
           </div>
         </div>
       </div>

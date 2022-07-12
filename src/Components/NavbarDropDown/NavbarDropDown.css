@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dropdown_wrapper {
+  border: 1px solid #a8a7b8;
+  position: absolute;
+  right: 1rem;
+  border-radius: 20px;
+  background-color: white;
+}
+.dropdown_option {
+  width: 200px;
+  border-bottom: 1px solid #a8a7b8;
+  border-radius: 1px;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.profile_info_wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.profile_info_wrapper i {
+  font-size: 1.5rem;
+  color: blue;
+}
+.name_and_email_wrapper > .username {
+  font-weight: bold;
+}
+.name_and_email_wrapper > .email {
+  color: #a8a7b8;
+}
+.settings_wrapper {
+  display: flex;
+  align-items: center;
+}
+.settings_wrapper i {
+  font-size: 1.5rem;
+  color: blue;
+}
+.logout_wrapper {
+  display: flex;
+  align-items: center;
+}
+.logout_wrapper i {
+  font-size: 1.5rem;
+  color: blue;
+}
+
+.last {
+  border-bottom: none;
+}
