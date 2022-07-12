@@ -1,5 +1,5 @@
-@media only screen and (max-width: 980px) {
-  .col-information-wrapper {
+@media only screen and (max-width: 1025px) {
+	.col-information-wrapper {
 		display: none;
 	}
 

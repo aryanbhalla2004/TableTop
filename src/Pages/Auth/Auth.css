@@ -13,18 +13,39 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  border: 1px solid red;
-  
   overflow: hidden;
 }
 
 .background-layer-wrapper{
   background-color: #0c68f1ab;
   width: 100%;
-  padding: 20px;
+  padding: 40px;
   height: 100%;
 }
 
+.background-layer-info {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 80%;
+}
+
+h2,
+.background-layer-info {
+  color: #F7F5FB;
+}
+
+.background-layer-icons {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 15%;
+}
+
+.background-layer-icons i {
+  padding-right: 1rem;
+  font-size: 20px;
+  color: #F7F5FB;
+}
 
 .col-form-wrapper {
   width: 60%;

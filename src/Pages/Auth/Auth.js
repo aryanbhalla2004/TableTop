@@ -9,7 +9,16 @@ const Auth = () => {
     <div class="container-auth">
       <div class="col-information-wrapper">
         <div className='background-layer-wrapper'>
-        <img alt='logo' src="/images/logo-white.png" width={150}></img>
+          <img alt='logo' src="/images/logo-white.png" width={150}></img>
+          <div className='background-layer-info'>
+            <h2>Welcome back!</h2>
+            <p>We are glad to see you again! Log in to get connected with businesses near you.</p>
+          </div>
+          <div className='background-layer-icons'>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-linkedin"></i>
+            <i class="bi bi-facebook"></i>
+          </div>
         </div>
       </div>
       <div class="col-form-wrapper">
