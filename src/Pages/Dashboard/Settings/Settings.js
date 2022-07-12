@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { Button, Form, Container, Col, Row } from "react-bootstrap";
 import "../Settings/Settings.css";
 
 const Settings = () => {
@@ -10,43 +10,60 @@ const Settings = () => {
     //   <Outlet />
     //   <Link to="/dashboard">Back</Link>
     // </div>
-    <div className="account_container">
-      <img
-        src="https://placekitten.com/200/300"
-        alt="profile photo"
-        className="profile_photo"
-      />
-      <form className="account_form">
-        <div className="input_fields_container">
-          <div className="name_container">
-            <div className="input_field">
-              <label>First Name</label>
-              <input type="text" />
-            </div>
-            <div className="input_field">
-              <label>Last Name</label>
-              <input type="text" />
-            </div>
-          </div>
-          <div className="email_contact_container">
-            <div className="input_field">
-              <label>Contact-Number</label>
-              <input type="text" />
-            </div>
-            <div className="input_field">
-              <label>Email</label>
-              <input type="text" />
-            </div>
-          </div>
-          <div className="input_field">
-            <label>Password</label>
-            <input type="password" />
-          </div>
+
+    /*
+     <Form.Group className="mb-3 form-group" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+             <img
+            src="https://placekitten.com/200/200"
+            className="profile_img_editable"
+          />
+          <Button as="input" type="submit" value="Save" />
+    */
+    <Container className="form-wrapper-container">
+      <Form>
+        <div className="image-wrapper">
+          <img
+            src="https://placekitten.com/200/200"
+            className="profile_img_editable"
+          />
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Upload Images</Form.Label>
+            <Form.Control type="file" placeholder="Enter email" />
+          </Form.Group>
         </div>
-        <Button className="save_btn">Save</Button>
-      </form>
-      <Outlet />
-    </div>
+        <div className="name-input-wrapper">
+          <Form.Group className="mb-3 form-group" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3 form-group" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+        </div>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+        <Button as="input" type="submit" value="Save" className="save-btn" />
+      </Form>
+    </Container>
   );
 };
 
