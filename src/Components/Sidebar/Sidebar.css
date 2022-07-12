@@ -68,12 +68,15 @@
   margin-top: 1rem;
   cursor: pointer;
 }
+
 .menu_open {
   transform: rotate(180deg);
   transition: 0.5s ease;
 }
+
 .menu_close {
   transform: rotate(0);
   transition: 0.5s ease;
 }
+
 @import "~react-pro-sidebar/dist/css/styles.css";

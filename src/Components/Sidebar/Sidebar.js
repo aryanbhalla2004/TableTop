@@ -44,19 +44,19 @@ const Sidebar = (props) => {
             </MenuItem>
             <SubMenu title="Settings" icon={<BsIcons.BsFillGearFill />}>
               <MenuItem icon={<CgIcons.CgProfile />}>
-                <Link to={"settings/account"} />
+                <Link to={"settings/profile"} />
                 Profile
               </MenuItem>
               <MenuItem icon={<ImIcons.ImHome />}>
-                <Link to={"settings/account"} />
+                <Link to={"settings/general"} />
                 General
               </MenuItem>
               <MenuItem icon={<MdIcons.MdSecurity />}>
-                <Link to={"settings/account"} />
+                <Link to={"settings/security"} />
                 Security
               </MenuItem>
               <MenuItem icon={<FiIcons.FiActivity />}>
-                <Link to={"settings/account"} />
+                <Link to={"settings/activity"} />
                 Activity
               </MenuItem>
             </SubMenu>

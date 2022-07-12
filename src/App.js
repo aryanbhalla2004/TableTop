@@ -22,10 +22,13 @@ import Messages from "./Pages/Dashboard/Messages/Messages";
 import Notifications from "./Pages/Dashboard/Notifications/Notifications";
 import Settings from "./Pages/Dashboard/Settings/Settings";
 import Favorite from "./Pages/Dashboard/Favorite/Favorite";
-import Profile from "./Pages/Dashboard/Profile/Profile";
+import Profile from "./Pages/Dashboard/Settings/Profile/Profile";
 import AboutUs from "./Pages/Main/About/About";
 
 import Vendor from "./Pages/Main/Vendor/Vendor";
+import General from "./Pages/Dashboard/Settings/General/General";
+import Security from "./Pages/Dashboard/Settings/Security/Security";
+import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
 
 const App = () => {
   const history = useNavigate();
@@ -97,12 +100,15 @@ const App = () => {
             <Route path="messages" element={<Messages />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="settings" element={<Settings />}>
-              <Route path="account" element={<h1>Account</h1>} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="general" element={<General/>} />
+              <Route path="security" element={<Security/>} />
+              <Route path="activity" element={<Activity/>} />
             </Route>
             //! Client
             <Route path="favorite" element={<Favorite />} />
             //! Vendor
-            <Route path="business/profile" element={<Profile />} />
+            
           </Route>
 
           //? Main

@@ -1,0 +1,47 @@
+.activity-table {
+  width: 100%;
+}
+
+.activity-table > thead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-table > tbody {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.activity-table > tbody > tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(212, 212, 212);
+}
+
+.activity-table > thead > th{
+  font-weight: 400;
+  padding: 20px;
+  padding-top: 0;
+  width: 20%;
+  color: rgb(66, 66, 66);
+}
+
+.activity-table > thead > th:last-child{
+  text-align: right;
+}
+
+.activity-table > tbody > tr > td:last-child {
+  text-align: right;
+  color: #007bff;
+}
+
+
+.activity-table > tbody > tr > td  {
+  font-size: .95rem;
+  width: 20%;
+  font-weight: 300;
+  padding: 20px;
+  color: rgb(141, 141, 141);
+}

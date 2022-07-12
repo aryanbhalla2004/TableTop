@@ -23,6 +23,7 @@
 .form-group {
   width: 49%;
 }
+
 .other {
   position: relative;
   left: 12.5rem;
@@ -74,6 +75,7 @@
 .box-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
   margin-top: 30px;
 }
@@ -110,12 +112,25 @@
 }
 
 .profile-box > h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  color: rgb(73, 73, 73);
 }
 
-.profile-box > h2 { 
+.profile-box > h2, .header-profile-box > h2{ 
   font-size: 1rem;
   margin-bottom: 20px;
+}
+
+.header-profile-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header-profile-box > p {
+  color: #9e9e9e;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .profile-box > p {
@@ -135,4 +150,77 @@
 
 .wd-100 {
   width: 100%;
+}
+
+.download-btn-holder {
+  display: flex;
+  padding: 30px 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  gap: 20px;
+}
+
+.download-Buttons {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s;
+  gap: 10px;
+}
+
+.download-Buttons:hover {
+  background-color: #035fc2;
+}
+
+.download-Buttons > svg {
+  font-size: 2rem;
+}
+
+.download-Buttons > span {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+.download-Buttons > span > p {
+  font-size: .5rem;
+}
+
+.download-Buttons > span > h5 {
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.user-information-setting-panel {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.user-information-setting-panel > li {
+  width: 33.33%;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-information-setting-panel > li > span {
+  color: #9e9e9e;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+.user-information-setting-panel > li > h5 {
+  font-weight: 450;
+  font-size: 1.1rem;
 }

@@ -30,8 +30,7 @@
   width: 80%;
 }
 
-h2,
-.background-layer-info {
+.background-layer-info > h2 {
   color: #F7F5FB;
 }
 
