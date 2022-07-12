@@ -26,7 +26,7 @@ const Sidebar = (props) => {
       <ProSidebar className="sidebar" collapsed={props.collapsedStatus}>
         <SidebarHeader className="sidebar_header">
           <div className={!props.collapsedStatus ? "company_name hide_name" : "company_name"}><BiIcons.BiChair /></div>
-          <div className={props.collapsedStatus ? "company_name hide_name" : "company_name"}>TableTop</div>
+          <div className={props.collapsedStatus ? "company_name hide_name text-company" : "company_name text-company"}>TableTop <MdIcons.MdOutlineClose onClick={() => props.setCollapsedStatus(!props.collapsedStatus)}/></div>
         </SidebarHeader>
         <SidebarContent>
           <Menu>

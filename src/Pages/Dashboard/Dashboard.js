@@ -19,7 +19,7 @@ const Dashboard = () => {
     // </div>
     <>
       <div className="sidebar_container">
-        <Sidebar collapsedStatus={collapsedStatus}></Sidebar>
+        <Sidebar collapsedStatus={collapsedStatus} setCollapsedStatus={setCollapsedStatus}></Sidebar>
         <div className="navbar_container">
           <TopNavbar
             setCollapsedStatus={setCollapsedStatus}

@@ -6,6 +6,7 @@
 
 .sidebar {
   height: 100vh;
+  position: fixed;
 }
 
 /**sidebar header**/
@@ -23,11 +24,25 @@
 }
 
 .hide_name {
-  display: none;
+  display: none !important;
 }
 
 .company_name {
-  font-size: 1.5rem;
+  font-size: 1.5rem; 
+}
+
+.text-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  padding-right: 0;
+  cursor: pointer;
+}
+
+.text-company > svg {
+  margin-top: 5px;
 }
 
 /** override styling**/

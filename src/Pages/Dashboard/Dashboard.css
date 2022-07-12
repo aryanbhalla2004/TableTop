@@ -16,6 +16,9 @@
 
 .dashboard-container {
   padding: 30px;
+  margin-top: 80px;
+  z-index: -1 !important;
+  margin-left: 80px;
 }
 
 /* Component Style Page Header */

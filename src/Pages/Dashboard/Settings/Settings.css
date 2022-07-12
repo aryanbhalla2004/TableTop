@@ -113,6 +113,11 @@
   font-size: 1.5rem;
 }
 
+.profile-box > h2 { 
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
 .profile-box > p {
   color: rgb(172, 172, 172);
   font-size: .9rem;
@@ -122,4 +127,12 @@
   color: #007bff;
   font-size: 3rem;
   margin-bottom: 20px;
+}
+
+.wd-90 {
+  width: 90%;
+}
+
+.wd-100 {
+  width: 100%;
 }
