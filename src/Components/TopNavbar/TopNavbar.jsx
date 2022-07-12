@@ -23,7 +23,7 @@ const TopNavbar = (props) => {
           />
           <div className="name_and_role">
             <div className="username">Grandpa Joe</div>
-            <div className="role">Admin</div>
+            <div className="role">Regular Client</div>
           </div>
           <div className="drop-down-profile-aero">
             <i className="bi bi-chevron-down"></i>

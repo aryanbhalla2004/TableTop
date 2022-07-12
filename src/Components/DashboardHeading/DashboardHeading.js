@@ -3,13 +3,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 const DashboardHeading = ({ pageName }) => {
   const location = useLocation();
   const pathnameArray = location.pathname.split("/").splice(1);
+
   const capitalizeFirstLetter = (word) => {
-    //stackoverflow
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
+
   const currentPage = capitalizeFirstLetter(
     pathnameArray[pathnameArray.length - 1]
   );
+
   const getPathOfCurrentPage = () => {
     const path = pathnameArray.map((word, index) => {
       return capitalizeFirstLetter(word) === currentPage ? (
@@ -19,7 +21,7 @@ const DashboardHeading = ({ pageName }) => {
       ) : (
         <div className="previous_page_wrapper" key={index}>
           <div className="previous_page">{capitalizeFirstLetter(word)}</div>
-          <i className="bi bi-chevron-right"></i>
+          <i className="bi bi-chevron-right page-indication-aero"></i>
         </div>
       );
 
@@ -39,7 +41,7 @@ const DashboardHeading = ({ pageName }) => {
     <div className="page-header">
       <div className="page-info">
         <h2>{currentPage}</h2>
-        <p>Welcome To {currentPage} page</p>
+        <p>Welcome to Intez Profile page</p>
       </div>
       <div className="path">
         {/* <div>Dashboard</div>
