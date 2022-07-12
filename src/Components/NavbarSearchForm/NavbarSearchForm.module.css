@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+/**SearchForm**/
+.search_form {
+  display: flex;
+  justify-content: center;
+  /* position: absolute;
+  z-index: -1;
+  left: 8rem;
+  top: 2rem; */
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #f7f7f7;
+  width: 300px;
+  padding: 0.5rem;
+  background-color: #f7f7f7;
+}
+
+/**Search Input**/
+.search_form input {
+  border: none;
+  outline: none;
+  width: 200px;
+  transition: 0.5s ease;
+  background-color: #f7f7f7;
+}
+
+.search_form input:focus {
+  border-radius: 10px;
+  width: 250px;
+  transition: border 0.3s ease;
+  transition: 0.5s ease;
+}
+
+.search_form input:focus::placeholder {
+  color: grey;
+}
+.search_form input::placeholder {
+  color: gray;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/**Magnifying glass svg**/
+.search_form svg {
+  color: gray;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  /* border-width: 1px;
+  border-style: solid; */
+}

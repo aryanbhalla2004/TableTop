@@ -40,6 +40,7 @@ const ForgotPassword = (props) => {
       setError({email: 'Email field is empty'})
     }
   }
+  
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <h3 className="title-auth">Forgot password?</h3>

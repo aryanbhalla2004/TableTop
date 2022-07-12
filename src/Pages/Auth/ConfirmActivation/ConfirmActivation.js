@@ -12,21 +12,23 @@ const ConfirmActivation = (props) => {
   const [verifed, setVerifed] = useState(false);
 
   useEffect(() => {
-    const getMeActivated = async () => {
-      if(code !== null || code !== undefined) {
-        try {
-          let info = await props.ConfirmActivation(code);
-          setVerifed(true);
-        } catch (e) {
-          setError(e.message);
-        }
-      } else {
-        history.push('/user/activate-account')
-      }
-    }
-
     getMeActivated();
-  }, []);
+  }, [code]);
+
+  const getMeActivated = async () => {
+    console.log(code);
+    if(code !== null || code !== undefined) {
+      try {
+        let info = await props.ConfirmActivation(code);
+        console.log(info);
+        setVerifed(true);
+      } catch (e) {
+        setError(e.message);
+      }
+    } else {
+      history.push('/user/activate-account')
+    }
+  }
 
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>

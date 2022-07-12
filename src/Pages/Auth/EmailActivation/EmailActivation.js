@@ -7,9 +7,10 @@ const EmailActivation = (props) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     emailVerified();
-  }, [])
+  }, []);
 
   const emailVerified = async (param) => {
     setLoading(true);
@@ -55,7 +56,7 @@ const EmailActivation = (props) => {
         break;
       default:
         setValidProvider(false);
-        // put link when support page is ready 
+        //! put link when support page is ready 
         setProviderLink("");
         break;
     }

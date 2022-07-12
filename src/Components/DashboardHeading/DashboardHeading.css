@@ -1,0 +1,47 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* p::first-letter {
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; letter-spacing: 5px; 
+ } */
+
+.path {
+  display: flex;
+  justify-content: space-around;
+}
+
+.previous_page_wrapper {
+  display: flex;
+}
+
+
+.page-info > h2 {
+  font-size: 2rem;
+  font-weight: 450;
+}
+
+.page-info > p {
+  color: #969696;
+  margin-top: 0;
+  font-weight: 300;
+  font-size: .9rem;
+}
+
+.current_page {
+  padding: 0 10px;
+  font-size: .9rem;
+}
+
+.previous_page {
+  padding: 0 10px;
+  font-size: .9rem;
+}
+
+.page-indication-aero {
+  color: #bebebe;
+}

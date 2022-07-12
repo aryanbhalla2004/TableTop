@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+}
+
+/**sidebar header**/
+.sidebar_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 2rem;
+  padding: 15px 10px;
+}
+
+.sidebar_header > svg {
+  font-size: 2.3rem; 
+}
+
+.hide_name {
+  display: none !important;
+}
+
+.company_name {
+  font-size: 1.5rem; 
+}
+
+.text-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  padding-right: 0;
+  cursor: pointer;
+}
+
+.text-company > svg {
+  margin-top: 5px;
+}
+
+/** override styling**/
+.pro-icon {
+  font-size: 1.5rem;
+}
+
+/** sidebar footer**/
+.sidebar_footer {
+
+  /* border-width: 1px;
+  border-color: white;
+  border-style: solid; */
+}
+
+/**Right arrow**/
+.right_arrow {
+  font-size: 4rem;
+
+  /* border-width: 1px;
+  border-color: black;
+  border-style: solid; */
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.menu_open {
+  transform: rotate(180deg);
+  transition: 0.5s ease;
+}
+.menu_close {
+  transform: rotate(0);
+  transition: 0.5s ease;
+}
+@import "~react-pro-sidebar/dist/css/styles.css";

@@ -1,0 +1,99 @@
+/**Navbar container**/
+
+.top_navbar {
+  /* position: absolute;
+  left: 5rem;
+  top: 1rem; */
+  /* border-width: 2px;
+  border-style: solid; */
+  z-index: 999 !important;
+  border-bottom: 1px solid #eeeeee;
+  background-color: #fff;
+  display: flex;
+  padding: 0 20px;
+  padding-left: 100px !important;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/**RightNav Options**/
+
+.right_nav_options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border-width: 1px;
+  border-style: solid; */
+}
+
+.right_nav_options i {
+  font-size: 1.5rem;
+  color: #848484;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile_img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile_img:hover {
+  padding: 0.1rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #191e3a;
+  transition: all 0.3s ease;
+}
+
+.name_and_role {
+  margin-left: 1rem;
+}
+
+.username {
+  font-weight: 500;
+}
+
+.role {
+  font-size: 0.75rem;
+  color: #a8a7b8;
+}
+
+.hambergerMenuIcon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #a8a7b8;
+  transition: .3s;
+}
+
+.hambergerMenuIcon:hover {
+  color: #191e3a;
+}
+
+.user-action-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.profile-info-wrapper {
+  display: flex;
+  border-left: 1px solid #dbdbdb;
+  margin-left: 20px;
+  align-items: center;
+  padding: 10px 0;
+  padding-left: 20px;
+}
+
+.drop-down-profile-aero i{
+  font-size: 1.3rem;
+  margin-left: 15px;
+}

@@ -9,6 +9,7 @@ const AccountInformation = (props) => {
   const [userInput, setUserInput, setFieldError, fieldError] = useOutletContext();
   const [score, setScore] = useState();
   const [loading, setLoading] = useState(false);
+
   const updateUserInput = (e) => {
     setUserInput(prevInput => ({
       ...prevInput, [e.target.name]: e.target.value
@@ -38,7 +39,6 @@ const AccountInformation = (props) => {
             // } else {
             //   history("/auth/")
             // }]
-
               try {
                 let informationUser = await props.SignUp(userInput.email, userInput.password);
                 let userId = informationUser.user.uid;
@@ -64,11 +64,8 @@ const AccountInformation = (props) => {
                   ...prevInput, message: e.message
                 }));
               }
-              
-            
             } else {
               setLoading(false);
-            
               setFieldError(prevInput => ({
                 ...prevInput, confirmPassword: true
               }));
