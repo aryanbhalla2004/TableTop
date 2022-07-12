@@ -1,8 +1,11 @@
 import "../TopNavbar/TopNavbar.css";
 
 import { useState, useEffect } from "react";
+import { Dropdown } from "react-bootstrap";
+import NavbarDropDown from "../NavbarDropDown/NavbarDropDown";
 
 const TopNavbar = (props) => {
+  const [dropdownStatus, setDropdownStatus] = useState(false);
   const handleClick = () => {
     console.log(props.collapsedStatus);
     props.setCollapsedStatus(!props.collapsedStatus);
@@ -25,8 +28,14 @@ const TopNavbar = (props) => {
             <div className="username">Grandpa Joe</div>
             <div className="role">Regular Client</div>
           </div>
-          <div className="drop-down-profile-aero">
+          <div
+            className="drop-down-profile-aero"
+            onClick={() => {
+              setDropdownStatus(!dropdownStatus);
+            }}
+          >
             <i className="bi bi-chevron-down"></i>
+            {dropdownStatus && <NavbarDropDown />}
           </div>
         </div>
       </div>

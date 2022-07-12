@@ -16,6 +16,7 @@ import * as MdIcons from "react-icons/md";
 import * as CgIcons from "react-icons/cg";
 import * as IoIcons from "react-icons/io";
 import * as FiIcons from "react-icons/fi";
+import * as RiIcons from "react-icons/ri";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -61,7 +62,11 @@ const Sidebar = (props) => {
             </SubMenu>
           </Menu>
         </SidebarContent>
-        <SidebarFooter className="sidebar_footer">Footer</SidebarFooter>
+        <SidebarFooter className="sidebar_footer">
+          <Menu>
+            <MenuItem icon={<RiIcons.RiLogoutCircleRLine />}>Logout</MenuItem>
+          </Menu>
+        </SidebarFooter>
       </ProSidebar>
     </>
   );
