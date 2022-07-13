@@ -1,0 +1,58 @@
+:root {
+  --logo-color: #2079dff3;
+  --logo-size: 1.6rem;
+  --btn-bg-color: white;
+  --profile-wrapper-border: #f1f1f1;
+  --right-section-font-color: #717171;
+  --arrow-border-color: #b3b3b3;
+}
+
+.stories_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* border: 4px solid; */
+  padding: 0 5rem;
+  margin-top: 3rem;
+}
+.story_list {
+  /* border: 1px solid; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.story_wrapper img {
+  width: 90px;
+  height: 90px;
+  border: 1px solid var(--right-section-font-color);
+  padding: 0.2rem;
+  border-radius: 50px;
+}
+.story_wrapper {
+  text-align: center;
+  cursor: pointer;
+}
+.company_name {
+  font-size: 0.8rem;
+  padding-top: 0.3rem;
+}
+.right_arrow,
+.left_arrow {
+  border-radius: 30px;
+  margin: 0 1rem 1rem 0;
+  border: 1px solid var(--arrow-border-color);
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.right_arrow {
+  margin: 0 1rem 1rem 1rem;
+}
+.filter_btn {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: var(--right-section-font-color);
+  border-color: var(--arrow-border-color);
+}
