@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button, Form, Container, Col, Row } from "react-bootstrap";
-
+import { motion } from "framer-motion";
 const Security = () => {
   return (
-    <>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <div className="box-container">
         <div className="profile-box wd-100">
           <div className="header-profile-box">
@@ -37,8 +37,7 @@ const Security = () => {
           </Form>
         </div>
       </div>
-    </>
-
+    </motion.div>
   )
 }
 

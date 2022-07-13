@@ -25,8 +25,8 @@ const TopNavbar = (props) => {
             className="profile_img"
           />
           <div className="name_and_role">
-            <div className="username">Grandpa Joe</div>
-            <div className="role">Regular Client</div>
+            <div className="username">{props.currentUserInfo && props.currentUserInfo.firstName} {props.currentUserInfo && props.currentUserInfo.lastName}</div>
+            <div className="role">{props.currentUser && props.currentUser.email}</div>
           </div>
           <div
             className="drop-down-profile-aero"

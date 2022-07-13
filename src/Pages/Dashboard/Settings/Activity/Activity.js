@@ -1,10 +1,10 @@
 import { Button } from 'react-bootstrap';
 import React from 'react'
 import "./Activity.css";
-
+import { motion } from "framer-motion";
 const Activity = () => {
   return (
-    <>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <div className="box-container">
         <div className="profile-box wd-100">
           <div className="header-profile-box">
@@ -82,7 +82,7 @@ const Activity = () => {
           </table>
         </div>
       </div>
-    </>
+    </motion.div>
   )
 }
 

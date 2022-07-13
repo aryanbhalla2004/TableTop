@@ -31,7 +31,7 @@ const Sidebar = (props) => {
         <SidebarContent>
           <Menu>
             <MenuItem icon={<BsIcons.BsFillGridFill/>}>
-              <Link to={"home"} />
+              <Link to={"/dashboard"} />
               Dashboard
             </MenuItem>
             <MenuItem icon={<MdIcons.MdBusinessCenter />}>

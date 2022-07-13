@@ -57,13 +57,16 @@
 }
 
 .list-selection-settings > li {
-  margin-right: 40px
+  margin-right: 20px;
+  border-radius: 3px;
+  padding: 3px 10px;
+  border: 1px solid rgb(234, 234, 234);
 }
 
 .list-selection-settings > li > a {
   text-decoration: none;
   font-weight: 400;
-  color: rgb(168, 168, 168) !important;
+  color: rgb(168, 168, 168);
   cursor: pointer;
   transition: .3s;
 }
@@ -223,4 +226,9 @@
 .user-information-setting-panel > li > h5 {
   font-weight: 450;
   font-size: 1.1rem;
+}
+
+.active-button-setting {
+  color: #007bff !important;
+  border-color: #007bff !important;
 }

@@ -1,5 +1,6 @@
 import "../DashboardHeading/DashboardHeading.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 const DashboardHeading = ({ pageName }) => {
   const location = useLocation();
   const pathnameArray = location.pathname.split("/").splice(1);
@@ -31,25 +32,25 @@ const DashboardHeading = ({ pageName }) => {
       //   </div>
       // );
     });
-    console.log(path);
-    return path;
   };
 
   getPathOfCurrentPage();
 
   return (
-    <div className="page-header">
-      <div className="page-info">
-        <h2>{currentPage}</h2>
-        <p>Welcome to Intez Profile page</p>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+      <div className="page-header">
+        <div className="page-info">
+          <h2>{currentPage}</h2>
+          <p>Welcome to Intez Profile page</p>
+        </div>
+        <div className="path">
+          {/* <div>Dashboard</div>
+          <i className="bi bi-chevron-right"></i>
+          <div className="current_page">Home</div> */}
+          {getPathOfCurrentPage()}
+        </div>
       </div>
-      <div className="path">
-        {/* <div>Dashboard</div>
-        <i className="bi bi-chevron-right"></i>
-        <div className="current_page">Home</div> */}
-        {getPathOfCurrentPage()}
-      </div>
-    </div>
+      </motion.div>
   );
 };
 export default DashboardHeading;

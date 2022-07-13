@@ -33,6 +33,7 @@ import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
 const App = () => {
   const history = useNavigate();
   const [currentUser, setCurrentUser] = useState();
+  
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -94,16 +95,16 @@ const App = () => {
       <>
         <Routes>
           //? Dashboard
-          <Route path="dashboard" element={<Dashboard />}>
+          <Route path="dashboard" element={currentUser ? <Dashboard currentUser={currentUser}/> : <Navigate to="/auth"/>}>
             //! Both Accounts
-            <Route path="home" element={<DashboardHome />} />
-            <Route path="messages" element={<Messages />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="settings" element={<Settings />}>
-              <Route path="profile" element={<Profile />} />
-              <Route path="general" element={<General/>} />
-              <Route path="security" element={<Security/>} />
-              <Route path="activity" element={<Activity/>} />
+            <Route index element={currentUser ? <DashboardHome currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+            <Route path="messages" element={currentUser ? <Messages currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+            <Route path="notifications" element={currentUser ? <Notifications currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+            <Route path="settings" element={currentUser ? <Settings currentUser={currentUser}/> : <Navigate to="/auth"/>}>
+              <Route path="profile" element={currentUser ? <Profile currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+              <Route path="general" element={currentUser ? <General currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+              <Route path="security" element={currentUser ? <Security currentUser={currentUser}/> : <Navigate to="/auth"/>} />
+              <Route path="activity" element={currentUser ? <Activity currentUser={currentUser}/> : <Navigate to="/auth"/>} />
             </Route>
             //! Client
             <Route path="favorite" element={<Favorite />} />
