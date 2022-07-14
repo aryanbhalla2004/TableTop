@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-
+import DashboardHeading from "../../../Components/DashboardHeading/DashboardHeading";
 const Home = () => {
   return (
-    // <div>
-    //   <h1>Home</h1>
-    //   <Link to="/dashboard">Back</Link>
-    // </div>
-    <div>
-     
-    </div>
+    <>
+      <DashboardHeading name="Dashboard"/>
+    </>
   );
 };
 

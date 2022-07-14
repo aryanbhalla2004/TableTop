@@ -39,7 +39,6 @@ const Dashboard = (props) => {
             currentUserInfo={currentUserInfo}
           />
           <div className="dashboard-container">
-            <DashboardHeading />
             <Outlet context={[props.currentUser, currentUserInfo]}/>
           </div>
         </div>

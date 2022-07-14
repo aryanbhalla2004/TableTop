@@ -1,3 +1,4 @@
+/*
 :root {
   --logo-color: #2079dff3;
   --logo-size: 1.6rem;
@@ -5,6 +6,7 @@
   --profile-wrapper-border: #f1f1f1;
   --right-section-font-color: #717171;
 }
+
 .logo_wrapper {
   display: flex;
   align-items: center;
@@ -44,11 +46,12 @@
   width: 250px;
 }
 .right_section_wrapper div {
-  /* border: 1px solid blue; */
+  border: 1px solid blue; 
   padding-top: 0.1rem;
   font-size: 1.5rem;
   color: var(--right-section-font-color);
 }
+
 .user_profile_wrapper {
   border: 1px solid var(--profile-wrapper-border);
   border-radius: 20px;
@@ -77,11 +80,8 @@
 }
 .navbar_container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4rem;
 }
-/*****profile_dropdown*****/
+
 .card {
   position: absolute;
   right: 1rem;
@@ -97,3 +97,4 @@
   font-size: 0.9rem;
   border: none;
 }
+*/
