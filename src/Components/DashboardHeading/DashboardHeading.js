@@ -1,7 +1,14 @@
 import "../DashboardHeading/DashboardHeading.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 const DashboardHeading = ({ pageName }) => {
+  const [time, setTime] = useState(new Date().toLocaleDateString(
+    [],
+    {hour: '2-digit'}
+  ).split(" ")[2]);
+
   const location = useLocation();
   const pathnameArray = location.pathname.split("/").splice(1);
 
@@ -36,11 +43,17 @@ const DashboardHeading = ({ pageName }) => {
 
   getPathOfCurrentPage();
 
+console.log(time);
+
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <div className="page-header">
         <div className="page-info">
-          <h2>{currentPage}</h2>
+          {
+            currentPage === "Dashboard" ?
+            time === "a.m." ? <h2>Good Morning</h2> : <h2>Good Afternoon</h2>
+            : <h2>{currentPage}</h2>
+          }
           <p>Welcome to Intez Profile page</p>
         </div>
         <div className="path">

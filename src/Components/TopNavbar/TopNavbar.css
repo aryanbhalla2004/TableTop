@@ -97,3 +97,103 @@
   font-size: 1.3rem;
   margin-left: 15px;
 }
+
+
+.user-action-nav-container {
+  position: relative;
+}
+
+.user-action-nav-container .message-content {
+  border-radius: 5px;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 104px;
+  display: none;
+  position: absolute;
+  top: 53px;
+  width: 450px;
+  left: -250px;
+  background-color: #fff;
+  padding: .5em;
+  min-width: 10rem;
+}
+
+.user-action-nav-container .message-content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 10.8rem;
+  top: -15px;
+  border-bottom: 15px solid #fff;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.user-action-nav-container .notification-content {
+  border-radius: 5px;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 104px;
+  display: none;
+  position: absolute;
+  top: 53px;
+  width: 450px;
+  left: -195px;
+  background-color: #fff;
+  padding: .5em;
+  min-width: 10rem;
+}
+
+.user-action-nav-container .notification-content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 10.8rem;
+  top: -15px;
+  border-bottom: 15px solid #fff;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.bi-app-indicator:hover .message-content {
+  display: block;
+}
+
+.bi-inboxes:hover .notification-content {
+  display: block;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+}
+
+.notification-box,
+.message-box {
+  padding: 15px;
+  display: flex;
+  vertical-align: baseline;
+  background: #fff;
+  transition: .3s ease;
+}
+
+.notification-box .text,
+.message-box .text {
+  margin-left: 12px;
+  width: 70%;
+}
+
+.message-box > .time {
+  padding-left: 3rem;
+}
+
+.text h5 {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.text p {
+  margin: 0;
+  font-size: small;
+}
+
+.time {
+  font-size: small;
+}
