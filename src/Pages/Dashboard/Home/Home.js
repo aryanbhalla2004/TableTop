@@ -8,19 +8,8 @@ import "../Home/Home.css";
 import BlastCard from '../../../Components/BlastCard/BlastCard';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
-
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
-// import { Bar } from 'react-chartjs-2';
-// import faker from 'faker';
-
+import { Link } from "react-router-dom";
+import DashboardHeading from "../../../Components/DashboardHeading/DashboardHeading";
 const Home = () => {
   const doughnutData = {
     labels: ["Reviews Left", "Blasts Viewed", "Businesses Favorited", "Businesses Viewed", "Messages Recieved", "Unread Messages"],
@@ -77,6 +66,7 @@ const Home = () => {
   
   return (
     <>
+      <DashboardHeading name="Dashboard"/>
       <div className="box-container">
         {/* <div className="home-box">
           <h3>Recently Viewed Blasts</h3>
@@ -159,6 +149,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
