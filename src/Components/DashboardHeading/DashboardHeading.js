@@ -1,8 +1,14 @@
 import "../DashboardHeading/DashboardHeading.css";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useState } from "react";
+
 const DashboardHeading = (props) => {
+  const [time, setTime] = useState(new Date().toLocaleDateString(
+    [],
+    {hour: '2-digit'}
+  ).split(" ")[2]);
+
   const location = useLocation();
   const pathnameArray = location.pathname.split("/").splice(1);
 
@@ -14,22 +20,15 @@ const DashboardHeading = (props) => {
     pathnameArray[pathnameArray.length - 1]
   );
 
-  useEffect(() => {
-    getPathOfCurrentPage();
-  }, [])
-
-  const getPathOfCurrentPage = () => {
-    console.log(pathnameArray);
-    
-  };
-
-  
-
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <div className="page-header">
         <div className="page-info">
-          <h2>{props.name}</h2>
+          {
+            currentPage === "Dashboard" ?
+            time === "a.m." ? <h2>Good Morning, {props.currentUserInfo && props.currentUserInfo.firstName} {props.currentUserInfo && props.currentUserInfo.lastName}</h2> : <h2>Good Afternoon, {props.currentUserInfo && props.currentUserInfo.firstName} {props.currentUserInfo && props.currentUserInfo.lastName}</h2>
+            : <h2>{props.name}</h2>
+          }
           <p>Welcome to Intez Profile page</p>
         </div>
         <div className="path">
@@ -49,7 +48,7 @@ const DashboardHeading = (props) => {
           }
         </div>
       </div>
-      </motion.div>
+    </motion.div>
   );
 };
 export default DashboardHeading;

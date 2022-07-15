@@ -1,0 +1,121 @@
+.blasts-container {
+  margin: 20px 0;
+  box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+}
+
+.d-home-box {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}
+
+.d-home-box > h3 {
+  font-size: 1.3rem;
+  color: rgb(73, 73, 73);
+}
+
+.d-home-box > h2, .header-d-home-box > h2{ 
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.header-d-home-box {
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header-d-home-box > p {
+  color: #9e9e9e;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.d-home-box > p {
+  color: rgb(172, 172, 172);
+  font-size: .9rem;
+}
+
+.user-statistics-information-panel {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.user-statistics-information-panel > li {
+  width: 33.3%;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-statistics-information-panel > li > span {
+  color: #9e9e9e;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.user-statistics-information-panel > li > h5 {
+  font-weight: 450;
+  font-size: 1.1rem;
+	display: block;
+}
+
+.statistic-box {
+  height: 20px;
+  width: 20px;
+  margin-bottom: 15px;
+	border-radius: 15%;
+  clear: both;
+	display: inline;
+}
+
+.reviews-left {
+	background-color: #FF6384;
+}
+
+.blasts-viewed {
+	background-color: #36A2EB;
+}
+
+.businesses-favorited {
+	background-color: #FFCE56;
+}
+
+.businesses-viewed {
+	background-color: #db3d44;
+}
+
+.messages-recieved {
+	background-color: #4257b2;
+}
+
+.unread-messages {
+	background-color: #3F5B2A;
+}
+
+.tip-links {
+	line-height: 3rem;
+}
+
+.statistics-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistics-chart {
+  width: 40%;
+}
+
+.tip-box {
+  width: 30%;
+}
+
+.history-box {
+  width: 70%;
+}
