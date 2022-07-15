@@ -1,38 +1,42 @@
-.blast-card {
+.business-card {
   overflow: hidden;
-  min-width: 300px;
+  min-width: 220px;
 	padding: 0 1rem;
   position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  width: 160px;
 }
 
-.blast-card img {
+.business-card img {
   width: 100%;
   display: block;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
-.blast-card .overlay {
+.business-card .overlay {
   height: 100%;
   box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   background: -webkit-gradient(linear,
       left top,
       left bottom,
       color-stop(0, rgba(0, 0, 0, 0.75)),
       to(transparent));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent);
+  background: linear-gradient(180deg, rgba(228, 228, 228, 0.75), transparent);
   padding: 20px;
   pointer-events: none;
   opacity: 0;
-  -webkit-transition: opacity 0.125s ease;
-  transition: opacity 0.125s ease;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
 }
 
-.blast-card .overlay .title {
-	color: white;
+.business-card .overlay .title {
+	color: Black;
   font-size: 22px;
   font-weight: 600;
   opacity: 0;
@@ -40,16 +44,16 @@
   transition: opacity 0.25s ease;
 }
 
-.blast-card .overlay .company {
-	color: white;
+/* .business-card .overlay .company {
+	color: Black;
   font-size: 14px;
   opacity: 0;
   -webkit-transition: opacity 0.25s ease 0.125s;
   transition: opacity 0.25s ease 0.125s;
 }
 
-.blast-card .overlay .views {
-	color: white;
+.business-card .overlay .views {
+	color: Black;
   font-size: 14px;
   margin-top: 100px;
   font-weight: 500;
@@ -60,26 +64,27 @@
   text-overflow: ellipsis;
   -webkit-transition: margin 0.25s ease 0.125s, opacity 0.25s ease 0.25s;
   transition: margin 0.25s ease 0.125s, opacity 0.25s ease 0.25s;
-}
+} */
 
-.blast-card:hover img {
+.business-card:hover img {
   -webkit-transform: scale(1.25);
   transform: scale(1.25);
 }
 
-.blast-card:hover .overlay {
+.business-card:hover .overlay {
   opacity: 1;
   pointer-events: all;
+  cursor: pointer;
 }
 
-.blast-card:hover .views {
+.business-card:hover .views {
   margin-top: 10px;
   opacity: 1;
 }
 
-.blast-card:hover .list_toggle,
-.blast-card:hover .company,
-.blast-card:hover .title {
+.business-card:hover .list_toggle,
+.business-card:hover .company,
+.business-card:hover .title {
   opacity: 1;
 }
 
@@ -131,3 +136,4 @@
   height: 32px;
   width: 32px;
 }
+
