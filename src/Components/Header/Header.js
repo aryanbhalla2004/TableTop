@@ -9,7 +9,7 @@ const Header = (props) => {
     //   {props.CurrentUser && <Link to="" onClick={props.Logout}>Logout</Link>}
     //   <h4>{props.CurrentUser && props.CurrentUser.email}</h4>
     // </>
-    <PageNavbar />
+    <PageNavbar CurrentUser={props.CurrentUser}/>
   );
 };
 

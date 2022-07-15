@@ -1,3 +1,14 @@
+:root {
+  --logo-color: #2079dff3;
+  --logo-size: 1.6rem;
+  --btn-bg-color: white;
+  --profile-wrapper-border: #f1f1f1;
+  --right-section-font-color: #717171;
+  --arrow-border-color: #b3b3b3;
+  --dark-menu-color: #3A3335;
+  --card-info-color:#7187BB;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -7,6 +18,10 @@ html {
 body {
   height: 100%;
   font-family: 'Ubuntu', sans-serif;
+}
+
+button:focus {
+  outline: none;
 }
 
 * {
@@ -137,4 +152,9 @@ label {
   100% {
     box-shadow: inset 0px 0px 0px 50px #4BB543;
   }
+}
+
+.content-sizing-box {
+  max-width: 1280px;
+  width: 100%;
 }

@@ -1,0 +1,101 @@
+
+
+.lp-business-card {
+  margin: .4rem 0;
+  max-width: 205px;
+  cursor: pointer;
+  color: black;
+}
+
+.lp-business-card:hover {
+  color: black;
+}
+
+.lp-business-img-sizing-container {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-business-heart-icon {
+  cursor: pointer;
+  position: absolute;
+  z-index: 111;
+  color: white;
+  font-size: 1rem;
+  right: 20px;
+  background-color: rgba(1, 158, 255, 0.887);
+  padding: 5px 10px;
+  border-radius: 50%;
+  top: 15px;
+}
+
+.lp-business-heart-icon:hover {
+  animation: shake 0.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.lp-business-img {
+  width: 100%;
+  display: block;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.2s;
+}
+
+.lp-business-img:hover {
+  transform: scale(1.05);
+}
+
+.lp-business-name-and-ratings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lp-business-info {
+  font-weight: 300;
+  padding: 10px 8px;
+}
+
+.lp-business-ratings {
+  display: flex;
+  gap: 5px;
+}
+
+.lp-business-ratings > i {
+  color: rgb(255, 170, 0);
+}
+
+.lp-business-name {
+  font-weight:500;
+}
+
+.lp-business-hours {
+  color: var(--card-info-color);
+}
+
+.timing-business {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: rgb(172, 172, 172);
+}
+
+.distance-container {
+  color: rgb(150, 193, 253);
+  font-weight: 400;
+  font-size: 14px;
+}

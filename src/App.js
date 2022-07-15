@@ -96,178 +96,42 @@ const App = () => {
       <>
         <Routes>
           //? Dashboard
-          <Route
-            path="dashboard"
-            element={
-              currentUser ? (
-                <Dashboard currentUser={currentUser} />
-              ) : (
-                <Navigate to="/auth" />
-              )
-            }
-          >
+          <Route path="dashboard" element={currentUser ? (<Dashboard currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
             //! Both Accounts
-            <Route
-              index
-              element={
-                currentUser ? (
-                  <DashboardHome currentUser={currentUser} />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="messages"
-              element={
-                currentUser ? (
-                  <Messages currentUser={currentUser} />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="notifications"
-              element={
-                currentUser ? (
-                  <Notifications currentUser={currentUser} />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="settings"
-              element={
-                currentUser ? (
-                  <Settings currentUser={currentUser} />
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            >
-              <Route
-                path="profile"
-                element={
-                  currentUser ? (
-                    <Profile currentUser={currentUser} />
-                  ) : (
-                    <Navigate to="/auth" />
-                  )
-                }
-              />
-              <Route
-                path="general"
-                element={
-                  currentUser ? (
-                    <General currentUser={currentUser} />
-                  ) : (
-                    <Navigate to="/auth" />
-                  )
-                }
-              />
-              <Route
-                path="security"
-                element={
-                  currentUser ? (
-                    <Security currentUser={currentUser} />
-                  ) : (
-                    <Navigate to="/auth" />
-                  )
-                }
-              />
-              <Route
-                path="activity"
-                element={
-                  currentUser ? (
-                    <Activity currentUser={currentUser} />
-                  ) : (
-                    <Navigate to="/auth" />
-                  )
-                }
-              />
+            <Route index element={currentUser ? (<DashboardHome currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="messages" element={currentUser ? (<Messages currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="notifications" element={currentUser ? (<Notifications currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="settings" element={currentUser ? (<Settings currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
+              <Route path="profile" element={currentUser ? (<Profile currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+              <Route path="general" element={currentUser ? (<General currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+              <Route path="security" element={currentUser ? (<Security currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+              <Route path="activity" element={currentUser ? (<Activity currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             </Route>
             //! Client
             <Route path="favorite" element={<Favorite />} />
             //! Vendor
           </Route>
           //? Main
-          <Route
-            path="/"
-            element={<Main CurrentUser={currentUser} Logout={logout} />}
-          >
+          <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
             <Route path="home" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="faq" element={<h1>asds</h1>} />
             <Route path="/vendor/:id" element={<Vendor />} />
           </Route>
           //? Email Links
-          <Route
-            path="user-auth-email-system"
-            element={<EmailConformations />}
-          />
+          <Route path="user-auth-email-system" element={<EmailConformations />}/>
           //? Authentication
           <Route path="auth" element={<Auth />}>
-            <Route
-              index
-              element={
-                currentUser ? <Navigate to="/" /> : <Login Login={login} />
-              }
-            />
-            <Route
-              path="signup"
-              element={
-                currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />
-              }
-            >
+            <Route index element={currentUser ? <Navigate to="/" /> : <Login Login={login} />}/>
+            <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>
               {/* <Route index element={<AccountType/>}/> */}
               <Route index element={<AccountInformation SignUp={signUp} />} />
               {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
             </Route>
-            <Route
-              path="forgot-password"
-              element={
-                currentUser ? (
-                  <Navigate to="/" />
-                ) : (
-                  <ForgotPassword ForgotPassword={forgotPassword} />
-                )
-              }
-            />
-            <Route
-              path="confirm-password"
-              element={
-                currentUser ? (
-                  <Navigate to="/" />
-                ) : (
-                  <ConfirmPassword ConfirmPassword={confirmPassword} />
-                )
-              }
-            />
-            <Route
-              path="email-activation"
-              element={
-                currentUser ? (
-                  !currentUser.emailVerified ? (
-                    <EmailActivation
-                      CurrentUser={currentUser}
-                      EmailActivation={emailActivation}
-                    />
-                  ) : (
-                    <Navigate to="/" />
-                  )
-                ) : (
-                  <Navigate to="/auth" />
-                )
-              }
-            />
-            <Route
-              path="confirm-activation"
-              element={
-                <ConfirmActivation ConfirmActivation={confirmActivation} />
-              }
-            />
+            <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
+            <Route path="confirm-password" element={currentUser ? (<Navigate to="/" />) : (<ConfirmPassword ConfirmPassword={confirmPassword} />)}/>
+            <Route path="email-activation" element={currentUser ? (!currentUser.emailVerified ? (<EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/>) : (<Navigate to="/" />)) : (<Navigate to="/auth" />)}/>
+            <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation} />}/>
           </Route>
         </Routes>
       </>
