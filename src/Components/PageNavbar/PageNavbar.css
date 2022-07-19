@@ -301,6 +301,8 @@
 .notification-box-front-end > ul > li:hover {
   background-color: rgb(233, 233, 233);
 } 
-  
 
-
+.signup-link {
+  color: white;
+  text-decoration: none;
+}

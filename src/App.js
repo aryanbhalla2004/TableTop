@@ -18,6 +18,7 @@ import EmailConformations from "./Pages/Auth/EmailConformations";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Home/Home";
 import Home from "./Pages/Main/Home/Home";
+import SignUp from "./Pages/Auth/SignUp/SignUp";
 import Messages from "./Pages/Dashboard/Messages/Messages";
 import Notifications from "./Pages/Dashboard/Notifications/Notifications";
 import Settings from "./Pages/Dashboard/Settings/Settings";
@@ -29,6 +30,9 @@ import Vendor from "./Pages/Main/Vendor/Vendor";
 import General from "./Pages/Dashboard/Settings/General/General";
 import Security from "./Pages/Dashboard/Settings/Security/Security";
 import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
+import VendorApplication from "./Pages/Auth/Register/BusinessProcess/VendorApplication";
+import BusinessApplication from "./Pages/Auth/Register/BusinessProcess/BusinessApplication";
+import ConfirmSend from "./Pages/Auth/Register/BusinessProcess/ConfirmSend";
 
 const App = () => {
   const history = useNavigate();
@@ -118,14 +122,18 @@ const App = () => {
             <Route path="faq" element={<h1>asds</h1>} />
             <Route path="/vendor/:id" element={<Vendor />} />
           </Route>
+          <Route path="signup" element={<SignUp />} />
           //? Email Links
           <Route path="user-auth-email-system" element={<EmailConformations />}/>
           //? Authentication
           <Route path="auth" element={<Auth />}>
             <Route index element={currentUser ? <Navigate to="/" /> : <Login Login={login} />}/>
-            <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>
+            <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>             
               {/* <Route index element={<AccountType/>}/> */}
               <Route index element={<AccountInformation SignUp={signUp} />} />
+              <Route path="vendor-application" element={<VendorApplication SignUp={signUp}/>} />
+              <Route path="business-application" element={<BusinessApplication SignUp={signUp}/>} />
+              <Route path="confirm-send" element={<ConfirmSend SignUp={signUp} />} />
               {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
             </Route>
             <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>

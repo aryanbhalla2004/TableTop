@@ -1,0 +1,182 @@
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    opacity: 0.8;
+    background-color: #0c68f1ab;
+  }
+  
+  .left {
+    background-image: url('https://images.pexels.com/photos/5922212/pexels-photo-5922212.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    width: 50vw;
+    
+    position: relative;
+    display: flex;
+  }
+  
+  .left:hover {
+    width: 75vw;
+    transition: 0.8s;
+  }
+  
+  .right {
+    background-image: url('https://images.pexels.com/photos/4049942/pexels-photo-4049942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    width: 50vw;
+    position: relative;
+    display: flex;
+  }
+  
+  .right:hover {
+    width: 75vw;
+    transition: 0.8s;
+  }
+  
+  .arrow {
+    font-size: 4rem;
+    position: absolute;
+  }
+  
+  .left-arrow {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+  
+  .right-arrow {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .business-signup, .client-signup {
+    color: #fff;
+    flex: 1;
+    border-radius: 5px;
+    /* background-color: #fff; */
+    /* box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px; */
+    /* padding: 8rem 3rem; */
+    padding-top: 25%;
+  }
+
+  .business-signup{
+    margin: 0 10rem 0 8rem;
+  }
+
+.client-signup {
+    margin: 0 8rem 0 10rem;
+  }
+  
+  .business-signup > p,
+  .client-signup > p {
+    font-size: 1.2rem;
+  }
+  
+  .signup-button {
+    margin-top: 2.5rem;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    border: 3px solid white;
+    padding: 0.8rem 2.8rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border-radius: 3rem;
+    text-decoration: none;
+  }
+
+  .signup-link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .signup-button:hover {
+    /* background-color: #0069d9; */
+    /* border-color: #0062cc; */
+    border: 3px solid rgb(192, 192, 192);
+    color: #C0C0C0;
+    text-decoration: none;
+  }
+  
+  .business-signup > span,
+  .client-signup > span {
+    font-size: 2rem;
+    font-weight: lighter;
+  }
+  
+  .business-signup > h2,
+  .client-signup > h2 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    color: white;
+  }
+  
+  /* .signup-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .test {
+    display: block;
+    background-color: red;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .signup-flex-element {
+    flex: 1;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    margin: 10px;
+    width: 100%;
+    padding: 15rem 4rem;
+  }
+  
+  .signup-flex-element:first-child {
+    margin-right: 20px;
+  }
+  
+  .signup-button {
+    display: flex;
+    background-color: #007bff;
+    margin: 0 auto;
+    font-weight: 400;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: #fff;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  .signup-button:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    text-decoration: none;
+  }
+  
+  .signup-flex-element > h2 {
+    font-size: 2rem;
+  }
+  
+  .signup-flex-element > p {
+    font-size: larger;
+    margin-bottom: 2rem;
+  } */

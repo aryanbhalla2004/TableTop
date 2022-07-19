@@ -27,7 +27,7 @@ const PageNavbar = (props) => {
               <div className="user_profile_wrapper">
                 <Link to="/auth" className="circle-button-header login-button-header"><i class="bi bi-people"></i> <span>Sign in</span></Link>
               </div>
-              <button variant="light">Become a Member&nbsp;<i class="bi bi-arrow-right"></i></button>
+             <button variant="light"><Link className="signup-link" to="/signup">Become a Member&nbsp;<i class="bi bi-arrow-right"></i></Link></button>
             </div>
           }
           
