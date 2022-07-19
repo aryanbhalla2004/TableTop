@@ -33,7 +33,6 @@ import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
 const App = () => {
   const history = useNavigate();
   const [currentUser, setCurrentUser] = useState();
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -114,6 +113,7 @@ const App = () => {
           //? Main
           <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
             <Route path="home" element={<Home />} />
+            <Route path="logout" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="faq" element={<h1>asds</h1>} />
             <Route path="/vendor/:id" element={<Vendor />} />

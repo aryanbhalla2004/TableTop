@@ -26,10 +26,6 @@
   cursor: pointer;
 }
 
-.company_name {
-  font-size: 0.8rem;
-  padding-top: 0.3rem;
-}
 
 
 .horizontal-scroll {
@@ -59,6 +55,12 @@
 .horizontal-scroll > li:hover {
   border-color: var(--logo-color);
   color: #000;
+  transform: translateY(-5px);
+}
+
+.active-category-selected {
+  border-color: var(--logo-color) !important;
+  color: #000 !important;
   transform: translateY(-5px);
 }
 
@@ -111,8 +113,9 @@
   justify-content: space-between;
   align-items: center; */
   display: grid;
-  grid-auto-columns: 16.78666668%;
+  grid-auto-columns: 15.87%;
   grid-auto-flow: column;
+  gap: 0.956%;
   overflow-x: scroll;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;

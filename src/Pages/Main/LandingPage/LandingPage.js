@@ -1,5 +1,5 @@
 import "./LandingPage.css"
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 import * as BiIcons from "react-icons/bi";
 import {Helmet} from "react-helmet";
@@ -10,11 +10,7 @@ import * as MdIcons from "react-icons/md";
 import * as TbIcons from "react-icons/tb";
 import LandingPageBusinessCard from "../../../Components/LandingPageBusinessCard/LandingPageBusinessCard";
 const LandingPage = (props) => {
-  const ref = useRef(null);
-
-  const scroll = (scrollOffset) => {
-    ref.current.scrollLeft += scrollOffset
-  };
+  const [category, setCategory] = useState("");
 
   return (
     <>
@@ -24,48 +20,47 @@ const LandingPage = (props) => {
       <div className="stories_container">
         <div className="content-sizing-box stories-wrapper">
           <ul className="horizontal-scroll">
-            <li>
+            <li className={category === "restaurants" && "active-category-selected"} onClick={() => setCategory("restaurants")}>
               <RiIcons.RiRestaurant2Line/>
               <span>restaurants</span>
             </li>
-            <li>
+            <li className={category === "Beauty" && "active-category-selected"} onClick={() => setCategory("Beauty")}>
               <MdIcons.MdOutlineHealthAndSafety/>
               <span>Beauty & Fitness</span>
             </li>
-            <li>
+            <li className={category === "Barbers" && "active-category-selected"} onClick={() => setCategory("Barbers")}>
               <RiIcons.RiScissors2Fill/>
               <span>Barbers</span>
             </li>
-            <li>
+            <li className={category === "Autos" && "active-category-selected"} onClick={() => setCategory("Autos")}>
               <GiIcons.GiHomeGarage/>
               <span>Autos & Vehicles</span>
             </li>
-            
-            <li>
+            <li className={category === "Dealership" && "active-category-selected"} onClick={() => setCategory("Dealership")}>
               <GiIcons.GiCarKey/>
               <span>Dealership</span>
             </li>
-            <li>
+            <li className={category === "Clothing" && "active-category-selected"} onClick={() => setCategory("Clothing")}>
               <GiIcons.GiClothes/>
               <span>Clothing & Shoes</span>
             </li>
-            <li>
+            <li className={category === "Electronics" && "active-category-selected"} onClick={() => setCategory("Electronics")}>
               <GiIcons.GiWireCoil/>
               <span>Electronics</span>
             </li>
-            <li>
+            <li className={category === "Literature" && "active-category-selected"} onClick={() => setCategory("Literature")}> 
               <BiIcons.BiBookContent/>
               <span>Books & Literature</span>
             </li>
-            <li>
+            <li className={category === "Food" && "active-category-selected"} onClick={() => setCategory("Food")}>
               <GiIcons.GiHamburger/>
               <span>Fast Food</span>
             </li>
-            <li>
+            <li className={category === "Medical" && "active-category-selected"} onClick={() => setCategory("Medical")}>
               <GiIcons.GiHospital />
               <span>Health & Medical</span>
             </li>
-            <li>
+            <li className={category === "Gaming" && "active-category-selected"} onClick={() => setCategory("Gaming")}>
               <TbIcons.TbDeviceGamepad2/>
               <span>Gaming</span>
             </li>
@@ -111,12 +106,11 @@ const LandingPage = (props) => {
               <a>Show (12)</a>
               <div className="navigation-button">
                 <button><HiIcons.HiChevronLeft/></button>
-                <button onClick={() => scroll(100)}><HiIcons.HiChevronRight/></button>
+                <button><HiIcons.HiChevronRight/></button>
               </div>
             </div>
           </div>
-          <div className="landing-page-popular-businesses" ref={ref}>
-            <LandingPageBusinessCard name={"My Burger Place"} businessInfo={{timings: "9:00 AM - 12:00 PM", ratings: 4.5, photo: "https://cdn.pixabay.com/photo/2016/11/29/10/09/bakery-1868925_1280.jpg"}}/>
+          <div className="landing-page-popular-businesses">
             <LandingPageBusinessCard name={"My Burger Place"} businessInfo={{timings: "9:00 AM - 12:00 PM", ratings: 4.5, photo: "https://cdn.pixabay.com/photo/2016/11/29/10/09/bakery-1868925_1280.jpg"}}/>
             <LandingPageBusinessCard name={"My Tire Place"} businessInfo={{timings: "7:00 am - 5:00 pm", ratings: 4.2, photo: "https://cdn.pixabay.com/photo/2016/11/19/15/40/clothes-1839935_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Macdonald House"} businessInfo={{timings: "9:00 am - 12:00 am", ratings: 3.7, photo: 'https://cdn.pixabay.com/photo/2016/11/29/09/00/doughnuts-1868573_1280.jpg'}}/>
@@ -148,7 +142,7 @@ const LandingPage = (props) => {
               </div>
             </div>
           </div>
-          <div className="landing-page-popular-businesses" ref={ref}>
+          <div className="landing-page-popular-businesses">
             <LandingPageBusinessCard name={"Spice Circle"} businessInfo={{timings: "9:00 am - 1:00 am", ratings: 4.4, photo: "https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg"}}/>            
             <LandingPageBusinessCard name={"My Burger Place"} businessInfo={{timings: "9:00 AM - 12:00 PM", ratings: 4.5, photo: "https://cdn.pixabay.com/photo/2016/11/29/10/09/bakery-1868925_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Macdonald House"} businessInfo={{timings: "9:00 am - 12:00 am", ratings: 3.7, photo: 'https://cdn.pixabay.com/photo/2016/11/29/09/00/doughnuts-1868573_1280.jpg'}}/>

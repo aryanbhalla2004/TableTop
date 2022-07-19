@@ -1,0 +1,86 @@
+.logout-comp-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  transition: .3s;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.hide-logout-pop-box {
+  display: none;
+  animation: HideItem .3s forwards;
+}
+
+.show-logout-pop-box {
+  display: flex;
+  animation: showItem .3s forwards;
+}
+
+.logout-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  height: fit-content;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logout-box > svg {
+  font-size: 4rem;
+  color: rgb(255, 170, 0);
+  margin-bottom: 20px;
+}
+
+.logout-box p {
+  color: rgb(146, 146, 146);
+  text-align: center;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.logout-box div {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout-box div button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: .3s;
+}
+
+.logout-box div button:last-child {
+  background-color: var(--logo-color);
+  color: #fff;
+}
+
+@keyframes showItem {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes HideItem {
+  0% {
+    opacity: 1;
+    display: none;
+  }
+  100% {
+    opacity: 0;
+    display: none !important;
+  }
+}

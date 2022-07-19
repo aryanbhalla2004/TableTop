@@ -1,12 +1,15 @@
 import "../PageNavbar/PageNavbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
-import Collapse from 'react-bootstrap/Collapse';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { HiOutlineLogout } from "react-icons/hi";
+import { AiOutlineUser } from "react-icons/ai";
+import { BsFillGearFill, BsFillGridFill } from "react-icons/bs";
 const PageNavbar = (props) => {
+  const history = useNavigate();
+  const [showNoti, setShowNoti] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+
   return (
     <>
       <div className="header-container">
@@ -31,11 +34,49 @@ const PageNavbar = (props) => {
           {props.CurrentUser &&
             <div className="right_section_wrapper">
               <div className="user_profile_wrapper">
-                <Link to="" className="circle-button-header login-button-header" aria-controls="navbar-dark-example"><i class="bi bi-people"></i> <span>{props.CurrentUser.email}</span><BiChevronDown/></Link>
+                <div className="circle-button-header login-button-header" aria-controls="navbar-dark-example" onClick={() => {setShowAccount(!showAccount);  setShowNoti(false)}}><i class="bi bi-people"></i> <span>{props.CurrentUser.email}</span><BiChevronDown/>
+                  <div className={showAccount ? "hover-notification-box show-box account-box" : "hover-notification-box account-box"}>
+                    <ul>
+                      <li onClick={() => history("/dashboard")}><BsFillGridFill/>Dashboard</li>
+                      <li onClick={() => history("/dashboard/settings/profile")}><BsFillGearFill/> Settings</li>
+                      <li><AiOutlineUser /> Profile</li>
+                      <li onClick={() => props.SetShowLogoutBox(true)}><HiOutlineLogout/> Logout</li>
+                    </ul>
+                  </div> 
+                </div>
               </div>
-              <div className="login-button-noti-btn">
+              <div className="login-button-noti-btn" onClick={() => {setShowNoti(!showNoti);  setShowAccount(false)}}>
                 <i className="bi bi-inboxes"></i>
                 <BiChevronDown/>
+                <div className={showNoti ? "hover-notification-box show-box notification-box-front-end" : "hover-notification-box" }>
+                  <div>
+                    <span>Notification</span>
+                    <Link to="">Mark all as read</Link>
+                  </div>
+                  <ul>
+                    <li>
+                      <div>
+                        <h5>Your order is placed</h5>
+                        <p>if serveral languages coalesce the grammer</p>
+                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <h5>Your order is placed</h5>
+                        <p>if serveral languages coalesce the grammer</p>
+                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <h5>Your order is placed</h5>
+                        <p>if serveral languages coalesce the grammer</p>
+                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>  
               </div>
             </div>
           }

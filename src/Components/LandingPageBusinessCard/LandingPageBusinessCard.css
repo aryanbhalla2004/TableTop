@@ -2,7 +2,6 @@
 
 .lp-business-card {
   margin: .4rem 0;
-  max-width: 205px;
   cursor: pointer;
   color: black;
 }
@@ -96,6 +95,6 @@
 
 .distance-container {
   color: rgb(150, 193, 253);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
 }
