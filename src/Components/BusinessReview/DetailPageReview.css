@@ -1,0 +1,33 @@
+:root {
+  --reviewer-date-color: rgb(177, 175, 175);
+}
+.vendor-page-review {
+  max-width: 600px; /*width of entire review*/
+  width: 100%;
+  padding: 30px 0;
+}
+.vendor-page-reviewer-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+.vendor-page-reviewer-info {
+  display: flex;
+  max-width: 145px; /*width of reviewer info div*/
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.vendor-page-reviewer-name {
+  font-weight: 500;
+}
+.vendor-page-review-date {
+  color: var(--reviewer-date-color);
+}
+.vendor-page-review-content {
+  max-width: 650px;
+  width: 100%;
+  font-weight: lighter;
+}

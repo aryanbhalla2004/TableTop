@@ -65,7 +65,7 @@ const LandingPage = (props) => {
               <span>Gaming</span>
             </li>
           </ul>
-          <button onClick={() => props.setShowSearchBox(!props.showSearchBox)}><i class="bi bi-sort-down-alt"></i> Search</button>
+          <button className="ghost-button-home" onClick={() => props.setShowSearchBox(!props.showSearchBox)}><i class="bi bi-sort-down-alt"></i> Search</button>
         </div>
       </div>
       <div className="slider-container">

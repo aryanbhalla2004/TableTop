@@ -80,7 +80,7 @@
   justify-content: space-between;
 }
 
-.stories-wrapper > button {
+.ghost-button-home{
   background-color: transparent;
   border: 1px solid #ddd;
   transition: .3s;
@@ -88,7 +88,7 @@
   border-radius: 3px;
 }
 
-.stories-wrapper > button:hover {
+.ghost-button-home:hover {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 

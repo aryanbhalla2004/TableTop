@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import * as RiIcons from "react-icons/ri";
 import {BsTelephone} from "react-icons/bs";
 import {AiOutlineMail, AiOutlineGlobal} from "react-icons/ai";
-// import DetailPageReview from "./DetailPageReview";
+import {MdOutlineRateReview} from "react-icons/md";
+import DetailPageReview from "../../../Components/BusinessReview/DetailPageReview";
 import "./Vendor.css";
 const Vendor = () => {
   return (
@@ -40,11 +41,19 @@ const Vendor = () => {
         <div className="vendor-page-images-container">
            <div className="live-video">
             <span className="live-icon-info"><Spinner animation="grow" size="sm"/> Live</span>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ydYDqZQpim8?autoplay=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
            </div>
-           <div className="simple-images-details-vendor"></div>
-           <div className="simple-images-details-vendor top-round-edge"></div>
-           <div className="simple-images-details-vendor"></div>
-           <div className="simple-images-details-vendor bottom-round-edge"></div> 
+           <div className="simple-images-details-vendor">
+            <img src="https://images.unsplash.com/photo-1560611588-163f295eb145?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"></img>
+           </div>
+           <div className="simple-images-details-vendor top-round-edge">
+           <img src="https://images.unsplash.com/photo-1657937322212-2970a841a5f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"></img>
+           </div>
+           <div className="simple-images-details-vendor">
+           <img src="https://images.unsplash.com/photo-1523145149804-5d8e0c044753?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"></img>
+           </div>
+           <div className="simple-images-details-vendor bottom-round-edge">
+           <img src="https://images.unsplash.com/photo-1447078806655-40579c2520d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"></img></div> 
         </div>
         <div className="Vendor-page-business-info">
           <div className="Vendor-page-business-info-leftSide">
@@ -54,7 +63,7 @@ const Vendor = () => {
                 <div className="Vendor-page-business-tables">
                   <div className="category-item"><RiIcons.RiRestaurant2Line/> Restaurent</div>
                   <div className="category-item"><i class="bi bi-clock"></i>Open</div>
-                  <div className="category-item"><i class="bi bi-currency-dollar"></i>Expensive</div>
+                  <div className="category-item"><span><i class="bi bi-currency-dollar"></i><i class="bi bi-currency-dollar"></i><i class="bi bi-currency-dollar"></i></span>Expensive</div>
                 </div>
               </div>
               <img className="Vendor-page-Vendor-Picture" src="https://a0.muscache.com/im/pictures/user/7c767dcb-ec34-4477-b688-c2e59f513183.jpg?im_w=240"/>
@@ -99,22 +108,29 @@ const Vendor = () => {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, omnis. Modi provident rerum tenetur quo praesentium, illum placeat veritatis optio eaque velit perferendis rem dolores corrupti cumque culpa eveniet ipsa. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos nemo facere quasi expedita suscipit! Accusantium sapiente explicabo eligendi ad asperiores? Tempore cumque maxime distinctio minima accusantium consectetur quasi praesentium sapiente?</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis repellat dolore dolorum sunt labore, adipisci maxime cumque quod debitis iste numquam natus saepe, repellendus cum impedit! Quas, autem eum!</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa consectetur, nobis hic maxime commodi, nostrum, doloribus alias quo quidem dolore inventore fugit asperiores corrupti minima aliquid aspernatur? Hic, officia. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis amet dignissimos quaerat laudantium? Sint excepturi soluta quia inventore suscipit accusantium nostrum ipsa illo repellendus! Quod laboriosam impedit blanditiis quidem maiores?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis repellat dolore dolorum sunt labore, adipisci maxime cumque quod debitis iste numquam natus saepe, repellendus cum impedit! Quas, autem eum!</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa consectetur, nobis hic maxime commodi, nostrum, doloribus alias quo quidem dolore inventore fugit asperiores corrupti minima aliquid aspernatur? Hic, officia. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis amet dignissimos quaerat laudantium? Sint excepturi soluta quia inventore suscipit accusantium nostrum ipsa illo repellendus! Quod laboriosam impedit blanditiis quidem maiores?</p>
             </div>
           </div>
         
           <div className="Vendor-page-business-info-rightSide">
-            
+            <div className="message-box-details-page">
+              <h3>Direct Message</h3>
+              <p>Private inquires can be only sent, if you have a account with <span className="primary-color">Tabletop</span>. Click on the login button and start interacting with local business.</p>
+              <Button className="full-width" to="/user/login">Login</Button>
+            </div>
+
+            <div className="message-box-details-page">
+              <h3>Location</h3>
+              <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
           </div>
         </div>
 
         <div className="vendor-page-review-container">
           <div className="vendor-page-ratings-review-heading">
-            <div className="vendor-page-ratings-heading">
-              <i className="bi bi-star-fill"></i>
-              <div className="vendor-page-ratings-number">4.5</div>
-            </div>
-            <div>.</div>
-            <div>8 reviews</div>
+            <div className="vendor-page-ratings-number"><i className="bi bi-star-fill"></i>&nbsp;4.5<div className="total-review-count-review-section"><i class="bi bi-dot"></i>8 reviews</div></div>
+            <button className="ghost-button-home"><MdOutlineRateReview/>&nbsp;Post Review</button>
           </div>
           <div className="vendor-page-review-categories-list">
             <div className="vendor-page-category-container">
@@ -171,11 +187,12 @@ const Vendor = () => {
             </div>
           </div>
           <div className="vendor-page-reviews-list">
-            {/* <DetailPageReview />
             <DetailPageReview />
             <DetailPageReview />
-            <DetailPageReview /> */}
+            <DetailPageReview />
+            <DetailPageReview />
           </div>
+          <button className="ghost-button-home">Show all 8 reviews</button>
         </div>
       </div>
     </div>
