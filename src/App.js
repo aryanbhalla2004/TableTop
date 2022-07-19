@@ -116,7 +116,7 @@ const App = () => {
             <Route path="logout" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="faq" element={<h1>asds</h1>} />
-            <Route path="/vendor/:id" element={<Vendor />} />
+            <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
           //? Email Links
           <Route path="user-auth-email-system" element={<EmailConformations />}/>
