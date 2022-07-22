@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Outlet} from "react-router-dom";
+import logo from "../../util/images/logo-w.png";
 import "./Auth.css"
 import "./Responsive.css"
 
@@ -9,15 +10,11 @@ const Auth = () => {
     <div class="container-auth">
       <div class="col-information-wrapper">
         <div className='background-layer-wrapper'>
-          <img alt='logo' src="/images/logo-white.png" width={150}></img>
+          <img src={logo} width={80}></img>
           <div className='background-layer-info'>
-            <h2>Welcome back!</h2>
-            <p>We are glad to see you again! Log in to get connected with businesses near you.</p>
-          </div>
-          <div className='background-layer-icons'>
-            <i class="bi bi-instagram"></i>
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-facebook"></i>
+            <p>We are glad to see you again!</p>
+            <h2>Join our next negotiation group in few minutes!</h2>
+            <a className='ghost-button'>Learn More</a>
           </div>
         </div>
       </div>

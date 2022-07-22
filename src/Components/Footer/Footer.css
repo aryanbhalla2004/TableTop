@@ -32,6 +32,18 @@
   transform: translateY(-5px) rotate(5deg);
 }
 
+.social-media-icons-footer > ul > li:nth-child(3):hover{
+  color: var(--logo-color);
+  border-color: var(--logo-color);
+  transform: translateY(-5px);
+}
+
+.social-media-icons-footer > ul > li:nth-child(4):hover, .social-media-icons-footer > ul > li:nth-child(5):hover {
+  color: var(--logo-color);
+  border-color: var(--logo-color);
+  transform: translateY(-5px) rotate(-5deg);
+}
+
 .main_footer {
   padding: 50px 0;
   padding-bottom: 30px;

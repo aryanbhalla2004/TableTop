@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
+import { motion } from "framer-motion";
 import * as RiIcons from "react-icons/ri";
 import {BsTelephone} from "react-icons/bs";
 import {AiOutlineMail, AiOutlineGlobal} from "react-icons/ai";
@@ -8,16 +9,19 @@ import DetailPageReview from "../../../Components/BusinessReview/DetailPageRevie
 import "./Vendor.css";
 import { useState } from "react";
 import PostReviewForm from "../../../Components/BuinessPostReview/PostReviewForm";
+import { Helmet } from "react-helmet";
 
 const Vendor = (props) => {
   const [reviewBox, setReviewBox] = useState(false);
   return (
-    <>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+      <Helmet>
+        <title>Business Information | TableTop</title>
+      </Helmet>
       {reviewBox && <PostReviewForm ReviewBox={reviewBox} SetReviewBox={setReviewBox}/> }
       <div className="vendor-page-business-container">
         <div className="content-sizing-box">
           <div className="vendor-page-business-top-info">
-            
             <div className="vendor-page-top-right">
               <h2 className="vendor-page-business-name">My Burger Place</h2>
               <div className="vendor-page-business-ratings-review-location">
@@ -213,7 +217,7 @@ const Vendor = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 export default Vendor;

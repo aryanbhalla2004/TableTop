@@ -38,7 +38,7 @@ const PostReviewForm = (props) => {
                 <option>Cleanliness</option>
                 <option>Accuracy</option>
                 <option>Location</option>
-                </select>
+              </select>
             </div>
             <div class="mb-3 col-md-6 rm-padding-left rm-padding-right">
               <label for="emailAddress" class="form-label review-form-lable">Rating</label>

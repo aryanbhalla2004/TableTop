@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
 import { firebase, auth } from "./util/Firebase";
 import Login from "./Pages/Auth/Login/Login";
 import Register from "./Pages/Auth/Register/Register";
@@ -11,9 +9,7 @@ import Main from "./Pages/Main/Main";
 import ConfirmActivation from "./Pages/Auth/ConfirmActivation/ConfirmActivation";
 import ConfirmPassword from "./Pages/Auth/ConfirmPassword/ConfirmPassword";
 import EmailActivation from "./Pages/Auth/EmailActivation/EmailActivation";
-import AccountType from "./Pages/Auth/Register/RegisterProcess/AccountType";
 import AccountInformation from "./Pages/Auth/Register/RegisterProcess/AccountInformation";
-import AccountVendor from "./Pages/Auth/Register/RegisterProcess/AccountVendor";
 import EmailConformations from "./Pages/Auth/EmailConformations";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Home/Home";
@@ -29,6 +25,11 @@ import Vendor from "./Pages/Main/Vendor/Vendor";
 import General from "./Pages/Dashboard/Settings/General/General";
 import Security from "./Pages/Dashboard/Settings/Security/Security";
 import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
+import VendorApplication from "./Pages/Auth/Register/BusinessProcess/VendorApplication";
+import BusinessApplication from "./Pages/Auth/Register/BusinessProcess/BusinessApplication";
+import ConfirmSend from "./Pages/Auth/Register/BusinessProcess/ConfirmSend";
+import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
+import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 
 const App = () => {
   const history = useNavigate();
@@ -38,7 +39,10 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setLoading(false);
+      setInterval(() => {
+        setLoading(false);
+      }, 2000);
+      
     });
 
     return unsubscribe;
@@ -91,7 +95,7 @@ const App = () => {
   };
 
   return (
-    !loading && (
+    !loading ? (
       <>
         <Routes>
           //? Dashboard
@@ -115,6 +119,7 @@ const App = () => {
             <Route path="home" element={<Home />} />
             <Route path="logout" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
+            <Route path="business-profile-setup" element={<BusinessForm/>} />
             <Route path="faq" element={<h1>asds</h1>} />
             <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
@@ -123,9 +128,12 @@ const App = () => {
           //? Authentication
           <Route path="auth" element={<Auth />}>
             <Route index element={currentUser ? <Navigate to="/" /> : <Login Login={login} />}/>
-            <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>
+            <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>             
               {/* <Route index element={<AccountType/>}/> */}
               <Route index element={<AccountInformation SignUp={signUp} />} />
+              <Route path="vendor-application" element={<VendorApplication SignUp={signUp}/>} />
+              <Route path="business-application" element={<BusinessApplication SignUp={signUp}/>} />
+              <Route path="confirm-send" element={<ConfirmSend SignUp={signUp} />} />
               {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
             </Route>
             <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
@@ -135,7 +143,7 @@ const App = () => {
           </Route>
         </Routes>
       </>
-    )
+    ) : <LoadingScreen/>
   );
 };
 
