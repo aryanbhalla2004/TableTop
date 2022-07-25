@@ -11,12 +11,13 @@ const Home = () => {
   return (
     <div className="home-page-container">
       <div className="home-page-header-container">
-        {/* <img src={landingPage} className="home-page-image-background"/> */}
+        {/* <img src={landingPage} className="home-page-video-background"/> */}
         <video src={homePageVideo} muted loop autoPlay className="home-page-video-background"></video>
+        <div className="home-page-overlay"></div>
         <div className="content-sizing-box">
           <div className="home-page-top-section">
             <div className="home-page-top-logo">
-                <BiIcons.BiChair />
+              <BiIcons.BiChair />
             </div>
             <div className="home-page-top-message-container">
               <div className="home-page-message">Communicate businesses in realtime </div>
@@ -71,94 +72,6 @@ const Home = () => {
               <div className="home-page-feature-card-message">Build your experience</div>
               <div className="home-page-feature-card-info">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
               <div className="home-page-feature-card-demo-link">View demo <BiIcons.BiRightArrow/></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="home-page-pricing-plans-container">
-        <div className="content-sizing-box">
-          <div className="home-page-pricing-header-wrapper">
-            <div className="pricing-header-heading">PRICING PLANS</div>
-            <div className="pricing-header-info">Choose the option that suits you best</div>
-          </div>
-          <div className="home-page-pricing-plans">
-            <div className="home-page-pricing-plan">
-              <div className="home-page-pricing-plan-heading-wrapper">
-                <div className="home-page-pricing-heading">Starter</div>
-                <div className="home-page-pricing-heading-info">For small team just getting started.</div>
-              </div>
-              <div className="home-page-plan-price">$50</div>
-              <div className="home-page-plan-benefits">
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-              </div>
-              <div className="home-page-get-started-btn"><Link to="/">Get Started</Link></div>
-            </div>
-            <div className="home-page-pricing-plan">
-              <div className="home-page-pricing-plan-heading-wrapper">
-                <div className="home-page-pricing-heading">Starter</div>
-                <div className="home-page-pricing-heading-info">For small team just getting started.</div>
-              </div>
-              <div className="home-page-plan-price">$50</div>
-              <div className="home-page-plan-benefits">
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-              </div>
-              <div className="home-page-get-started-btn"><Link to="/">Get Started</Link></div>
-            </div>
-            <div className="home-page-pricing-plan">
-              <div className="home-page-pricing-plan-heading-wrapper">
-                <div className="home-page-pricing-heading">Starter</div>
-                <div className="home-page-pricing-heading-info">For small team just getting started.</div>
-              </div>
-              <div className="home-page-plan-price">$50</div>
-              <div className="home-page-plan-benefits">
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-                <div>
-                  <BsIcons.BsCircleFill/> 
-                  <div>Email ticketing</div>
-                </div>
-              </div>
-              <div className="home-page-get-started-btn"><Link to="/">Get Started</Link></div>
             </div>
           </div>
         </div>
