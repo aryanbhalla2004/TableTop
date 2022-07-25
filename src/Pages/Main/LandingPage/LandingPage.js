@@ -1,5 +1,6 @@
 import "./LandingPage.css"
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import "react-multi-carousel/lib/styles.css";
 import * as BiIcons from "react-icons/bi";
 import {Helmet} from "react-helmet";
@@ -13,8 +14,9 @@ const LandingPage = (props) => {
   const [category, setCategory] = useState("");
 
   return (
-    <>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <Helmet>
+        <title>Local Business Live Footage | TableTop</title>
         <script src="./main.js" defer></script>
       </Helmet>
       <div className="stories_container">
@@ -156,7 +158,7 @@ const LandingPage = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 export default LandingPage;

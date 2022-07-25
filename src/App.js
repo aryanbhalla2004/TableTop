@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
 import { firebase, auth } from "./util/Firebase";
 import Login from "./Pages/Auth/Login/Login";
 import Register from "./Pages/Auth/Register/Register";
@@ -11,14 +9,11 @@ import Main from "./Pages/Main/Main";
 import ConfirmActivation from "./Pages/Auth/ConfirmActivation/ConfirmActivation";
 import ConfirmPassword from "./Pages/Auth/ConfirmPassword/ConfirmPassword";
 import EmailActivation from "./Pages/Auth/EmailActivation/EmailActivation";
-import AccountType from "./Pages/Auth/Register/RegisterProcess/AccountType";
 import AccountInformation from "./Pages/Auth/Register/RegisterProcess/AccountInformation";
-import AccountVendor from "./Pages/Auth/Register/RegisterProcess/AccountVendor";
 import EmailConformations from "./Pages/Auth/EmailConformations";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Home/Home";
 import Home from "./Pages/Main/Home/Home";
-import SignUp from "./Pages/Auth/SignUp/SignUp";
 import Messages from "./Pages/Dashboard/Messages/Messages";
 import Notifications from "./Pages/Dashboard/Notifications/Notifications";
 import Settings from "./Pages/Dashboard/Settings/Settings";
@@ -37,6 +32,8 @@ import Businesses from "./Pages/Dashboard/Businesses/Businesses";
 import Inquiries from "./Pages/Dashboard/Inquiries/Inquiries";
 import Branches from "./Pages/Dashboard/Branches/Branches";
 import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
+import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
+import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 
 const App = () => {
   const history = useNavigate();
@@ -46,7 +43,10 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setLoading(false);
+      setInterval(() => {
+        setLoading(false);
+      }, 2000);
+      
     });
 
     return unsubscribe;
@@ -99,7 +99,7 @@ const App = () => {
   };
 
   return (
-    !loading && (
+    !loading ? (
       <>
         <Routes>
           //? Dashboard
@@ -128,10 +128,10 @@ const App = () => {
             <Route path="home" element={<Home />} />
             <Route path="logout" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
+            <Route path="business-profile-setup" element={<BusinessForm/>} />
             <Route path="faq" element={<h1>asds</h1>} />
-            <Route path="/vendor/:id" element={<Vendor />} />
+            <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
-          <Route path="signup" element={<SignUp />} />
           //? Email Links
           <Route path="user-auth-email-system" element={<EmailConformations />}/>
           //? Authentication
@@ -153,7 +153,7 @@ const App = () => {
           </Route>
         </Routes>
       </>
-    )
+    ) : <LoadingScreen/>
   );
 };
 

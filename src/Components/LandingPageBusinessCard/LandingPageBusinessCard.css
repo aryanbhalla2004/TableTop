@@ -19,7 +19,7 @@
 .lp-business-heart-icon {
   cursor: pointer;
   position: absolute;
-  z-index: 111;
+  z-index: 100;
   color: white;
   font-size: 1rem;
   right: 20px;

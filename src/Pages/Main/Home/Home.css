@@ -1,0 +1,276 @@
+/*image/video background*/
+.home-page-video-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+}
+.home-page-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 320px 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+  color: rgb(233, 231, 231);
+  position: relative;
+}
+.home-page-main-content-container {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:  50px 0;
+
+}
+.home-page-top-section {
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-page-top-logo > svg {
+  font-size: 270px;
+}
+.home-page-top-message-container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.home-page-message {
+  font-size:55px;
+  font-weight: 500;
+
+}
+.home-page-message-info {
+  font-size: 35px;
+  font-weight: 200;
+
+}
+.home-page-message-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  font-size: 25px;
+}
+/*buttons*/
+.solid-btn {
+  border-radius: 3px;
+  color: white;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+.solid-btn:hover {
+  color: var(--logo-color);
+  background-color: white;
+}
+.outline-btn {
+  border-radius: 3px;
+  border: 2px solid white;
+  color: white;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+.outline-btn:hover {
+  color: var(--logo-color);
+  background-color: white;
+}
+
+/*Benefit*/
+.home-page-benefit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 0;
+}
+
+.home-page-benefit-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.home-page-benefit-img > svg {
+  font-size: 250px;
+}
+.home-page-benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.home-page-benefit-heading {
+  font-size: 55px;
+  font-weight: 600;
+}
+.home-page-benefit-info {
+  font-size: 25px;
+  font-weight: 200;
+}
+.home-page-benefit > ul  {
+  list-style: none;
+  font-size: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 550px;
+  width: 100%;
+}
+.home-page-benefit > ul > li {
+  max-width: 250px;
+  width: 100%;
+}
+
+/**feature cards list**/
+
+.home-page-feature-cards {
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/**feature card**/
+.home-page-feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 35px;
+  max-width: 420px;
+  width: 100%;
+  background-color: #F6F9F9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.home-page-feature-card:hover {
+  border-bottom: 3px solid var(--logo-color);
+  transform: translateY(-5px);
+}
+.home-page-feature-card-heading {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.home-page-feature-card-message {
+  font-size: 30px;
+  font-weight: 600;
+}
+.home-page-feature-card-info {
+  font-size: 20px;
+}
+
+.home-page-feature-card-demo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  max-width: fit-content;
+  width: 100%;
+  border-bottom: 1px solid var(--logo-color);
+}
+/*pricing plan container*/
+.home-page-pricing-plans-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  background-color: #cceeeef8;
+}
+/*pricing plan header*/
+.home-page-pricing-header-wrapper {
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #0b4991ce
+}
+.pricing-header-info {
+  font-size: 55px;
+}
+.pricing-header-heading {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 450;
+}
+
+/*pricing plan list*/
+.home-page-pricing-plans {
+  display: flex;
+  justify-content: space-between;
+}
+
+/**price plan**/
+.home-page-pricing-plan {
+  background-color: white;
+  max-width: 450px;
+  width: 100%;
+  padding: 40px;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0 0 30px 0 rgb(0 57 57 / 20%);
+}
+.home-page-pricing-plan-heading-wrapper {
+  border-bottom: 1px solid var(--arrow-border-color);
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.home-page-plan-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+.home-page-plan-benefits > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.home-page-plan-benefits > div > div {
+  font-size: 20px;
+  font-weight: 200;
+}
+.home-page-plan-benefits > div > svg {
+  font-size: 10px;
+  color: var(--card-info-color);
+}
+.home-page-pricing-heading {
+  font-size: 25px;
+  font-weight: 600;
+}
+.home-page-pricing-heading-info {
+  font-size: 20px;
+}
+.home-page-plan-price {
+  font-size: 65px;
+  font-weight: 600;
+}
+.home-page-get-started-btn > a {
+  background-color: var(--logo-color);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 1px solid var(--logo-color);
+  transition: all 0.2s ease;
+}
+.home-page-get-started-btn > a:hover {
+  background-color: white;
+  border-color: var(--logo-color);
+  color: var(--logo-color);
+}
+.home-page-get-started-btn {
+  margin-top: 10px;
+}

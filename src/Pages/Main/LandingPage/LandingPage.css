@@ -85,10 +85,12 @@
   border: 1px solid #ddd;
   transition: .3s;
   padding: 10px 20px;
+  color: var(--text-color);
   border-radius: 3px;
 }
 
 .ghost-button-home:hover {
+  color: var(--text-color);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 

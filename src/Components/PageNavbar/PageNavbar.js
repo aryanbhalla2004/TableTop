@@ -5,6 +5,8 @@ import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsFillGearFill, BsFillGridFill } from "react-icons/bs";
+import logo from "../../util/images/logo.png";
+
 const PageNavbar = (props) => {
   const history = useNavigate();
   const [showNoti, setShowNoti] = useState(false);
@@ -21,13 +23,14 @@ const PageNavbar = (props) => {
              <li><Link to="/vendor/2" className="nav-link last-link">Support</Link></li>
             </ul>
           </div>
+          <Link to="/"><img src={logo} width={70}/></Link>
           
           {!props.CurrentUser &&
             <div className="right_section_wrapper">
               <div className="user_profile_wrapper">
                 <Link to="/auth" className="circle-button-header login-button-header"><i class="bi bi-people"></i> <span>Sign in</span></Link>
               </div>
-             <button variant="light"><Link className="signup-link" to="/signup">Become a Member&nbsp;<i class="bi bi-arrow-right"></i></Link></button>
+             <button variant="light" onClick={() => props.SetShowAccountSelection(true)}>Become a Member&nbsp;<i class="bi bi-arrow-right"></i></button>
             </div>
           }
           
@@ -78,7 +81,9 @@ const PageNavbar = (props) => {
                   </ul>
                 </div>  
               </div>
+              <i className="bi bi-inboxes"></i>
             </div>
+            
           }
         </div>
       </div>

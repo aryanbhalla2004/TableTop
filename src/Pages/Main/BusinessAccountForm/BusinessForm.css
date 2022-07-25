@@ -1,0 +1,233 @@
+.business-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.business-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+
+.header-with-progress-bar-form > h2 {
+  font-size: 2.2rem;
+}
+
+.header-with-progress-bar-form > p {
+  color: rgb(90, 90, 90);
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.progress-bar-for-form {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+  justify-content: baseline;
+}
+
+.progress-bar-for-form > li {
+  width: 33.33333%;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  color: rgb(156, 156, 156);
+}
+
+.progress-bar-for-form > li > div {
+  width: 100%;
+  height: 3px;
+  border: none;
+  transition: .3s;
+  background-color: #ddd;
+}
+
+.progress-bar-for-form > li > progress::-webkit-progress-value {
+  color: blue !important;
+}
+
+.progress-bar-for-form > li > progress::-moz-progress-bar {
+  background: red !important;
+}
+
+.form-and-progress-business {
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 40px;
+  padding: 40px 0;
+}
+
+.form-container {
+  border-radius: 4px;
+  padding: 40px;
+  margin-top: 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.box-container-field {
+  justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+  color: rgb(90, 90, 90);
+  flex-direction: column;
+  width: 100%;
+}
+
+.action-button-form-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  color: rgb(108, 108, 108);
+}
+
+.action-button-form-btns > p {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.action-button-form-btns > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.action-button-form-btns > div > a {
+  cursor: pointer;
+}
+
+.selection-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.selection-box-container > select {
+  width: 100%;
+}
+
+.selection-box-container > select::marker {
+  padding-right: 10px;
+}
+
+.active-item {
+  color: var(--logo-color) !important;
+}
+
+.complete-item {
+  color: green !important;
+}
+
+.submition-preview {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.single-row {
+  width: 100%;
+}
+
+.dividing-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.dividing-line > span {
+  font-size: 14px;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+.line-small {
+  border-top: 1px solid #ddd; 
+  width: 3%;
+}
+
+.line-big {
+  border-top: 1px solid #ddd; 
+  width: 97%;
+}
+
+
+.box-container-field > p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 25px;
+  text-align: left;
+}
+
+
+.progress-width {
+  background-color: green;
+  transition: .3s;
+  height: 100%;
+  animation: noWidth  .3s forwards;
+}
+
+@keyframes noWidth {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+
+.full-width-complete {
+  animation: fulWidth  .3s forwards;
+}
+
+@keyframes fulWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.sent-confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sent-confirmation > svg {
+  margin-bottom: 20px;
+  transform: scale(.9) !important;
+}
+
+.sent-confirmation > p {
+  font-weight: 300;
+  font-size: 15px;
+  color: rgb(116, 116, 116);
+  max-width: 800px;
+  padding: 10px 0!important;
+}
+
+.sent-confirmation > a {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.sent-confirmation > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}

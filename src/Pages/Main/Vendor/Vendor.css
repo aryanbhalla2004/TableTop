@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -149,9 +149,15 @@
 
 .live-video{
   grid-row: 1/3;
+  overflow: hidden !important;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   position: relative;
+}
+
+.live-video > iframe {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .simple-images-details-vendor {
@@ -315,7 +321,7 @@
   flex-direction: column;
   gap: 50px;
   height: fit-content;
-  top: 40px;
+  top: 120px;
 }
 
 .Vendor-page-VendorContainer {
@@ -378,3 +384,35 @@
 .total-review-count-review-section {
   text-decoration: underline;
 }
+
+.inital-message-form {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.inital-message-form > label {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 1px;
+}
+
+.inital-message-form > textarea {
+  border: none;
+  height: 80px;
+  padding-top: 5px;
+}
+
+.inital-message-form > textarea:focus {
+  outline: none;
+}
+
+.send-message-text {
+  font-size: 12px !important;
+  margin-top: 10px !important;
+  text-align: center;
+}
+

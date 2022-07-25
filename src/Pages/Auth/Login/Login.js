@@ -107,14 +107,12 @@ const Login = (props) => {
           <input type="password" className={fieldError.password ? 'form-control is-invalid' : 'form-control'} id="password" required="" name="password" value={userInput.password} onChange={updateUserInput} placeholder="Enter Password"/>
           {fieldError.password && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid password.</div>}
         </div>
-        <div className="row mt-4 center-content">
-          <div className="col">
-            <div className="form-check">
-              <input id="remember-me" name="remember" className="form-check-input" type="checkbox"/>
-              <label className="form-check-label" for="remember-me">Remember Me</label>
-            </div>
+        <div className="item-footer-logo">
+          <div className="form-check">
+            <input id="remember-me" name="remember" className="form-check-input" type="checkbox"/>
+            <label className="form-check-label" for="remember-me">Remember Me</label>
           </div>
-          <div className="col text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
+          <div className="text-end"><Link to="/auth/forgot-password">Forgot Password ?</Link></div>
         </div>
         <div className="d-grid my-4">
           <button className="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>

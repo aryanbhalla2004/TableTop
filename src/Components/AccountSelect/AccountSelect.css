@@ -1,0 +1,104 @@
+.account-setup-box {
+  background-color: #fff;
+  max-width: 650px;
+  width: 100%;
+  padding: 40px;
+  padding-top: 30px;
+  display: flex;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.button-group-account-type {
+  display: flex;
+  gap: 20px;
+}
+
+.account-setup-box > h3 {
+  font-size: 1.6rem;
+  margin: 3px;
+}
+
+.account-setup-box > p {
+  font-weight: 300;
+  color: rgb(88, 88, 88);
+}
+
+.account-setup-box > ul {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 40px 0;
+  padding-bottom: 30px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.account-setup-box > ul > li {
+  border: 1px solid #ddd;
+  padding: 40px 20px;
+  display: flex;
+  transition: .3s;
+  border-radius: 4px;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  justify-content: center;
+  cursor: pointer;
+  transform: scale(.95);
+}
+
+.account-setup-box > ul > li:active {
+  transform: scale(.93);
+}
+
+.account-setup-box > ul > li > p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 25px;
+  color: rgb(115, 115, 115);
+  text-align: center;
+}
+
+.account-setup-box > ul > li > svg {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: gray;
+}
+
+.active-selection-account-type {
+  border-color: var(--logo-color) !important;
+}
+
+.active-selection-account-type > svg {
+  color: var(--logo-color) !important;
+}
+
+.active-button-selection {
+  background-color: var(--logo-color);
+  color: #fff;
+}
+
+.close-button {
+  display: flex;
+  width: 100%;
+  padding-bottom: 10px;
+  padding-top: -30px !important;
+  font-size: 1.3rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.close-button > i {
+  cursor: pointer;
+  color: rgb(157, 157, 157);
+  transition: .3s;
+}
+
+.close-button > i:hover {
+  color: #000;
+}
