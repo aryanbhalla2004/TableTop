@@ -22,7 +22,7 @@ import SignUp from "./Pages/Auth/SignUp/SignUp";
 import Messages from "./Pages/Dashboard/Messages/Messages";
 import Notifications from "./Pages/Dashboard/Notifications/Notifications";
 import Settings from "./Pages/Dashboard/Settings/Settings";
-import Favorite from "./Pages/Dashboard/Favorite/Favorite";
+import Favorites from "./Pages/Dashboard/Favorites/Favorites";
 import Profile from "./Pages/Dashboard/Settings/Profile/Profile";
 import AboutUs from "./Pages/Main/About/About";
 
@@ -33,6 +33,10 @@ import Activity from "./Pages/Dashboard/Settings/Activity/Activity";
 import VendorApplication from "./Pages/Auth/Register/BusinessProcess/VendorApplication";
 import BusinessApplication from "./Pages/Auth/Register/BusinessProcess/BusinessApplication";
 import ConfirmSend from "./Pages/Auth/Register/BusinessProcess/ConfirmSend";
+import Businesses from "./Pages/Dashboard/Businesses/Businesses";
+import Inquiries from "./Pages/Dashboard/Inquiries/Inquiries";
+import Branches from "./Pages/Dashboard/Branches/Branches";
+import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
 
 const App = () => {
   const history = useNavigate();
@@ -102,7 +106,12 @@ const App = () => {
           <Route path="dashboard" element={currentUser ? (<Dashboard currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
             //! Both Accounts
             <Route index element={currentUser ? (<DashboardHome currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="favorites" element={currentUser ? (<Favorites currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="messages" element={currentUser ? (<Messages currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="businesses" element={currentUser ? (<Businesses currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="branches" element={currentUser ? (<Branches currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="branches/add-business" element={<AddBusiness currentUser={currentUser}/>} />
+            <Route path="inquiries" element={currentUser ? (<Inquiries currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="notifications" element={currentUser ? (<Notifications currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="settings" element={currentUser ? (<Settings currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
               <Route path="profile" element={currentUser ? (<Profile currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
@@ -111,7 +120,7 @@ const App = () => {
               <Route path="activity" element={currentUser ? (<Activity currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             </Route>
             //! Client
-            <Route path="favorite" element={<Favorite />} />
+            {/* <Route path="favorite" element={<Favorite />} /> */}
             //! Vendor
           </Route>
           //? Main
@@ -134,6 +143,7 @@ const App = () => {
               <Route path="vendor-application" element={<VendorApplication SignUp={signUp}/>} />
               <Route path="business-application" element={<BusinessApplication SignUp={signUp}/>} />
               <Route path="confirm-send" element={<ConfirmSend SignUp={signUp} />} />
+              
               {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
             </Route>
             <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
