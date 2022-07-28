@@ -1,0 +1,24 @@
+.amenity-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.amenity-list li .destroy:after {
+	content: '×';
+}
+
+.amenity-list li:hover .destroy {
+	display: block;
+}
+
+.amenity-list li .edit {
+	display: none;
+}
+
+.amenity-list li.editing .view {
+	display: none;
+}
+
+.destroy {
+	background-color: transparent;
+	border: transparent;
+}

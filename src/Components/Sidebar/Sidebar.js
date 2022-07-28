@@ -21,6 +21,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {
+  const accountType = "Business";
+
   return (
     <>
       <ProSidebar className="sidebar" collapsed={props.collapsedStatus}>
@@ -34,14 +36,32 @@ const Sidebar = (props) => {
               <Link to={"/dashboard"} />
               Dashboard
             </MenuItem>
-            <MenuItem icon={<MdIcons.MdBusinessCenter />}>
-              <Link to={"messages"} />
-              Business
+            <MenuItem icon={<BsIcons.BsStarFill/>}>
+              <Link to={"favorites"} />
+              Favorites
             </MenuItem>
             <MenuItem icon={<IoIcons.IoMdChatbubbles />}>
               <Link to={"messages"} />
               Messages
             </MenuItem>
+            { accountType === "Admin" ? 
+              <>
+                <MenuItem icon={<MdIcons.MdBusinessCenter />}>
+                  <Link to={"businesses"} />
+                  Businesses
+                </MenuItem>
+                <MenuItem icon={<BsIcons.BsQuestionLg />}>
+                  <Link to={"inquiries"} />
+                Inquiries
+                </MenuItem>
+              </> : <></> }
+            { accountType === "Business" ? 
+              <>
+                <MenuItem icon={<BiIcons.BiGitBranch />}>
+                  <Link to={"branches"} />
+                  Branches
+                </MenuItem>
+              </> : <></> }
             <SubMenu title="Settings" icon={<BsIcons.BsFillGearFill />}>
               <MenuItem icon={<CgIcons.CgProfile />}>
                 <Link to={"settings/profile"} />
