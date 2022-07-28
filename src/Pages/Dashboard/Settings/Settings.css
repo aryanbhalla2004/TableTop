@@ -233,3 +233,12 @@
   color: #007bff !important;
   border-color: #007bff !important;
 }
+
+.hour-text {
+  display: inline;
+  padding: 10rem;
+}
+
+.hour-input {
+  width: 25%;
+}

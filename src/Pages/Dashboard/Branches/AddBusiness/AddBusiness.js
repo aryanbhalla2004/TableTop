@@ -3,6 +3,8 @@ import MultiStepProgressBar from "../../../../Components/MultiStepProgressBar/Mu
 import BusinessAmenities from "./Steps/BusinessAmenities";
 import BusinessDetails from "./Steps/BusinessDetails";
 import BusinessInfo from "./Steps/BusinessInfo";
+import BusinessHours from "./Steps/BusinessHours";
+import BusinessPhotos from "./Steps/BusinessPhotos";
 import ConfirmBusiness from "./Steps/ConfirmBusiness";
 
 const AddBusiness = (props) => {
@@ -15,7 +17,38 @@ const AddBusiness = (props) => {
       category: '',
       businessAddress: '',
       description: '',
-      amenities: '',
+      amenities: [],
+      hours: {
+        sunday: {
+          open: '',
+          close: '',
+        },
+        monday: {
+          open: '',
+          close: '',
+        },
+        tuesday: {
+          open: '',
+          close: '',
+        },
+        wednesday: {
+          open: '',
+          close: '',
+        },
+        thursday: {
+          open: '',
+          close: '',
+        },
+        friday: {
+          open: '',
+          close: '',
+        },
+        saturday: {
+          open: '',
+          close: '',
+        },
+      },
+      images: [],
     }
   )
 
@@ -33,13 +66,13 @@ const AddBusiness = (props) => {
 
   // handle field change
   const handleChange = (input, data) => {
-    setState({ ...state, [input]:  data });
-    console.log(state);
+    setState({ ...state, [input]: data });
+    console.log(state.images)
   }
 
   const { step } = state;
-  const { businessName, phoneNumber, email, category, businessAddress, description, amenities } = state;
-  const values = { businessName, phoneNumber, email, category, businessAddress, description, amenities }
+  const { businessName, phoneNumber, email, category, businessAddress, description, amenities, hours, images } = state;
+  const values = { businessName, phoneNumber, email, category, businessAddress, description, amenities, hours, images }
 
   switch (step) {
     case 1: 
@@ -77,7 +110,31 @@ const AddBusiness = (props) => {
           />
         </>
       )
-    case 4:
+    case 4: 
+      return (
+        <>
+          <MultiStepProgressBar currentStep={state.step} />
+          <BusinessHours
+            prevStep={prevStep}
+            nextStep={nextStep}
+            handleChange={handleChange}
+            values={values}
+          />
+        </>
+      )
+    case 5:
+      return (
+        <>
+          <MultiStepProgressBar currentStep={state.step} />
+          <BusinessPhotos
+            prevStep={prevStep}
+            nextStep={nextStep}
+            handleChange={handleChange}
+            values={values}
+          />
+        </>
+      )
+    case 6:
       return (
         <>
           <MultiStepProgressBar currentStep={state.step} />

@@ -34,6 +34,7 @@ import Branches from "./Pages/Dashboard/Branches/Branches";
 import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
 import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
+import EditBusiness from "./Pages/Dashboard/Branches/EditBusiness/EditBusiness";
 
 const App = () => {
   const history = useNavigate();
@@ -111,6 +112,7 @@ const App = () => {
             <Route path="businesses" element={currentUser ? (<Businesses currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="branches" element={currentUser ? (<Branches currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="branches/add-business" element={<AddBusiness currentUser={currentUser}/>} />
+            <Route path="branches/edit-business/" element={<EditBusiness currentUser={currentUser}/>} />
             <Route path="inquiries" element={currentUser ? (<Inquiries currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="notifications" element={currentUser ? (<Notifications currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="settings" element={currentUser ? (<Settings currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
