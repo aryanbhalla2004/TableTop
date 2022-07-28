@@ -20,7 +20,7 @@ import Settings from "./Pages/Dashboard/Settings/Settings";
 import Favorite from "./Pages/Dashboard/Favorite/Favorite";
 import Profile from "./Pages/Dashboard/Settings/Profile/Profile";
 import AboutUs from "./Pages/Main/About/About";
-
+import MyFavorite from "./Pages/Main/Favorite/myFavorite";
 import Vendor from "./Pages/Main/Vendor/Vendor";
 import General from "./Pages/Dashboard/Settings/General/General";
 import Security from "./Pages/Dashboard/Settings/Security/Security";
@@ -117,7 +117,7 @@ const App = () => {
           //? Main
           <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
             <Route path="home" element={<Home />} />
-            <Route path="logout" element={<Home />} />
+            <Route path="favorite" element={<MyFavorite />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="business-profile-setup" element={<BusinessForm/>} />
             <Route path="faq" element={<h1>asds</h1>} />

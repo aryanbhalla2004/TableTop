@@ -1,0 +1,28 @@
+.list-of-my-fav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.list-of-my-fav {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  margin-bottom: 30px;
+}
+
+.small-light-text {
+  font-weight: 300;
+  color: rgb(156, 156, 156);
+}
+
+.centering-messages-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+  width: 100%;
+}

@@ -81,7 +81,7 @@ const PageNavbar = (props) => {
                   </ul>
                 </div>  
               </div>
-              <i className="bi bi-inboxes"></i>
+              <Link to="/favorite" className="like-button-header"><i class="bi bi-heart"></i></Link>
             </div>
             
           }

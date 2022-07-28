@@ -310,3 +310,13 @@
   color: white;
   text-decoration: none;
 }
+
+.like-button-header {
+  color: rgb(126, 126, 126);
+  font-size: 1.5rem;
+  transition: .3s;
+}
+
+.like-button-header:hover {
+  transform: translateY(-3px);
+}
