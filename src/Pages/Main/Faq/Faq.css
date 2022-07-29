@@ -22,7 +22,6 @@
 } 
 /* Faq header message */
 .faq-header-content {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -53,7 +52,6 @@
 .faq-page-search-form > input {
   border: none;
   outline: none;
-  /* border: 1px solid blue; */
   padding: 10px 0;
   width: 100%;
 }
@@ -73,25 +71,21 @@
 .faq-page-search-form:focus-within {
   max-width: 800px;
   width: 100%;
-  /* border: 5px solid var(--logo-color); */
 }
 
 /* Faq popular questions container */
 .faq-page-popular-question-container {
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
   padding: 50px 0;
 }
 .faq-page-popular-question-content {
-  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 20px 0;
 }
 .faq-page-popular-question-heading-wrapper {
-  /* border: 1px solid red; */
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -108,17 +102,14 @@
 }
 /* collapsible list */
 .faq-page-collapsible-list {
-  /* border: 1px solid red; */
   padding-top: 30px;
 }
 /* collapsible wrapper */
 .faq-page-collapsible-wrapper {
-  /* border: 1px solid red; */
   max-width: 1400px;
   width: 100%;
   padding: 10px 0;
   border-bottom: 1px solid #E6E6E6;
-  /* border: 1px solid green; */
 
 }
 /* collapsible button */
@@ -138,7 +129,6 @@
 }
 /* collapsible content */
 .faq-page-collapsible-content {
-  /* border: 1px solid green; */
   font-weight: 200;
   font-size: 20px;
   overflow: hidden;
@@ -160,15 +150,11 @@
 }
 /* faq-page-browsing-topics-container */
 .faq-page-browsing-topics-container {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
+  background-color: #f8f8f8;
 }
-/* .content-sizing-box {
-  border: 1px solid blue;
-} */
 .faq-page-browsing-topics-content {
-  /* border: 1px solid greenyellow; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,13 +167,11 @@
 
 .faq-page-browsing-topics-list {
   display: flex;
-  /* border: 1px solid red; */
   gap: 40px;
   margin: 30px 0;
 }
 
 .faq-page-browsing-topic {
-  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,6 +181,8 @@
   max-width: 700px;
   width: 100%;
   cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
 }
 .faq-page-browsing-topic:hover {
   box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
@@ -213,6 +199,5 @@
   color: #666;
   font-size: 18px;
   max-width: 350px;
-  /* border: 1px solid red; */
   text-align: center;
 }
