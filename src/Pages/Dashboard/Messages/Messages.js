@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-
+import { Collapse } from "react-collapse";
 import "./Messages.css";
 const Messages = () => {
+  const [isSearchBox, setIsSearchBox] = useState(false);
+  const handleSearchBoxCollapse = () => {
+    setIsSearchBox((prev) => {
+      return !prev;
+    });
+  };
   return (
     <>
       <div className="Message-Container">
@@ -11,12 +18,29 @@ const Messages = () => {
             <div className="Message-Sidebar-Header-Top">
               <h4>Chats</h4>
               <div className="Message-Sidebar-Header-Top-RightSide">
-                <Link to="">
+                <div className="Message-Sidebar-Header-Bell">
                   <i className="bi bi-bell"></i>
-                </Link>
-                <Link to="">
-                  <i className="bi bi-three-dots-vertical"></i>
-                </Link>
+                </div>
+
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="outline-default"
+                    id="vertical-dots"
+                    size="sm"
+                  >
+                    <i className="bi bi-three-dots-vertical"></i>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">New Chat</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">
+                      Invite Others
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">
+                      Create Group
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             </div>
             <div className="Message-Sidebar-Header-Filter">
@@ -131,46 +155,6 @@ const Messages = () => {
                 </div>
               </div>
             </Link>
-            <Link to="" className="Message-Sidebar-Contract-Link">
-              <div className="Message-Sidebar-Contract-link-Container">
-                <span className="Message-Contract-Link-UserPicture">
-                  <img src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"></img>
-                </span>
-                <div className="Message-Contract-Link-Content">
-                  <div className="Message-Contract-Link-Top">
-                    <div className="Message-Contract-Link-UserName">
-                      Cahterine Richardson
-                    </div>
-                    <div className="Message-Contract-Link-ChatTime">
-                      Just now
-                    </div>
-                  </div>
-                  <p className="Message-Contract-Link-CurrentText-read">
-                    I'm sorry, I didn't catch that. Could you please repeat?
-                  </p>
-                </div>
-              </div>
-            </Link>
-            <Link to="" className="Message-Sidebar-Contract-Link">
-              <div className="Message-Sidebar-Contract-link-Container">
-                <span className="Message-Contract-Link-UserPicture">
-                  <img src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"></img>
-                </span>
-                <div className="Message-Contract-Link-Content">
-                  <div className="Message-Contract-Link-Top">
-                    <div className="Message-Contract-Link-UserName">
-                      Cahterine Richardson
-                    </div>
-                    <div className="Message-Contract-Link-ChatTime">
-                      Just now
-                    </div>
-                  </div>
-                  <p className="Message-Contract-Link-CurrentText-read">
-                    I'm sorry, I didn't catch that. Could you please repeat?
-                  </p>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
         <div className="Message-Chat">
@@ -185,14 +169,46 @@ const Messages = () => {
               </div>
             </div>
             <div className="Message-Chat-Header-Menu">
-              <Link to="">
+              <Link onClick={() => handleSearchBoxCollapse()} to="">
                 <i class="bi bi-search"></i>
               </Link>
-              <Link to="">
-                <i class="bi bi-three-dots-vertical"></i>
-              </Link>
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="outline-default"
+                  id="vertical-dots"
+                  size="sm"
+                >
+                  <i className="bi bi-three-dots-vertical"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    <i class="bi bi-trash3"></i>&nbsp;&nbsp;Delete
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    <i class="bi bi-x-octagon"></i>&nbsp;&nbsp;Block
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    <i class="bi bi-volume-mute"></i>&nbsp;&nbsp;Mute
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
+          <Collapse isOpened={isSearchBox}>
+            <div className="Message-Chat-Search-Container">
+              <form className="Message-Chat-SearchForm">
+                <input
+                  type="search"
+                  placeholder="Search Message"
+                  className="Message-Chat-Search"
+                />
+                <button type="submit" className="Message-Chat-Search-button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+            </div>
+          </Collapse>
           <div className="Message-Chat-ChatContainer">
             <div className="Bubble-Container">
               <div className="Bubble-ChatUser">
