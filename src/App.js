@@ -6,6 +6,7 @@ import Register from "./Pages/Auth/Register/Register";
 import Auth from "./Pages/Auth/Auth";
 import ForgotPassword from "./Pages/Auth/ForgotPassword/ForgotPassword";
 import Main from "./Pages/Main/Main";
+import Faq from "./Pages/Main/Faq/Faq";
 import ConfirmActivation from "./Pages/Auth/ConfirmActivation/ConfirmActivation";
 import ConfirmPassword from "./Pages/Auth/ConfirmPassword/ConfirmPassword";
 import EmailActivation from "./Pages/Auth/EmailActivation/EmailActivation";
@@ -120,7 +121,7 @@ const App = () => {
             <Route path="logout" element={<Home />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="business-profile-setup" element={<BusinessForm/>} />
-            <Route path="faq" element={<h1>asds</h1>} />
+            <Route path="faq" element={<Faq/>} />
             <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
           //? Email Links
