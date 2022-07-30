@@ -8,8 +8,46 @@ import "./BusinessForm.css"
 import BusinessFormSent from './Complete/BusinessFormSent';
 import InformationForm from './Information/InformationForm';
 import PreviewForm from './Preview/PreviewForm';
+import {firebase} from "../../../util/Firebase";
+
 const BusinessForm = () => {
   const history = useNavigate();
+  const [businessSearch, setBusinessSearch] = useState(true);
+  const [businessForm, setBusinessForm] = useState({
+    fName: '',
+    lName: '',
+    phone: '',
+    email: '',
+    businessName: '',
+    businessNumber: '',
+    businessPhone: '',
+    businessEmail: '',
+    businessAddress: '',
+    businessWebsiteLink: '',
+    businessType: '',
+    businessSize: '',
+    businessDescription: '',
+    business: {},
+    createdDate: new Date().toLocaleString(),
+  });
+
+
+  const [fieldError, setFieldError] = useState({
+    fName: false,
+    lName: false,
+    phone: false,
+    email: false,
+    businessName: false,
+    businessNumber: false,
+    businessPhone: false,
+    businessEmail: false,
+    businessAddress: false,
+    businessWebsiteLink: false,
+    businessType: false,
+    businessSize: false,
+    businessDescription: false,
+  });
+
   const [active, setActive] = useState("one");
   const [completed, setCompleted] = useState({
     one: false,
@@ -32,6 +70,23 @@ const BusinessForm = () => {
     setCompleted(prevInput => ({
       ...prevInput, [prev]: false
     }));
+  }
+
+  const updateUserForm = (e) => {
+    setFieldError(prevInput => ({
+      ...prevInput, [e.target.name]: false
+    }));
+    setBusinessForm(prevInput => ({
+      ...prevInput, [e.target.name]: e.target.value
+    }));
+  }
+
+  const onSubmit = async (e) => {
+    try {
+      await firebase.firestore().collection("BusinessInquires").doc().set(businessForm);
+    } catch(e) {
+      console.log(e.message);
+    }
   }
 
   return (
@@ -67,9 +122,9 @@ const BusinessForm = () => {
               </li>
             </ul>
 
-            {active === "one" && !completed.one && <InformationForm NextStep={nextStep} BackStep={backStep}/>}
-            {active === "two" && !completed.two && <BusinessFormStep NextStep={nextStep} BackStep={backStep}/>}
-            {active === "three" && !completed.three && <PreviewForm NextStep={nextStep} BackStep={backStep}/>}
+            {active === "one" && !completed.one && <InformationForm NextStep={nextStep} BackStep={backStep} SetBusinessForm={setBusinessForm} BusinessForm={businessForm} UpdateUserForm={updateUserForm} SetFieldError={setFieldError} FieldError={fieldError}/>}
+            {active === "two" && !completed.two && <BusinessFormStep NextStep={nextStep} BackStep={backStep} SetBusinessForm={setBusinessForm} BusinessForm={businessForm} UpdateUserForm={updateUserForm} SetFieldError={setFieldError} FieldError={fieldError} SetBusinessSearch={setBusinessSearch} BusinessSearch={businessSearch}/>}
+            {active === "three" && !completed.three && <PreviewForm NextStep={nextStep} BackStep={backStep} BusinessForm={businessForm} OnSubmit={onSubmit}/>}
             {active === "last" && !completed.last && <BusinessFormSent/>}
           </div>
         </div>

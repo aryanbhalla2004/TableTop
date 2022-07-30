@@ -40,10 +40,12 @@ const Sidebar = (props) => {
               <Link to={"favorites"} />
               Favorites
             </MenuItem>
+            {accountType !== "Admin" && 
             <MenuItem icon={<IoIcons.IoMdChatbubbles />}>
               <Link to={"messages"} />
               Messages
-            </MenuItem>
+            </MenuItem>}
+
             { accountType === "Admin" ? 
               <>
                 <MenuItem icon={<MdIcons.MdBusinessCenter />}>
@@ -55,6 +57,7 @@ const Sidebar = (props) => {
                 Inquiries
                 </MenuItem>
               </> : <></> }
+
             { accountType === "Business" ? 
               <>
                 <MenuItem icon={<BiIcons.BiGitBranch />}>
@@ -62,6 +65,7 @@ const Sidebar = (props) => {
                   Branches
                 </MenuItem>
               </> : <></> }
+
             <SubMenu title="Settings" icon={<BsIcons.BsFillGearFill />}>
               <MenuItem icon={<CgIcons.CgProfile />}>
                 <Link to={"settings/profile"} />

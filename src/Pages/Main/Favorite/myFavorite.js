@@ -6,7 +6,7 @@ import LandingPageBusinessCard from '../../../Components/LandingPageBusinessCard
 import { Spinner } from 'react-bootstrap';
 const MyFavorite = () => {
   const [loading, setLoading] = useState(false);
-  const [myFav, setMyFav] = useState([]);
+  const [myFav, setMyFav] = useState([1]);
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <Helmet>

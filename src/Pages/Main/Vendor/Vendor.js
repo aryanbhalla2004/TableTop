@@ -51,7 +51,7 @@ const Vendor = (props) => {
           <div className="vendor-page-images-container">
             <div className="live-video">
               <span className="live-icon-info"><Spinner animation="grow" size="sm"/> Live</span>
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ydYDqZQpim8?autoplay=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FsKal7K2zJY?autoplay=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
             <div className="simple-images-details-vendor">
               <img src="https://images.unsplash.com/photo-1560611588-163f295eb145?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"></img>

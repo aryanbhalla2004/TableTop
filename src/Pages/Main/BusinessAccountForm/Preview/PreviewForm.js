@@ -1,6 +1,10 @@
 import React from 'react'
 
 export const PreviewForm = (props) => {
+  const submit = () => {
+    props.NextStep('three', 'last');
+    props.OnSubmit();
+  }
   return (
     <form className="form-container" id="form-location">
       <div className='submition-preview'>
@@ -13,31 +17,21 @@ export const PreviewForm = (props) => {
         <div className='d-flex mt-3 single-row'>
           <div className="mb-3 col-md-6 rm-padding-left box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Legal First Name *</label>
-            <p>Aryan</p>
+            <p>{props.BusinessForm && props.BusinessForm.fName}</p>
           </div>
           <div className="mb-3 col-md-6  rm-padding-left rm-padding-right box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Legal First Last *</label>
-            <p>Bhalla</p>
+            <p>{props.BusinessForm && props.BusinessForm.lName}</p>
           </div>
         </div>
         <div className="d-flex mt-3 single-row">
           <div className="mb-3 col-md-6 rm-padding-left box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Phone Number</label>
-            <p>+1 (204)-890-7313</p>
+            <p>{props.BusinessForm && props.BusinessForm.phone}</p>
           </div>
           <div className="mb-3 col-md-6  rm-padding-left rm-padding-right  box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Email Address *</label>
-            <p>aryanbhalla66@gmail.com</p>
-          </div>
-        </div>
-        <div className="d-flex mt-3 single-row">
-          <div class="mb-3 col-md-6 rm-padding-left  selection-box-container box-container-field">
-            <label for="emailAddress" class="form-label review-form-lable">Business Type</label>
-            <p>Restaurent</p>
-          </div>
-          <div class="mb-3 col-md-6 rm-padding-left rm-padding-right selection-box-container box-container-field">
-            <label for="emailAddress" class="form-label review-form-lable">Business Size</label>
-            <p>1 - 100+</p>
+            <p>{props.BusinessForm && props.BusinessForm.email}</p>
           </div>
         </div>
 
@@ -50,33 +44,53 @@ export const PreviewForm = (props) => {
         <div className="d-flex mt-3 single-row">
           <div className="mb-3 col-md-6 rm-padding-left box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Business Name *</label>
-            <p>Clay Oven</p>
+            <p>{props.BusinessForm && props.BusinessForm.businessName}</p>
           </div>
           <div className="mb-3 col-md-6  rm-padding-left rm-padding-right box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Legal Business # *</label>
-            <p>123-232-232</p>
+            <p>{props.BusinessForm && props.BusinessForm.businessNumber}</p>
           </div>
         </div>
         <div className="d-flex mt-3 single-row">
           <div className="mb-3 col-md-6 rm-padding-left box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Phone Number</label>
-            <p>+1 (800)-232-2322</p>
+            <p>{props.BusinessForm && props.BusinessForm.businessPhone}</p>
           </div>
           <div className="mb-3 col-md-6  rm-padding-left rm-padding-right  box-container-field">
             <label for="emailAddress" className="form-label review-form-lable">Email Address *</label>
-            <p>info@clayoven.com</p>
+            <p>{props.BusinessForm && props.BusinessForm.businessEmail}</p>
+          </div>
+        </div>
+        <div className="d-flex mt-3 single-row">
+          <div class="mb-3 col-md-6 rm-padding-left  selection-box-container box-container-field">
+            <label for="emailAddress" class="form-label review-form-lable">Business Location</label>
+            <p>{props.BusinessForm && props.BusinessForm.businessAddress}</p>
+          </div>
+          <div class="mb-3 col-md-6 rm-padding-left rm-padding-right selection-box-container box-container-field">
+            <label for="emailAddress" class="form-label review-form-lable">Business Website</label>
+            <p>{props.BusinessForm && props.BusinessForm.businessWebsiteLink}</p>
+          </div>
+        </div>
+        <div className="d-flex mt-3 single-row">
+          <div class="mb-3 col-md-6 rm-padding-left  selection-box-container box-container-field">
+            <label for="emailAddress" class="form-label review-form-lable">Business Type</label>
+            <p>{props.BusinessForm && props.BusinessForm.businessType}</p>
+          </div>
+          <div class="mb-3 col-md-6 rm-padding-left rm-padding-right selection-box-container box-container-field">
+            <label for="emailAddress" class="form-label review-form-lable">Business Size</label>
+            <p>{props.BusinessForm && props.BusinessForm.businessSize}</p>
           </div>
         </div>
         <div className="mt-3 mb-3 rm-padding-left box-container-field description-container-business-form">
           <label for="emailAddress" className="form-label review-form-lable">Description</label>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, consequuntur, exercitationem architecto nobis soluta voluptas tempora id aliquid perspiciatis praesentium laboriosam iste facere qui aut necessitatibus deserunt. Vitae, nulla asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ducimus in assumenda maxime facilis. Ipsam numquam harum accusamus rem, cum neque nulla id, dolore itaque iste nam non incidunt ratione.</p>
+          <p>{props.BusinessForm && props.BusinessForm.businessDescription}</p>
         </div>
       </div>
       <div className='action-button-form-btns'>
         <p>The information show ab</p>
         <div>
           <a onClick={() => props.BackStep('two')}>Go Back</a>
-          <a className="ghost-button-home" onClick={() => props.NextStep('three', 'last')}>Complete</a>
+          <a className="ghost-button-home" onClick={submit}>Complete</a>
         </div>
       </div>
     </form>
