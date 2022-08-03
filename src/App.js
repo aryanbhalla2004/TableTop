@@ -6,6 +6,7 @@ import Register from "./Pages/Auth/Register/Register";
 import Auth from "./Pages/Auth/Auth";
 import ForgotPassword from "./Pages/Auth/ForgotPassword/ForgotPassword";
 import Main from "./Pages/Main/Main";
+import Faq from "./Pages/Main/Faq/Faq";
 import ConfirmActivation from "./Pages/Auth/ConfirmActivation/ConfirmActivation";
 import ConfirmPassword from "./Pages/Auth/ConfirmPassword/ConfirmPassword";
 import EmailActivation from "./Pages/Auth/EmailActivation/EmailActivation";
@@ -20,7 +21,7 @@ import Settings from "./Pages/Dashboard/Settings/Settings";
 import Favorites from "./Pages/Dashboard/Favorites/Favorites";
 import Profile from "./Pages/Dashboard/Settings/Profile/Profile";
 import AboutUs from "./Pages/Main/About/About";
-
+import MyFavorite from "./Pages/Main/Favorite/myFavorite";
 import Vendor from "./Pages/Main/Vendor/Vendor";
 import General from "./Pages/Dashboard/Settings/General/General";
 import Security from "./Pages/Dashboard/Settings/Security/Security";
@@ -130,10 +131,10 @@ const App = () => {
           //? Main
           <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
             <Route path="home" element={<Home />} />
-            <Route path="logout" element={<Home />} />
+            <Route path="favorite" element={<MyFavorite />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="business-profile-setup" element={<BusinessForm/>} />
-            <Route path="faq" element={<h1>asds</h1>} />
+            <Route path="faq" element={<Faq/>} />
             <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
           //? Email Links

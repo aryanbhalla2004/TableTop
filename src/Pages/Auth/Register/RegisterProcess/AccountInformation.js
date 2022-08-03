@@ -47,7 +47,12 @@ const AccountInformation = (props) => {
                   firstName: userInput.firstName,
                   lastName: userInput.lastName,
                   email: userInput.email,
-                  createdDate: moment().format("YYYY MM DD")
+                  createdDate: moment().format("YYYY MM DD"),
+                  notficationSettings: {
+                    Activity: true,
+                    Chat: true,
+                    Location: true
+                  }
                 }
                 await firebase.firestore().collection("Users").doc(userId).set(user);
               

@@ -20,7 +20,7 @@ const PageNavbar = (props) => {
             <ul className="header-nav">
              <li><Link to="/home" className="nav-link">Home</Link></li>
              <li><Link to="/faq" className="nav-link">FAQ</Link></li>
-             <li><Link to="/vendor/2" className="nav-link last-link">Support</Link></li>
+             <li><Link to="/vendor/2" className="nav-link last-link">View Live</Link></li>
             </ul>
           </div>
           <Link to="/"><img src={logo} width={70}/></Link>
@@ -81,7 +81,7 @@ const PageNavbar = (props) => {
                   </ul>
                 </div>  
               </div>
-              <i className="bi bi-inboxes"></i>
+              <Link to="/favorite" className="like-button-header"><i class="bi bi-heart"></i></Link>
             </div>
             
           }

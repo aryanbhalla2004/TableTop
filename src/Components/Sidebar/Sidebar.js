@@ -40,6 +40,7 @@ const Sidebar = (props) => {
               <Link to={"favorites"} />
               Favorites
             </MenuItem>
+<<<<<<< HEAD
             {accountType !== "Admin" ? 
               <>
                 <MenuItem icon={<IoIcons.IoMdChatbubbles />}>
@@ -47,6 +48,14 @@ const Sidebar = (props) => {
                 Messages
                 </MenuItem>
               </> : <></>}
+=======
+            {accountType !== "Admin" && 
+            <MenuItem icon={<IoIcons.IoMdChatbubbles />}>
+              <Link to={"messages"} />
+              Messages
+            </MenuItem>}
+
+>>>>>>> f62fda467b22200118f9ceeb88492d5a5b1c24eb
             { accountType === "Admin" ? 
               <>
                 <MenuItem icon={<MdIcons.MdBusinessCenter />}>
@@ -58,6 +67,7 @@ const Sidebar = (props) => {
                 Inquiries
                 </MenuItem>
               </> : <></> }
+
             { accountType === "Business" ? 
               <>
                 <MenuItem icon={<BiIcons.BiGitBranch />}>
@@ -65,6 +75,7 @@ const Sidebar = (props) => {
                   Branches
                 </MenuItem>
               </> : <></> }
+
             <SubMenu title="Settings" icon={<BsIcons.BsFillGearFill />}>
               <MenuItem icon={<CgIcons.CgProfile />}>
                 <Link to={"settings/profile"} />

@@ -1,0 +1,203 @@
+/* faq header */
+.faq-page-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 320px 0;
+  position: relative;
+}
+.faq-page-background-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+.faq-page-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 255, 0.6);
+} 
+/* Faq header message */
+.faq-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.faq-page-message-heading {
+  font-size: 60px;
+  font-weight: 700;
+  color: white;
+}
+.faq-page-message {
+  font-size: 30px;
+  color: white;
+} 
+
+/* Faq Header SearchForm */
+.faq-page-search-form {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+  max-width: 700px;
+  width: 100%;
+  padding: 10px;
+
+}
+.faq-page-search-form > input {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+}
+.faq-page-search-form > input::placeholder {
+  color: grey;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.faq-page-search-form > button > svg {
+  color: gray;
+  font-size: 40px;
+} 
+.faq-page-search-form > button  {
+  border: none;
+  background-color: white;
+}
+.faq-page-search-form:focus-within {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Faq popular questions container */
+.faq-page-popular-question-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+.faq-page-popular-question-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.faq-page-popular-question-heading-wrapper {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.faq-page-popular-question-heading {
+  font-size: 60px;
+  font-weight: 900;
+}
+.faq-page-popular-question-message {
+  font-size: 25px;
+  font-weight: 200;
+}
+/* collapsible list */
+.faq-page-collapsible-list {
+  padding-top: 30px;
+}
+/* collapsible wrapper */
+.faq-page-collapsible-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #E6E6E6;
+
+}
+/* collapsible button */
+.faq-page-collapsible-button {
+  padding: 20px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.faq-page-collapsible-button p {
+  font-size: 25px;
+}
+.faq-page-collapsible-button svg {
+  font-size: 30px;
+  transition: transform 0.2s ease-in;
+}
+/* collapsible content */
+.faq-page-collapsible-content {
+  font-weight: 200;
+  font-size: 20px;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* collapsible active */
+.faq-page-button--active {
+  color: var(--logo-color);
+}
+.faq-page-button--active > svg {
+  transform: rotate(-180deg);
+}
+.faq-page-content--active {
+  max-height: 200px;
+  padding: 10px 0;
+  transition: all 0.2s ease-in-out;
+}
+/* faq-page-browsing-topics-container */
+.faq-page-browsing-topics-container {
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+}
+.faq-page-browsing-topics-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+.faq-page-browsing-topics-content > h1 {
+  font-size: 60px;
+  color: var(--logo-color);
+}
+
+.faq-page-browsing-topics-list {
+  display: flex;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.faq-page-browsing-topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 70px 35px;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  max-width: 700px;
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
+}
+.faq-page-browsing-topic:hover {
+  box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
+
+}
+.faq-page-browsing-topic > svg {
+  font-size: 50px;
+}
+.faq-page-browsing-topic-heading {
+  font-size: 25px;
+  font-weight: 700;
+}
+.faq-page-browsing-topic-message {
+  color: #666;
+  font-size: 18px;
+  max-width: 350px;
+  text-align: center;
+}

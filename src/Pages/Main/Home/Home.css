@@ -6,13 +6,21 @@
   object-fit: cover;
   z-index: -1;
 }
+.home-page-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 .home-page-header-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 320px 0;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
-  color: rgb(233, 231, 231);
+  color: white;
   position: relative;
 }
 .home-page-main-content-container {
@@ -174,87 +182,6 @@
   max-width: fit-content;
   width: 100%;
   border-bottom: 1px solid var(--logo-color);
-}
-/*pricing plan container*/
-.home-page-pricing-plans-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0;
-  background-color: #cceeeef8;
-}
-/*pricing plan header*/
-.home-page-pricing-header-wrapper {
-  padding: 20px 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #0b4991ce
-}
-.pricing-header-info {
-  font-size: 55px;
-}
-.pricing-header-heading {
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: 450;
-}
-
-/*pricing plan list*/
-.home-page-pricing-plans {
-  display: flex;
-  justify-content: space-between;
-}
-
-/**price plan**/
-.home-page-pricing-plan {
-  background-color: white;
-  max-width: 450px;
-  width: 100%;
-  padding: 40px;
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  box-shadow: 0 0 30px 0 rgb(0 57 57 / 20%);
-}
-.home-page-pricing-plan-heading-wrapper {
-  border-bottom: 1px solid var(--arrow-border-color);
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.home-page-plan-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-}
-.home-page-plan-benefits > div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.home-page-plan-benefits > div > div {
-  font-size: 20px;
-  font-weight: 200;
-}
-.home-page-plan-benefits > div > svg {
-  font-size: 10px;
-  color: var(--card-info-color);
-}
-.home-page-pricing-heading {
-  font-size: 25px;
-  font-weight: 600;
-}
-.home-page-pricing-heading-info {
-  font-size: 20px;
-}
-.home-page-plan-price {
-  font-size: 65px;
-  font-weight: 600;
 }
 .home-page-get-started-btn > a {
   background-color: var(--logo-color);

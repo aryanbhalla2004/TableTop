@@ -19,20 +19,9 @@ const Branches = () => {
               <th>Business</th>
               <th>Address</th>
               <th>Burst</th>
-              <th>Actions</th>
               <th></th>
             </thead>
             <tbody>
-              <tr>
-                <td>My Burger Place</td>
-                <td>R3T-1P4 Winnipeg MB, Canada</td>
-                <td>
-                  <button className="mt-3 btn btn-primary" disabled={burstActive}>Post Burst</button>
-                  <p>expires in: {expireTime}</p>
-                </td>
-                <td><button className="mt-3 btn btn-primary">View</button></td>
-                <td><button className="mt-3 btn btn-primary"><Link to="edit-business" className="signup-link">Modify</Link></button></td>
-              </tr>
               <tr>
                 <td>My Tire Place</td>
                 <td>R6P-3D5 Winnipeg MB, Canada</td>
@@ -40,8 +29,7 @@ const Branches = () => {
                   <button className="mt-3 btn btn-primary" disabled={burstActive}>Post Burst</button>
                   <p>expires in: {expireTime}</p>
                 </td>
-                <td><button className="mt-3 btn btn-primary">View</button></td>
-                <td><button className="mt-3 btn btn-primary">Modify</button></td>
+                <td><button className="mt-3 btn btn-primary">View</button><button className="mt-3 btn btn-primary">Modify</button></td>
               </tr>
             </tbody>
           </table>
