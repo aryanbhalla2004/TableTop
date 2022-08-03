@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
+import { useState } from 'react';
+import {firebase} from "../../../util/Firebase";
+import { useEffect } from 'react';
 
 const Inquiries = () => {
+  const [inquires, setInquiries] = useState([]);
+
+  useEffect(() => {
+    getUsers()
+  }, []);
+
+  const getUsers = async (e) => {
+    try {
+      await firebase.firestore().collection("BusinessInquires").onSnapshot((querySnapshot) => {
+        let tempList = [];
+        querySnapshot.forEach((doc) => {
+          tempList.push({data: doc.data(),id : doc.id});
+        });
+        setInquiries(tempList);
+      });
+    } catch(e) {
+      console.log(e.message);
+    }
+  }
+
   return (
     <>
       <h1>Inquiries</h1>
@@ -19,11 +42,28 @@ const Inquiries = () => {
               <th>Business Name</th>
               <th>Business Category</th>
               <th>Date</th>
-              <th>Actions</th>
               <th></th>
             </thead>
             <tbody>
-              <tr>
+              {inquires.map(function(inquiry, i) { 
+                console.log(inquiry);
+                return ( 
+                  <tr>
+                    <td><FaIcons.FaEnvelope/></td>
+                    <td>{inquiry.data.fName} {inquiry.data.lName}</td>
+                    <td>{inquiry.data.phone}</td>
+                    <td>{inquiry.data.businessEmail}</td>
+                    <td>{inquiry.data.businessName}</td>
+                    <td>{inquiry.data.businessType}</td>
+                    <td>1 day ago</td>
+                    <td>
+                      <button className="mt-3 btn btn-primary"><Link to={`view-inquiry/${inquiry.id}`} className="signup-link">View</Link></button>
+                      <button className="mt-3 btn btn-primary">Reject</button>
+                    </td>
+                  </tr>
+                )
+              })}
+              {/* <tr>
                 <td><FaIcons.FaEnvelope/></td>
                 <td>Jewels Richardson</td>
                 <td>+1 (204)-213-3433</td>
@@ -31,8 +71,10 @@ const Inquiries = () => {
                 <td>My Hair Place</td>
                 <td>Beauty</td>
                 <td>1 day ago</td>
-                <td><button className="mt-3 btn btn-primary">View</button></td>
-                <td><button className="mt-3 btn btn-primary">Reject</button></td>
+                <td>
+                  <button className="mt-3 btn btn-primary">View</button>
+                  <button className="mt-3 btn btn-primary">Reject</button>
+                </td>
               </tr>
               <tr>
                 <td><FaIcons.FaEnvelopeOpen/></td>
@@ -42,9 +84,11 @@ const Inquiries = () => {
                 <td>My Workout Place</td>
                 <td>Fitness</td>
                 <td>2 days ago</td>
-                <td><button className="mt-3 btn btn-primary">View</button></td>
-                <td><button className="mt-3 btn btn-primary">Reject</button></td>
-              </tr>
+                <td>
+                  <button className="mt-3 btn btn-primary">View</button>
+                  <button className="mt-3 btn btn-primary">Reject</button>
+                </td>
+              </tr> */}
             </tbody>
           </table>
         </div>

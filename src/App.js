@@ -35,6 +35,7 @@ import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
 import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import EditBusiness from "./Pages/Dashboard/Branches/EditBusiness/EditBusiness";
+import ViewInquiry from './Pages/Dashboard/Inquiries/ViewInquiry/ViewInquiry';
 
 const App = () => {
   const history = useNavigate();
@@ -111,9 +112,10 @@ const App = () => {
             <Route path="messages" element={currentUser ? (<Messages currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="businesses" element={currentUser ? (<Businesses currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="branches" element={currentUser ? (<Branches currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
-            <Route path="branches/add-business" element={<AddBusiness currentUser={currentUser}/>} />
-            <Route path="branches/edit-business/" element={<EditBusiness currentUser={currentUser}/>} />
+            <Route path="branches/add-business" element={<AddBusiness currentUser={currentUser} />} />
+            <Route path="branches/edit-business/" element={<EditBusiness currentUser={currentUser} />} />
             <Route path="inquiries" element={currentUser ? (<Inquiries currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
+            <Route path="inquiries/view-inquiry/:id" element={<ViewInquiry currentUser={currentUser} />} />
             <Route path="notifications" element={currentUser ? (<Notifications currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="settings" element={currentUser ? (<Settings currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
               <Route path="profile" element={currentUser ? (<Profile currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
