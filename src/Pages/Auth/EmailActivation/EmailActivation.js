@@ -13,11 +13,11 @@ const EmailActivation = (props) => {
   
 
   useEffect(() => {
-    setLoading(false);
-    return () => {
-        checkProvider();
-        emailVerified();
-    }  
+    setTimeout( () => {
+      checkProvider();
+      emailVerified();
+      setLoading(false);
+    }, 4000);
   }, []);
 
   useEffect(() => {

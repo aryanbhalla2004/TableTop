@@ -12,12 +12,10 @@ const ConfirmActivation = (props) => {
   const [verifed, setVerifed] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    return () => {
-      setTimeout(() => {
-        setLoading(false);
-        getMeActivated();
-      }, 5000);
-    }
+    setTimeout(() => {
+      setLoading(false);
+      getMeActivated();
+    }, 4000);
     
   }, []);
 
