@@ -20,7 +20,7 @@ const EmailActivation = (props) => {
         checkProvider();
         emailVerified();
         setLoading(false);
-      }, 6000);
+      }, 2000);
     }  
   }, []);
 
