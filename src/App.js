@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, Link } from "react-router-dom";
 import { firebase, auth } from "./util/Firebase";
 import Login from "./Pages/Auth/Login/Login";
+import "firebase/auth"
 import Register from "./Pages/Auth/Register/Register";
 import Auth from "./Pages/Auth/Auth";
 import ForgotPassword from "./Pages/Auth/ForgotPassword/ForgotPassword";
@@ -36,11 +37,17 @@ import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
 import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import EditBusiness from "./Pages/Dashboard/Branches/EditBusiness/EditBusiness";
+import MutliFactor from "./Pages/Auth/MultiFactor/MutliFactor";
+import Logout from "./Components/Logout/Logout";
+import LogoutRedirect from "./Pages/Auth/Logout/Logout";
+import FinishSignUp from "./Components/FinishSignUp/FinishSignUp";
 
 const App = () => {
   const history = useNavigate();
   const [currentUser, setCurrentUser] = useState();
+  const [loginMessageFromLogout, setLoginMessageFromLogout] = useState();
   const [loading, setLoading] = useState(true);
+  const [finishSignup, setFinishSignup] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -48,11 +55,23 @@ const App = () => {
       setInterval(() => {
         setLoading(false);
       }, 2000);
-      
+
     });
 
     return unsubscribe;
   }, []);
+
+  useEffect(() => {
+    //! this code is checking if the returing users is email verified and has 2 factor auth.
+    console.log(window.location.pathname);
+    if(window.location.pathname != "/user-auth-email-system" && currentUser != undefined && !currentUser.emailVerified && window.location.pathname != "confirm-activation") {
+      history("/auth/email-activation")
+    }
+
+    if(currentUser != undefined && currentUser.multiFactor.enrolledFactors.length === 0 && currentUser.emailVerified) {
+      history("/auth/multi-factor-setup");
+    }
+  }, [currentUser])
 
   const login = (email, password) => {
     console.log("login");
@@ -84,7 +103,6 @@ const App = () => {
   };
 
   const confirmActivation = (code) => {
-    console.log(code);
     return auth.applyActionCode(code);
   };
 
@@ -103,6 +121,7 @@ const App = () => {
   return (
     !loading ? (
       <>
+        {finishSignup && <FinishSignUp ShowLogoutBox={finishSignup}/>}
         <Routes>
           //? Dashboard
           <Route path="dashboard" element={currentUser ? (<Dashboard currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
@@ -127,6 +146,7 @@ const App = () => {
             //! Vendor
           </Route>
           //? Main
+          
           <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
             <Route path="home" element={<Home />} />
             <Route path="favorite" element={<MyFavorite />} />
@@ -137,9 +157,10 @@ const App = () => {
           </Route>
           //? Email Links
           <Route path="user-auth-email-system" element={<EmailConformations />}/>
+          <Route path="logout/:id" element={<LogoutRedirect Logout={logout} SetLoginMessageFromLogout={setLoginMessageFromLogout}/>} />
           //? Authentication
           <Route path="auth" element={<Auth />}>
-            <Route index element={currentUser ? <Navigate to="/" /> : <Login Login={login} />}/>
+            <Route index element={currentUser ? <Navigate to="/" /> : <Login Login={login} LoginMessageFromLogout={loginMessageFromLogout}/>}/>
             <Route path="signup" element={currentUser ? <Navigate to="/" /> : <Register SignUp={signUp} />}>             
               {/* <Route index element={<AccountType/>}/> */}
               <Route index element={<AccountInformation SignUp={signUp} />} />
@@ -152,6 +173,7 @@ const App = () => {
             <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
             <Route path="confirm-password" element={currentUser ? (<Navigate to="/" />) : (<ConfirmPassword ConfirmPassword={confirmPassword} />)}/>
             <Route path="email-activation" element={currentUser ? (!currentUser.emailVerified ? (<EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/>) : (<Navigate to="/" />)) : (<Navigate to="/auth" />)}/>
+            <Route path="multi-factor-setup" element={currentUser ? (currentUser.multiFactor.enrolledFactors.length === 0 ? <MutliFactor CurrentUser={currentUser}/> : <Navigate to="/"/>) : <Navigate to="/auth" />} />
             <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation} />}/>
           </Route>
         </Routes>

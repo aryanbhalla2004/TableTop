@@ -23,7 +23,7 @@ const PageNavbar = (props) => {
              <li><Link to="/vendor/2" className="nav-link last-link">View Live</Link></li>
             </ul>
           </div>
-          <Link to="/"><img src={logo} width={70}/></Link>
+          <Link to="/"><img src={logo} width={180} className="logo-tilt-fix"/></Link>
           
           {!props.CurrentUser &&
             <div className="right_section_wrapper">
