@@ -25,14 +25,22 @@ const EmailActivation = (props) => {
   }, [timer, timeOutCallback]);
 
   const emailVerified = () => {
+    setError("");
+    setMessage("");
+
     let user = firebase.auth().currentUser;
-    user.sendEmailVerification()
+    if(!user.emailVerified) {
+      user.sendEmailVerification()
       .then((res) => {
         setMessage(`Verification email sent to ${props.CurrentUser.email}`); 
       })
       .catch((err) => {
         setError(err.message);
       });
+    } else {
+      setError("This account has been already verified.");
+    }
+    
   }
 
   const resetTimer = function () {

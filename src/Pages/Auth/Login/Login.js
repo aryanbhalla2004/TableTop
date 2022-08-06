@@ -26,7 +26,7 @@ const Login = (props) => {
     })
 
     if (!recaptcha) {
-        verifier.verify().then(() => setRecaptcha(verifier));
+        setRecaptcha(verifier);
     }
 
     return () => {
