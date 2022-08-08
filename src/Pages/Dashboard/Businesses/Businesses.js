@@ -17,17 +17,14 @@ const Businesses = () => {
               <th>Category</th>
               <th>Address</th>
               <th>Rating</th>
-<<<<<<< HEAD
               {/* <th>Hours</th> */}
               {/* <th>Number</th> */}
               <th>Email</th>
               <th>Actions</th>
 
               // search bar
-=======
               <th>Email</th>
               <th></th>
->>>>>>> f62fda467b22200118f9ceeb88492d5a5b1c24eb
             </thead>
             <tbody>
               <tr>
@@ -35,7 +32,6 @@ const Businesses = () => {
                 <td>Restarunt</td>
                 <td>R3T-1P4 Winnipeg MB, Canada</td>
                 <td><BsIcons.BsStarFill/> 4.5</td>
-<<<<<<< HEAD
                 {/* <td>9:00 AM - 12:00 PM</td> */}
                 {/* <td>+1 (204)-213-3433</td> */}
                 <td>info@myburgerplace.com</td>
@@ -56,10 +52,8 @@ const Businesses = () => {
                   <button className="mt-3 btn btn-primary">View</button>
                   <button className="mt-3 btn btn-primary">Modify</button>
                 </td>
-=======
                 <td>info@myburgerplace.com</td>
                 <td><button className="mt-3 btn btn-primary">View</button> <button className="mt-3 btn btn-primary">Modify</button></td>
->>>>>>> f62fda467b22200118f9ceeb88492d5a5b1c24eb
               </tr>
  
             </tbody>

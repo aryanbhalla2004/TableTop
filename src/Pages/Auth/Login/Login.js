@@ -1,6 +1,8 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { signInWithGoogle, signInWithFacebook } from '../../../util/Firebase';
+
 const Login = (props) => {
   const [loginMessage, setLoginMessage] = useOutletContext();
   const [message, setMessage] = useState('');
@@ -85,8 +87,8 @@ const Login = (props) => {
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <h3 className="title-auth">Log In to Your Account</h3>
       <div className="social-login-button">
-        <Link to=""><i className="bi bi-google"></i> <span className="mx-3">Log in with Google</span></Link>
-        <Link to=""><i className="bi bi-facebook"></i> <span className="mx-3">Log in with Facebook</span></Link>
+        <Link to="" onClick={signInWithGoogle}><i className="bi bi-google"></i> <span className="mx-3">Log in with Google</span></Link>
+        <Link to="" onClick={signInWithFacebook}><i className="bi bi-facebook"></i> <span className="mx-3">Log in with Facebook</span></Link>
       </div>
       <div className="divider-line">
         <hr className="small-line" />

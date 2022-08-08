@@ -40,7 +40,6 @@ const Inquiries = () => {
               <th>Vendor Email</th>
               <th>Business Name</th>
               <th>Business Category</th>
-<<<<<<< HEAD
               <th>Date</th>
               <th></th>
             </thead>
@@ -65,19 +64,16 @@ const Inquiries = () => {
               })}
               {/* <tr>
                 <td><FaIcons.FaEnvelope/></td>
-=======
               <th>Actions</th>
               <th></th>
             </thead>
             <tbody>
               <tr>
                 <td><FaIcons.FaEnvelope/> 1 day ago</td>
->>>>>>> f62fda467b22200118f9ceeb88492d5a5b1c24eb
                 <td>Jewels Richardson</td>
                 <td>info@myhairplace.com</td>
                 <td>My Hair Place</td>
                 <td>Beauty</td>
-<<<<<<< HEAD
                 <td>1 day ago</td>
                 <td>
                   <button className="mt-3 btn btn-primary">View</button>
@@ -96,11 +92,9 @@ const Inquiries = () => {
                   <button className="mt-3 btn btn-primary">View</button>
                   <button className="mt-3 btn btn-primary">Reject</button>
                 </td>
-              </tr> */}
-=======
+              </tr> 
                 <td><button className="mt-3 btn btn-primary">View</button><button className="mt-3 btn btn-primary">Reject</button></td>
-              </tr>
->>>>>>> f62fda467b22200118f9ceeb88492d5a5b1c24eb
+              </tr>*/}
             </tbody>
           </table>
         </div>
