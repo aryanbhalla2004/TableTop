@@ -228,3 +228,34 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.grid-item-code-holder {
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.invalid-error-message {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--danger) !important;
+}
+
+.text-button {
+  border: none !important;
+  background-color: transparent;
+  color: #0d6efd;
+  transition: .3s;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+  color: #0b4bab;
+}
+
+.text-button:disabled {
+  cursor: not-allowed;
+  color: #656565;
+  text-decoration: none !important;
+}

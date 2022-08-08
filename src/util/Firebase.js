@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+
 import "firebase/compat/functions";
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -41,3 +42,5 @@ export const signInWithFacebook = () => {
       console.log(error);
     })
 }
+
+export {auth, db, firebase, functions};  
