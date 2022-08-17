@@ -3,6 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import { useState } from 'react';
 import {firebase} from "../../../util/Firebase";
 import { useEffect } from 'react';
+import { send } from 'emailjs-com';
 
 const Inquiries = () => {
   const [inquires, setInquiries] = useState([]);
@@ -23,6 +24,28 @@ const Inquiries = () => {
     } catch(e) {
       console.log(e.message);
     }
+  }
+
+  const reject = (id) => {
+    firebase.firestore().collection('BusinessInquires').doc(id).delete();
+
+    send(
+      'service_fkli7rb',
+      'template_ps655ab',
+      {
+        from_name: 'TableTop',
+        to_name: 'Client',
+        message: 'this is the website message',
+        reply_to: 'nicholashacaulttabs@gmail.com',
+      },
+      'db9qm4jXT2AwGt4gs'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
   }
 
   return (
@@ -50,14 +73,14 @@ const Inquiries = () => {
                   <tr>
                     <td><FaIcons.FaEnvelope/></td>
                     <td>{inquiry.data.fName} {inquiry.data.lName}</td>
-                    <td>{inquiry.data.phone}</td>
+                    {/* <td>{inquiry.data.phone}</td> */}
                     <td>{inquiry.data.businessEmail}</td>
                     <td>{inquiry.data.businessName}</td>
                     <td>{inquiry.data.businessType}</td>
                     <td>1 day ago</td>
                     <td>
-                      <button className="mt-3 btn btn-primary"><Link to={`view-inquiry/${inquiry.id}`} className="signup-link">View</Link></button>
-                      <button className="mt-3 btn btn-primary">Reject</button>
+                      <button className="mt-3 btn btn-primary btn-spacer"><Link to={`view-inquiry/${inquiry.id}`} className="signup-link">View</Link></button>
+                      <button className="mt-3 btn btn-primary btn-spacer" onClick={() => reject(inquiry.id)}>Reject</button>
                     </td>
                   </tr>
                 )

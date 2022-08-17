@@ -20,8 +20,8 @@ const BusinessHours = (props) => {
 
 	const Update = (e) => {
 		e.preventDefault();
-		handleChange(values.hours.sunday.open, e.target.value);
-    console.log(values)
+    props.BranchForm.hours[e.target.name.split(" ")[0]].hours[e.target.name.split(" ")[1]] = e.target.value;
+    props.UpdateUserForm(e);
 	}
 
   const HandleCheck = (e) => {
@@ -30,6 +30,7 @@ const BusinessHours = (props) => {
       element.disabled = !element.disabled
     }
     
+    props.BranchForm.hours[e.target.name].operating = document.getElementById(`${e.target.name}-operating`).checked;
 
     const status = document.getElementsByClassName(`${e.target.name} hour-text`);
     if (status[0].textContent === "Open") {
@@ -37,6 +38,7 @@ const BusinessHours = (props) => {
     } else {
       status[0].textContent = "Open";
     }
+    props.UpdateUserForm(e);
   }
 
   return (
@@ -48,86 +50,86 @@ const BusinessHours = (props) => {
         <div className="mb-3">
           <p className="hour-text">Sunday</p>
           <label class="switch">
-            <input type="checkbox" name="sunday" onChange={HandleCheck} />
+            <input type="checkbox" name="sunday" onChange={HandleCheck} id={"sunday-operating"}  checked={props.BranchForm.hours.sunday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="sunday hour-text">Closed</p>
           <label for="sunday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'sunday hour-input'} id="sunday" required="" name="hours.sunday.open" onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'sunday hour-input'} id="sunday-opened" required="" name="sunday open" onChange={Update} value={props.BranchForm.hours.sunday.hours.open}/>
           <label for="sunday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'sunday hour-input'} id="sunday" required="" name="sunday-close" onChange={Update} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'sunday hour-input'} id="sunday-closed" required="" name="sunday close" onChange={Update} value={props.BranchForm.hours.sunday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Monday</p>
           <label class="switch">
-            <input type="checkbox" name="monday" onChange={HandleCheck} />
+            <input type="checkbox" name="monday" onChange={HandleCheck} id={"monday-operating"}  checked={props.BranchForm.hours.monday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="monday hour-text">Closed</p>
           <label for="monday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'monday hour-input'} id="monday" required="" name="hours" onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'monday hour-input'} id="monday-opened" required="" name="monday open" onChange={Update} value={props.BranchForm.hours.monday.hours.open}/>
           <label for="monday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'monday hour-input'} id="monday" required="" name="hours" onChange={Update} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'monday hour-input'} id="monday-closed" required="" name="monday close" onChange={Update} value={props.BranchForm.hours.monday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Tuesday</p>
           <label class="switch">
-            <input type="checkbox" name="tuesday" onChange={HandleCheck} />
+            <input type="checkbox" name="tuesday" onChange={HandleCheck} id={"tuesday-operating"}  checked={props.BranchForm.hours.tuesday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="tuesday hour-text">Closed</p>
           <label for="tuesday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'tuesday hour-input'} id="tuesday" required="" name="hours" onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'tuesday hour-input'} id="tuesday-opened" required="" name="tuesday open" onChange={Update} value={props.BranchForm.hours.tuesday.hours.open}/>
           <label for="tuesday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'tuesday hour-input'} id="tuesday" required="" name="hours" onChange={Update} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'tuesday hour-input'} id="tuesday-closed" required="" name="tuesday close" onChange={Update} value={props.BranchForm.hours.tuesday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Wednesday</p>
           <label class="switch">
-            <input type="checkbox" name="wednesday" onChange={HandleCheck} />
+            <input type="checkbox" name="wednesday" onChange={HandleCheck} id={"wednesday-operating"}  checked={props.BranchForm.hours.wednesday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="wednesday hour-text">Closed</p>
           <label for="wednesday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'wednesday hour-input'} id="wednesday" required="" name="hours" onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'wednesday hour-input'} id="wednesday-opened" required="" name="wednesday open" onChange={Update} value={props.BranchForm.hours.wednesday.hours.open}/>
           <label for="wednesday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'wednesday hour-input'} id="wednesday" required="" name="hours" onChange={Update} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'wednesday hour-input'} id="wednesday-closed" required="" name="wednesday close" onChange={Update} value={props.BranchForm.hours.wednesday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Thursday</p>
           <label class="switch">
-            <input type="checkbox" name="thursday" onChange={HandleCheck} />
+            <input type="checkbox" name="thursday" onChange={HandleCheck} id={"thursday-operating"}  checked={props.BranchForm.hours.thursday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="thursday hour-text">Closed</p>
           <label for="thursday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'thursday hour-input'} id="thursday" required="" name="hours"onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'thursday hour-input'} id="thursday-opened" required="" name="thursday open" onChange={Update} value={props.BranchForm.hours.thursday.hours.open}/>
           <label for="thursday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'thursday hour-input'} id="thursday" required="" name="hours" value={values.hours} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'thursday hour-input'} id="thursday-closed" required="" name="thursday close" onChange={Update} value={props.BranchForm.hours.thursday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Friday</p>
           <label class="switch">
-            <input type="checkbox" name="friday" onChange={HandleCheck} />
+            <input type="checkbox" name="friday" onChange={HandleCheck} id={"friday-operating"}  checked={props.BranchForm.hours.friday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="friday hour-text">Closed</p>
           <label for="friday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'friday hour-input'} id="friday" required="" name="hours" value={values.hours} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'friday hour-input'} id="friday-opened" required="" name="friday open" onChange={Update} value={props.BranchForm.hours.friday.hours.open}/>
           <label for="friday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'friday hour-input'} id="friday" required="" name="hours" value={values.hours} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'friday hour-input'} id="friday-closed" required="" name="friday close" onChange={Update} value={props.BranchForm.hours.friday.hours.close}/>
         </div>
         <div className="mb-3">
           <p className="hour-text">Saturday</p>
           <label class="switch">
-            <input type="checkbox" name="saturday" onChange={HandleCheck} />
+            <input type="checkbox" name="saturday" onChange={HandleCheck} id={"saturday-operating"}  checked={props.BranchForm.hours.saturday.operating}/>
             <span class="slider round"></span>
           </label>
           <p className="saturday hour-text">Closed</p>
           <label for="saturday-open" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'saturday hour-input'} id="saturday" required="" name="hours" value={values.hours} onChange={Update} placeholder="Opens At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'saturday hour-input'} id="saturday-opened" required="" name="saturday open" onChange={Update} value={props.BranchForm.hours.saturday.hours.open} />
           <label for="saturday-close" className="form-label"></label>
-          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'saturday hour-input'} id="saturday" required="" name="hours" value={values.hours} onChange={Update} placeholder="Closes At"/>
+          <input type="time" disabled={true} className={"" ? 'form-control is-invalid' : 'saturday hour-input'} id="saturday-closed" required="" name="saturday close"onChange={Update} value={props.BranchForm.hours.saturday.hours.close} />
         </div>
         <div className="d-grid my-4">
 					<button className="btn btn-primary full-width height-10px" type="submit" onClick={Continue} disabled={"" ? true : false}>

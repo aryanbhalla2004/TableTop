@@ -20,10 +20,10 @@ const Businesses = () => {
               {/* <th>Hours</th> */}
               {/* <th>Number</th> */}
               <th>Email</th>
-              <th>Actions</th>
+              {/* <th>Actions</th> */}
 
-              // search bar
-              <th>Email</th>
+              {/* // search bar */}
+              {/* <th>Email</th> */}
               <th></th>
             </thead>
             <tbody>
@@ -36,8 +36,8 @@ const Businesses = () => {
                 {/* <td>+1 (204)-213-3433</td> */}
                 <td>info@myburgerplace.com</td>
                 <td>
-                  <button className="mt-3 btn btn-primary">View</button>
-                  <button className="mt-3 btn btn-primary">Modify</button>
+                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link">View</Link></button>
+                  <button className="mt-3 btn btn-primary btn-spacer">Modify</button>
                 </td>
               </tr>
               <tr>
@@ -49,11 +49,11 @@ const Businesses = () => {
                 {/* <td>+1 (204)-345-3575</td> */}
                 <td>info@mytireplace.com</td>
                 <td>
-                  <button className="mt-3 btn btn-primary">View</button>
-                  <button className="mt-3 btn btn-primary">Modify</button>
+                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link">View</Link></button>
+                  <button className="mt-3 btn btn-primary btn-spacer">Modify</button>
                 </td>
-                <td>info@myburgerplace.com</td>
-                <td><button className="mt-3 btn btn-primary">View</button> <button className="mt-3 btn btn-primary">Modify</button></td>
+                {/* <td>info@myburgerplace.com</td>
+                <td><button className="mt-3 btn btn-primary">View</button> <button className="mt-3 btn btn-primary">Modify</button></td> */}
               </tr>
  
             </tbody>

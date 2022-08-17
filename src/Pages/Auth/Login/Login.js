@@ -1,6 +1,5 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { signInWithGoogle, signInWithFacebook } from '../../../util/Firebase';
 import {firebase, auth} from "../../../util/Firebase";
 import { useEffect, useState, useCallback } from "react";

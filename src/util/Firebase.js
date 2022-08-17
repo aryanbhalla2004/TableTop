@@ -42,5 +42,3 @@ export const signInWithFacebook = () => {
       console.log(error);
     })
 }
-
-export {auth, db, firebase, functions};  

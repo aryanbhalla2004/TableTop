@@ -125,7 +125,7 @@ const App = () => {
         {finishSignup && <FinishSignUp ShowLogoutBox={finishSignup}/>}
         <Routes>
           //? Dashboard
-          <Route path="dashboard" element={currentUser ? (<Dashboard currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
+          <Route path="dashboard" element={currentUser ? (<Dashboard currentUser={currentUser} Logout={logout} />) : (<Navigate to="/auth" />)}>
             //! Both Accounts
             <Route index element={currentUser ? (<DashboardHome currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="favorites" element={currentUser ? (<Favorites currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
@@ -135,7 +135,7 @@ const App = () => {
             <Route path="branches/add-business" element={<AddBusiness currentUser={currentUser} />} />
             <Route path="branches/edit-business/" element={<EditBusiness currentUser={currentUser} />} />
             <Route path="inquiries" element={currentUser ? (<Inquiries currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
-            <Route path="inquiries/view-inquiry/:id" element={<ViewInquiry currentUser={currentUser} />} />
+            <Route path="inquiries/view-inquiry/:id" element={<ViewInquiry currentUser={currentUser} SignUp={signUp}/>} />
             <Route path="notifications" element={currentUser ? (<Notifications currentUser={currentUser} />) : (<Navigate to="/auth" />)} />
             <Route path="settings" element={currentUser ? (<Settings currentUser={currentUser} />) : (<Navigate to="/auth" />)}>
               <Route path="profile" element={currentUser ? (<Profile currentUser={currentUser} />) : (<Navigate to="/auth" />)} />

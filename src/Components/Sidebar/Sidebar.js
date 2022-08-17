@@ -21,14 +21,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {
-  const accountType = "Admin";
+  const accountType = "Business";
 
   return (
     <>
       <ProSidebar className="sidebar" collapsed={props.collapsedStatus}>
         <SidebarHeader className="sidebar_header">
           <div className={!props.collapsedStatus ? "company_name hide_name" : "company_name"}><BiIcons.BiChair /></div>
-          <div className={props.collapsedStatus ? "company_name hide_name text-company" : "company_name text-company"}>TableTop <MdIcons.MdOutlineClose onClick={() => props.setCollapsedStatus(!props.collapsedStatus)}/></div>
+          <div className={props.collapsedStatus ? "company_name hide_name text-company" : "company_name text-company"}><Link to={"../"}>TableTop</Link><MdIcons.MdOutlineClose onClick={() => props.setCollapsedStatus(!props.collapsedStatus)}/></div>
         </SidebarHeader>
         <SidebarContent>
           <Menu>
@@ -88,7 +88,7 @@ const Sidebar = (props) => {
         </SidebarContent>
         <SidebarFooter className="sidebar_footer">
           <Menu>
-            <MenuItem icon={<RiIcons.RiLogoutCircleRLine />}>Logout</MenuItem>
+            <MenuItem icon={<RiIcons.RiLogoutCircleRLine />} onClick={props.logout}>Logout</MenuItem>
           </Menu>
         </SidebarFooter>
       </ProSidebar>
