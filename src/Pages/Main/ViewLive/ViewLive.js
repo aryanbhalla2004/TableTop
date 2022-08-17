@@ -1,7 +1,7 @@
 import "./ViewLive.css";
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+
 import { getLocations } from "./MapBoxAPI";
 import * as turf from "@turf/turf";
 import restaurantImg from "./restaurant.png";
@@ -107,6 +107,12 @@ const ViewLive = () => {
         if (!map.current.hasImage("custom-marker"))
           map.current.addImage("custom-marker", image);
       });
+      new mapboxgl.Marker({
+        color: "#FFFFFF",
+        draggable: true,
+      })
+        .setLngLat([lng, lat])
+        .addTo(map);
     });
   };
 
@@ -238,10 +244,11 @@ const ViewLive = () => {
       radiusValue,
       options
     );
+    console.log(userLocationQueryResult);
     if (userLocationQueryResult.length > 0) {
       userLocationMarker.current = new mapboxgl.Marker({
         color: "red",
-        draggable: true,
+        draggable: false,
       })
         .setLngLat(userLocationQueryResult[0].center)
         .addTo(map.current);
