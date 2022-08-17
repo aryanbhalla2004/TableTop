@@ -1,11 +1,10 @@
 import "./ViewLive.css";
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
-
 import { getLocations } from "./MapBoxAPI";
 import * as turf from "@turf/turf";
 import restaurantImg from "./restaurant.png";
-
+import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
 const ViewLive = () => {
