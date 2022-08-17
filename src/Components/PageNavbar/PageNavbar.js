@@ -18,40 +18,103 @@ const PageNavbar = (props) => {
         <div className="content-sizing-box header-wrapper-style">
           <div className="connection-log-menu">
             <ul className="header-nav">
-             <li><Link to="/home" className="nav-link">Home</Link></li>
-             <li><Link to="/faq" className="nav-link">FAQ</Link></li>
-             <li><Link to="/vendor/2" className="nav-link last-link">View Live</Link></li>
+              <li>
+                <Link to="/home" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="nav-link">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/viewLive" className="nav-link last-link">
+                  View Live
+                </Link>
+              </li>
             </ul>
           </div>
-          <Link to="/"><img src={logo} width={180} className="logo-tilt-fix"/></Link>
-          
-          {!props.CurrentUser &&
+          <Link to="/">
+            <img src={logo} width={180} className="logo-tilt-fix" />
+          </Link>
+
+          {!props.CurrentUser && (
             <div className="right_section_wrapper">
               <div className="user_profile_wrapper">
-                <Link to="/auth" className="circle-button-header login-button-header"><i class="bi bi-people"></i> <span>Sign in</span></Link>
+                <Link
+                  to="/auth"
+                  className="circle-button-header login-button-header"
+                >
+                  <i class="bi bi-people"></i> <span>Sign in</span>
+                </Link>
               </div>
-             <button variant="light" onClick={() => props.SetShowAccountSelection(true)}>Become a Member&nbsp;<i class="bi bi-arrow-right"></i></button>
+              <button
+                variant="light"
+                onClick={() => props.SetShowAccountSelection(true)}
+              >
+                Become a Member&nbsp;<i class="bi bi-arrow-right"></i>
+              </button>
             </div>
-          }
-          
-          {props.CurrentUser &&
+          )}
+
+          {props.CurrentUser && (
             <div className="right_section_wrapper">
               <div className="user_profile_wrapper">
-                <div className="circle-button-header login-button-header" aria-controls="navbar-dark-example" onClick={() => {setShowAccount(!showAccount);  setShowNoti(false)}}><i class="bi bi-people"></i> <span>{props.CurrentUser.email}</span><BiChevronDown/>
-                  <div className={showAccount ? "hover-notification-box show-box account-box" : "hover-notification-box account-box"}>
+                <div
+                  className="circle-button-header login-button-header"
+                  aria-controls="navbar-dark-example"
+                  onClick={() => {
+                    setShowAccount(!showAccount);
+                    setShowNoti(false);
+                  }}
+                >
+                  <i class="bi bi-people"></i>{" "}
+                  <span>{props.CurrentUser.email}</span>
+                  <BiChevronDown />
+                  <div
+                    className={
+                      showAccount
+                        ? "hover-notification-box show-box account-box"
+                        : "hover-notification-box account-box"
+                    }
+                  >
                     <ul>
-                      <li onClick={() => history("/dashboard")}><BsFillGridFill/>Dashboard</li>
-                      <li onClick={() => history("/dashboard/settings/profile")}><BsFillGearFill/> Settings</li>
-                      <li><AiOutlineUser /> Profile</li>
-                      <li onClick={() => props.SetShowLogoutBox(true)}><HiOutlineLogout/> Logout</li>
+                      <li onClick={() => history("/dashboard")}>
+                        <BsFillGridFill />
+                        Dashboard
+                      </li>
+                      <li
+                        onClick={() => history("/dashboard/settings/profile")}
+                      >
+                        <BsFillGearFill /> Settings
+                      </li>
+                      <li>
+                        <AiOutlineUser /> Profile
+                      </li>
+                      <li onClick={() => props.SetShowLogoutBox(true)}>
+                        <HiOutlineLogout /> Logout
+                      </li>
                     </ul>
-                  </div> 
+                  </div>
                 </div>
               </div>
-              <div className="login-button-noti-btn" onClick={() => {setShowNoti(!showNoti);  setShowAccount(false)}}>
+              <div
+                className="login-button-noti-btn"
+                onClick={() => {
+                  setShowNoti(!showNoti);
+                  setShowAccount(false);
+                }}
+              >
                 <i className="bi bi-inboxes"></i>
-                <BiChevronDown/>
-                <div className={showNoti ? "hover-notification-box show-box notification-box-front-end" : "hover-notification-box" }>
+                <BiChevronDown />
+                <div
+                  className={
+                    showNoti
+                      ? "hover-notification-box show-box notification-box-front-end"
+                      : "hover-notification-box"
+                  }
+                >
                   <div>
                     <span>Notification</span>
                     <Link to="">Mark all as read</Link>
@@ -61,30 +124,37 @@ const PageNavbar = (props) => {
                       <div>
                         <h5>Your order is placed</h5>
                         <p>if serveral languages coalesce the grammer</p>
-                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                        <span>
+                          <i class="bi bi-clock"></i> 3 min ago
+                        </span>
                       </div>
                     </li>
                     <li>
                       <div>
                         <h5>Your order is placed</h5>
                         <p>if serveral languages coalesce the grammer</p>
-                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                        <span>
+                          <i class="bi bi-clock"></i> 3 min ago
+                        </span>
                       </div>
                     </li>
                     <li>
                       <div>
                         <h5>Your order is placed</h5>
                         <p>if serveral languages coalesce the grammer</p>
-                        <span><i class="bi bi-clock"></i> 3 min ago</span>
+                        <span>
+                          <i class="bi bi-clock"></i> 3 min ago
+                        </span>
                       </div>
                     </li>
                   </ul>
-                </div>  
+                </div>
               </div>
-              <Link to="/favorite" className="like-button-header"><i class="bi bi-heart"></i></Link>
+              <Link to="/favorite" className="like-button-header">
+                <i class="bi bi-heart"></i>
+              </Link>
             </div>
-            
-          }
+          )}
         </div>
       </div>
     </>
