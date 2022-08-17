@@ -45,6 +45,7 @@ import FinishSignUp from "./Components/FinishSignUp/FinishSignUp";
 const App = () => {
   const history = useNavigate();
   const [currentUser, setCurrentUser] = useState();
+  const [confirmSelectedBusiness, setConfirmSelectedBusiness] = useState(false);
   const [loginMessageFromLogout, setLoginMessageFromLogout] = useState();
   const [loading, setLoading] = useState(true);
   const [finishSignup, setFinishSignup] = useState(false);
@@ -151,7 +152,7 @@ const App = () => {
             <Route path="home" element={<Home />} />
             <Route path="favorite" element={<MyFavorite />} />
             <Route path="about-us" element={<AboutUs />} />
-            <Route path="business-profile-setup" element={<BusinessForm/>} />
+            <Route path="business-profile-setup" element={<BusinessForm setConfirmSelectedBusiness={setConfirmSelectedBusiness} confirmSelectedBusiness={confirmSelectedBusiness}/>} />
             <Route path="faq" element={<Faq/>} />
             <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>

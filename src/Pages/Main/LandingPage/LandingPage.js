@@ -24,12 +24,77 @@ const LandingPage = (props) => {
           <ul className="horizontal-scroll">
             <li className={category === "restaurants" && "active-category-selected"} onClick={() => setCategory("restaurants")}>
               <RiIcons.RiRestaurant2Line/>
-              <span>restaurants</span>
+              <span>Restaurants</span>
             </li>
-            <li className={category === "Beauty" && "active-category-selected"} onClick={() => setCategory("Beauty")}>
+            <li className={category === "fastfood" && "active-category-selected"} onClick={() => setCategory("fastfood")}>
+              <RiIcons.RiRestaurant2Line/>
+              <span>Fast Food</span>
+            </li>
+            <li className={category === "transportation" && "active-category-selected"} onClick={() => setCategory("transportation")}>
+              <RiIcons.RiRestaurant2Line/>
+              <span>Transportation</span>
+            </li>
+            <li className={category === "hotels" && "active-category-selected"} onClick={() => setCategory("hotels")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Hotels</span>
+            </li>
+            <li className={category === "sports" && "active-category-selected"} onClick={() => setCategory("sports")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Sports</span>
+            </li>
+            <li className={category === "entertainment" && "active-category-selected"} onClick={() => setCategory("entertainment")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Entertainment</span>
+            </li>
+            <li className={category === "artsCulture" && "active-category-selected"} onClick={() => setCategory("artsCulture")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Arts & Culture</span>
+            </li>
+            <li className={category === "beauty" && "active-category-selected"} onClick={() => setCategory("beauty")}>
               <MdIcons.MdOutlineHealthAndSafety/>
-              <span>Beauty & Fitness</span>
+              <span>Beauty</span>
             </li>
+            <li className={category === "fitness" && "active-category-selected"} onClick={() => setCategory("fitness")}>
+              <MdIcons.MdOutlineHealthAndSafety/>
+              <span>Fitness</span>
+            </li>
+            <li className={category === "health" && "active-category-selected"} onClick={() => setCategory("health")}>
+              <GiIcons.GiHospital />
+              <span>Health</span>
+            </li>
+            <li className={category === "bankingFinance" && "active-category-selected"} onClick={() => setCategory("bankingFinance")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Banking & Finance</span>
+            </li>
+            <li className={category === "clothing" && "active-category-selected"} onClick={() => setCategory("clothing")}>
+              <GiIcons.GiClothes/>
+              <span>Clothing</span>
+            </li>
+            <li className={category === "shoes" && "active-category-selected"} onClick={() => setCategory("shoes")}>
+              <GiIcons.GiClothes/>
+              <span>Shoes</span>
+            </li>
+            <li className={category === "gaming" && "active-category-selected"} onClick={() => setCategory("gaming")}>
+              <TbIcons.TbDeviceGamepad2/>
+              <span>Gaming</span>
+            </li>
+            <li className={category === "electronics" && "active-category-selected"} onClick={() => setCategory("electronics")}>
+              <GiIcons.GiWireCoil/>
+              <span>Electronics</span>
+            </li>
+            <li className={category === "homeRenovation" && "active-category-selected"} onClick={() => setCategory("homeRenovation")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Home Renovation</span>
+            </li>
+            <li className={category === "landscaping" && "active-category-selected"} onClick={() => setCategory("landscaping")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Landscaping</span>
+            </li>
+            <li className={category === "plumbing" && "active-category-selected"} onClick={() => setCategory("plumbing")}>
+              <RiIcons.RiScissors2Fill/>
+              <span>Plumbing</span>
+            </li>
+
             <li className={category === "Barbers" && "active-category-selected"} onClick={() => setCategory("Barbers")}>
               <RiIcons.RiScissors2Fill/>
               <span>Barbers</span>
@@ -41,6 +106,10 @@ const LandingPage = (props) => {
             <li className={category === "Dealership" && "active-category-selected"} onClick={() => setCategory("Dealership")}>
               <GiIcons.GiCarKey/>
               <span>Dealership</span>
+            </li>
+            <li className={category === "Gaming" && "active-category-selected"} onClick={() => setCategory("Gaming")}>
+              <TbIcons.TbDeviceGamepad2/>
+              <span>Gaming</span>
             </li>
             <li className={category === "Clothing" && "active-category-selected"} onClick={() => setCategory("Clothing")}>
               <GiIcons.GiClothes/>
@@ -66,8 +135,11 @@ const LandingPage = (props) => {
               <TbIcons.TbDeviceGamepad2/>
               <span>Gaming</span>
             </li>
+            <li className={category === "restaurants" && "active-category-selected"} onClick={() => setCategory("restaurants")}>
+              <RiIcons.RiRestaurant2Line/>
+              <span>restaurants</span>
+            </li>
           </ul>
-          <button className="ghost-button-home" onClick={() => props.setShowSearchBox(!props.showSearchBox)}><i class="bi bi-sort-down-alt"></i> Search</button>
         </div>
       </div>
       <div className="slider-container">

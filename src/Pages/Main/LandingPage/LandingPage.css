@@ -29,10 +29,11 @@
 
 
 .horizontal-scroll {
-  width: 90%;
+  width: 100%;
   list-style-type: none;
   display: flex;
   margin-bottom: 0;
+  overflow-x: scroll;
   gap: 25px;
 }
 

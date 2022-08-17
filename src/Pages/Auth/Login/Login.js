@@ -238,7 +238,7 @@ const Login = (props) => {
         {loginMessage && <div className="alert alert-success mt-0" role="alert">{loginMessage}</div>}
         {fieldError.message && <div className="alert alert-danger mt-0" role="alert">{fieldError.message}</div>}
         <form onSubmit={verifyCode}>
-          <AuthCode onChange={handleOnChange} containerClassName="grid-item-code-holder" inputClassName="form-control" isPassword/>
+          <AuthCode onChange={handleOnChange} containerClassName="grid-item-code-holder" inputClassName="form-control"/>
           {fieldError.code && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid OTP code.</div>}
           <div className="d-grid my-4">
             <button className="btn btn-primary full-width height-10px" type="submit" disabled={loading ? true : false}>

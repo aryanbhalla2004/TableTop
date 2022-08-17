@@ -40,6 +40,7 @@ export const BusinessFormStep = (props) => {
 
   const nextStep = (item) => {
     console.log(item);
+    props.setPrompt(true);
     props.SetBusinessForm(prevInput => ({
       ...prevInput, businessNumber: item['BN']
     }));
@@ -51,7 +52,7 @@ export const BusinessFormStep = (props) => {
       ...prevInput, business: item
     }));
 
-    props.SetBusinessSearch(false);
+    // props.SetBusinessSearch(false);
   }
 
   const validateField = () => {
@@ -117,6 +118,7 @@ export const BusinessFormStep = (props) => {
 
   return (
     <>
+    
     {props.BusinessSearch && 
     <form className="form-container" id="form-location" onSubmit={fetchData}>
       <h2 className='header-text-search-business'>Find Your Business</h2>
@@ -166,17 +168,19 @@ export const BusinessFormStep = (props) => {
       </div>
       <button className="ghost-button-home mt-4" onClick={() => props.BackStep('one')}>Go back</button>
     </form>}
+
+
     {!props.BusinessSearch && 
     <form className="form-container" id="form-location">
       <div className="d-flex mb-3">
         <div className="mb-3 col-md-6 rm-padding-left box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Business Name *</label>
-          <input type="Name" className="form-control" id="emailAddress" required="" name="businessName" value={props.BusinessForm.businessName} onChange={props.UpdateUserForm} placeholder="John" disabled={props.BusinessForm.businessName != "" && props.BusinessForm.business != "" ? true : false}/>
+          <input type="Name" className="form-control" id="emailAddress" required="" name="businessName" value={props.BusinessForm.businessName} onChange={props.UpdateUserForm} placeholder="John" disabled={props.BusinessForm.businessName != "" && props.BusinessForm.business.Company_Name != "" ? true : false}/>
           {props.FieldError.businessName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
         </div>
         <div className="mb-3 col-md-6  rm-padding-left rm-padding-right box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Legal Business # *</label>
-          <input type="Name" className="form-control" id="emailAddress" required="" name="businessNumber" value={props.BusinessForm.businessNumber} onChange={props.UpdateUserForm} placeholder="2328402" disabled={props.BusinessForm.businessNumber != "" && props.BusinessForm.business['BN'] !="" && props.BusinessForm.business != "" ? true : false}/>
+          <input type="Name" className="form-control" id="emailAddress" required="" name="businessNumber" value={props.BusinessForm.businessNumber} onChange={props.UpdateUserForm} placeholder="2328402" disabled={props.BusinessForm.businessNumber != "" && props.BusinessForm.business['BN'] != "" && props.BusinessForm.business !=  "" ? true : false}/>
           {props.FieldError.businessNumber && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
         </div>
       </div>
