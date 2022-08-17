@@ -238,11 +238,10 @@ const ViewLive = () => {
       radiusValue,
       options
     );
-    console.log(userLocationQueryResult);
     if (userLocationQueryResult.length > 0) {
       userLocationMarker.current = new mapboxgl.Marker({
         color: "red",
-        draggable: false,
+        draggable: true,
       })
         .setLngLat(userLocationQueryResult[0].center)
         .addTo(map.current);
