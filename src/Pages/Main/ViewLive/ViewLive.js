@@ -107,12 +107,6 @@ const ViewLive = () => {
         if (!map.current.hasImage("custom-marker"))
           map.current.addImage("custom-marker", image);
       });
-      new mapboxgl.Marker({
-        color: "#FFFFFF",
-        draggable: true,
-      })
-        .setLngLat([lng, lat])
-        .addTo(map);
     });
   };
 
