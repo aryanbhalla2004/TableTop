@@ -43,6 +43,10 @@ const ConfirmActivation = (props) => {
       <div className='d-flex justify-content-center height-10px'>
         <svg className="checkmark" viewBox="0 0 52 52"><circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
       </div>
+      <p className="text-muted mb-4">An Email has been send to <b>aryanbhalla66@gmail.com</b> with a link to verify your account. If you have not received the email after a few minutes. please check your spam folder</p>
+      <button className="btn btn-primary full-width height-10px mb-3" type="submit" onClick={() => history('/dashboard')}>Go To 2FA Setup</button>
+      <p className="text-2 text-dark">Return to <Link className="fw-500" to="/">Home</Link></p>
+
       {message && <div className="alert alert-success mt-2" role="alert">{message}</div>}
       {error && <div className="alert alert-danger mt-2" role="alert">{error}</div>}
       {!error && <button className="btn btn-primary full-width height-10px mb-3" type="button" onClick={() => history('/auth/multi-factor-setup')}>Continue</button>}

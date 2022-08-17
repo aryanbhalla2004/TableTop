@@ -26,10 +26,13 @@ const Branches = () => {
                 <td>My Tire Place</td>
                 <td>R6P-3D5 Winnipeg MB, Canada</td>
                 <td>
-                  <button className="mt-3 btn btn-primary" disabled={burstActive}>Post Burst</button>
+                  <button className="mt-3 btn btn-primary btn-spacer" disabled={burstActive}>Post Burst</button>
                   <p>expires in: {expireTime}</p>
                 </td>
-                <td><button className="mt-3 btn btn-primary">View</button><button className="mt-3 btn btn-primary">Modify</button></td>
+                <td>
+                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link">View</Link></button>
+                  <button className="mt-3 btn btn-primary">Modify</button>
+                </td>
               </tr>
             </tbody>
           </table>

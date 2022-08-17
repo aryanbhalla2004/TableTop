@@ -44,6 +44,7 @@ const AccountInformation = (props) => {
                 let userId = informationUser.user.uid;
                 console.log(userId);
                 const user = {
+                  accountType: "Client",
                   firstName: userInput.firstName,
                   lastName: userInput.lastName,
                   email: userInput.email,

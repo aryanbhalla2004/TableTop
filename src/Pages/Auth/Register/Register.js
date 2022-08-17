@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Register = () => {
   const [userInput, setUserInput] = useState({
-    accountType: "Employee",
+    accountType: "Client",
     firstName: '',
     lastName: '',
     email: '',

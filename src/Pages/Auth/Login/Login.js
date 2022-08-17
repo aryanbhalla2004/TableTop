@@ -1,5 +1,6 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
+import { signInWithGoogle, signInWithFacebook } from '../../../util/Firebase';
 import {firebase, auth} from "../../../util/Firebase";
 import { useEffect, useState, useCallback } from "react";
 import AuthCode from 'react-auth-code-input';
@@ -189,8 +190,8 @@ const Login = (props) => {
       {!codeSent && <> 
       <h3 className="title-auth">Log In to Your Account</h3>
       <div className="social-login-button">
-        <Link to=""><i className="bi bi-google"></i> <span className="mx-3">Log in with Google</span></Link>
-        <Link to=""><i className="bi bi-facebook"></i> <span className="mx-3">Log in with Facebook</span></Link>
+        <Link to="" onClick={signInWithGoogle}><i className="bi bi-google"></i> <span className="mx-3">Log in with Google</span></Link>
+        <Link to="" onClick={signInWithFacebook}><i className="bi bi-facebook"></i> <span className="mx-3">Log in with Facebook</span></Link>
       </div>
       <div className="divider-line">
         <hr className="small-line" />

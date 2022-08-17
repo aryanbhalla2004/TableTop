@@ -75,7 +75,7 @@ const TopNavbar = (props) => {
           <div className="drop-down-profile-aero">
             <i className="bi bi-chevron-down"></i>
             <div className="navbar-dropdown">
-              <NavbarDropDown />
+              <NavbarDropDown SetShowLogoutBox={props.setShowLogoutBox} Logout={props.logout}/>
             </div>
           </div>
         </div>

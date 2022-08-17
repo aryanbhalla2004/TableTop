@@ -5,10 +5,12 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import TopNavbar from "../../Components/TopNavbar/TopNavbar";
 import DashboardHeading from "../../Components/DashboardHeading/DashboardHeading";
 import "../Dashboard/Dashboard.css";
+import LogoutPage from './../../Components/Logout/Logout';
 
 const Dashboard = (props) => {
   const [collapsedStatus, setCollapsedStatus] = useState(true);
   const [currentUserInfo, setCurrentUserInfo] = useState();
+  const [showLogoutBox, setShowLogoutBox] = useState(false);
 
   useEffect(() => {
     let user = firebase.firestore().collection('Users').doc(props.currentUser.uid);
@@ -30,16 +32,26 @@ const Dashboard = (props) => {
     // </div>
     <>
       <div className="sidebar_container">
-        <Sidebar collapsedStatus={collapsedStatus} setCollapsedStatus={setCollapsedStatus}></Sidebar>
+        <Sidebar 
+          collapsedStatus={collapsedStatus} 
+          setCollapsedStatus={setCollapsedStatus}>
+          logout={props.Logout}
+        </Sidebar>
         <div className="navbar_container">
           <TopNavbar
             setCollapsedStatus={setCollapsedStatus}
             collapsedStatus={collapsedStatus}
             currentUser = {props.currentUser}
             currentUserInfo={currentUserInfo}
+            setShowLogoutBox={setShowLogoutBox}
+            logout={props.Logout}
           />
           <div className="dashboard-container">
             <Outlet context={[props.currentUser, currentUserInfo]}/>
+            {/* {console.log(showLogoutBox)}
+            {console.log(props.Logout)}
+            {console.log(setShowLogoutBox)} */}
+            <LogoutPage ShowLogoutBox={showLogoutBox} Logout={props.Logout} SetShowLogoutBox={setShowLogoutBox}/>
           </div>
         </div>
       </div>

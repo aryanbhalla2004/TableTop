@@ -10,7 +10,6 @@ const BusinessDetails = (props) => {
 	const { nextStep, handleChange, values } = props;
 
 	const Continue = e => {
-		e.preventDefault();
 		nextStep();
 	}
 
@@ -18,6 +17,32 @@ const BusinessDetails = (props) => {
 		e.preventDefault();
 		handleChange(e.target.name, e.target.value);
 	}
+
+  const validateField = (e) => {
+    e.preventDefault();
+    if(props.BranchForm.businessName != ""  && props.BranchForm.phoneNumber != "" && props.BranchForm.email != "") {
+      Continue();
+    } else {
+      if(props.BranchForm.businessName === "") {
+        props.SetFieldError(prevInput => ({
+          ...prevInput, fName: true
+        }));
+      }
+
+      if(props.BranchForm.phoneNumber === "") {
+        props.SetFieldError(prevInput => ({
+          ...prevInput, phone: true
+        }));
+      }
+
+      if(props.BranchForm.email === "") {
+        props.SetFieldError(prevInput => ({
+          ...prevInput, email: true
+        }));
+      }
+    }
+  }
+
   // const history = useNavigate();
   // const [userInput, setUserInput, setFieldError, fieldError] = useOutletContext();
   // const [score, setScore] = useState();
@@ -162,11 +187,21 @@ const BusinessDetails = (props) => {
       <p className="text-muted mb-4">Please choose an account type below. Various pieces of information will be requested depending on your choice.</p>
       {/* {fieldError.message && <div className="alert alert-danger mt-0" role="alert">{fieldError.message}</div>} */}
       <form>
-				<div className="mb-3">
+
+
+				{/* <div className="mb-3">
           <label for="emailAddress" className="form-label">Business Name</label>
           <input type="Name" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="businessName" value={values.businessName} onChange={Update} placeholder="Business Name"/>
-          {/* {fieldError.businessName && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid business name.</div>} */}
+          {fieldError.businessName && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid business name.</div>}
+        </div> */}
+
+        <div className="mb-3">
+          <label for="emailAddress" className="form-label review-form-lable">Business Name *</label>
+          <input type="Name" className={props.FieldError.businessName ? 'form-control is-invalid' : 'form-control'} id="" required="" name="businessName" value={props.BranchForm.businessName} onChange={props.UpdateUserForm} placeholder="Business Name"/>
+          {props.FieldError.businessName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
         </div>
+
+
         {/* <div className="d-flex">
           <div className="mb-3 col-md-6  rm-padding-left rm-padding-right">
             <label for="emailAddress" className="form-label">Last Name</label>
@@ -174,17 +209,32 @@ const BusinessDetails = (props) => {
             {fieldError.lastName && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid last name.</div>}
           </div>
         </div> */}
-        <small id="passwordHelpBlock" className="form-text text-muted light-under-field-text">Please use your Businesses Legal Name as it appears on your legal documents.</small>
+
+        <small id="passwordHelpBlock" className="form-text text-muted light-under-field-text">Please use your Businesses Official Title as it appears on your legal documents.</small>
+        
         <div className="mb-3">
+          <label for="emailAddress" className="form-label review-form-lable">Phone Number</label>
+          <input type="tel" className={props.FieldError.phoneNumber ? 'form-control is-invalid' : 'form-control'} id="" required="" name="phoneNumber" value={props.BranchForm.phoneNumber} onChange={props.UpdateUserForm} placeholder="+1 (232)-234-3122"/>
+          {props.FieldError.phoneNumber && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
+       </div>
+
+       <div className="mb-3">
+          <label for="emailAddress" className="form-label review-form-lable">Email Address *</label>
+          <input type="email" className={props.FieldError.email ? 'form-control is-invalid' : 'form-control'} id="" required="" name="email" value={props.BranchForm.email} onChange={props.UpdateUserForm} placeholder="example@example.com"/>
+          {props.FieldError.email && <div id="validationServer03Feedback" className=" mt-0 mb-0 error-message">Please provide a valid email.</div>}
+        </div>
+
+        {/* <div className="mb-3">
           <label for="phoneNumber" className="form-label">Phone Number</label>
           <input type="phoneNumber" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="phoneNumber" value={values.phoneNumber} onChange={Update} placeholder="Phone Number" />
-          {/* {fieldError.phoneNumber && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid phone number.</div>} */}
-        </div>
-        <div className="mb-3">
+          {fieldError.phoneNumber && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid phone number.</div>}
+        </div> */}
+
+        {/* <div className="mb-3">
           <label for="emailAddress" className="form-label">Email Address</label>
           <input type="email" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="email" value={values.email} onChange={Update} placeholder="Enter Your Email"/>
-          {/* {fieldError.email && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid email.</div>} */}
-        </div>
+          {fieldError.email && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid email.</div>}
+        </div> */}
         
         <div className="d-grid my-4">
           <button className="btn btn-primary full-width height-10px" type="submit" onClick={Continue} disabled={"" ? true : false}>

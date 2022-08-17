@@ -7,21 +7,26 @@ import * as CgIcons from "react-icons/cg";
 import * as IoIcons from "react-icons/io";
 import * as FiIcons from "react-icons/fi";
 import * as RiIcons from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
-const NavbarDropDown = () => {
+const NavbarDropDown = (props) => {
+  const click = () => {
+    props.SetShowLogoutBox(true);
+  }
+
   return (
     <div className="dropdown_wrapper">
       <div className="dropdown_option settings_wrapper">
         <BsIcons.BsFillGearFill />
-        <div className="settings">Settings</div>
+        <Link to={"settings/profile"}><div className="settings">Settings</div></Link>
       </div>
       <div className="dropdown_option settings_wrapper">
         <FiIcons.FiActivity />
-        <div className="settings">Activity</div>
+        <Link to={"../dashboard"}><div className="settings">Activity</div></Link>
       </div>
       <div className="dropdown_option logout_wrapper last">
         <RiIcons.RiLogoutCircleRLine />
-        <div className="logout">Logout</div>
+        <div className="logout" onClick={props.Logout}>Logout</div>
       </div>
     </div>
   );

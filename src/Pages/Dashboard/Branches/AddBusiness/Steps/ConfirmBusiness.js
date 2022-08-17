@@ -19,34 +19,51 @@ const ConfirmBusiness = (props) => {
 		prevStep();
 	}
 
+	const Submit = async (e) => {
+		e.preventDefault();
+    try {
+      await firebase.firestore().collection("BusinessBranches").doc().set(props.BranchForm);
+    } catch(e) {
+      console.log(e.message);
+    }
+		console.log("egfas");
+		// nextStep();
+  }
+
 	return (
 		<motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <h3 className="title-auth">5. Confirm Your Info</h3>
       {/* <p className="text-muted mb-4">Please choose an account type below. Various pieces of information will be requested depending on your choice.</p> */}
       {/* {fieldError.message && <div className="alert alert-danger mt-0" role="alert">{fieldError.message}</div>} */}
-      <form>
+      <form onSubmit={Submit}>
 				<div className="mb-3">
-					<p>Business Name: {values.businessName}</p>
+					<p>Business Name: {props.BranchForm && props.BranchForm.businessName}</p>
 				</div>
 				<div className="mb-3">
-					<p>Phone Number: {values.phoneNumber}</p>
+					<p>Phone Number: {props.BranchForm && props.BranchForm.phoneNumber}</p>
 				</div>
 				<div className="mb-3">
-					<p>Email: {values.email}</p>
+					<p>Email: {props.BranchForm && props.BranchForm.email}</p>
 				</div>
 				<div className="mb-3">
-					<p>Category: {values.category}</p>
+					<p>Category: {props.BranchForm && props.BranchForm.category}</p>
 				</div>
 				<div className="mb-3">
-					<p>Address: {values.address}</p>
+					<p>Address: {props.BranchForm && props.BranchForm.businessAddress}</p>
 				</div>
 				<div className="mb-3">
-					<p>Description: {values.description}</p>
+					<p>Latitude: {props.BranchForm && props.BranchForm.coordinates.lat}</p>
+				</div>
+				<div className="mb-3">
+					<p>Longitude: {props.BranchForm && props.BranchForm.coordinates.lng}</p>
+				</div>
+				<div className="mb-3">
+					<p>Description: {props.BranchForm && props.BranchForm.description}</p>
 				</div>
 				<div className="mb-3">
 					<p>Amenities: </p>
 					<ul>
-						{values.amenities.map((amenity) => <li style={{marginLeft: "5rem"}}>{amenity.description}</li>)}
+						{props.BranchForm.amenities.map((amenity) => <li style={{marginLeft: "5rem"}}>{amenity.description}</li>)}
 					</ul>
 				</div>
 				<div className="mb-3">
@@ -55,12 +72,12 @@ const ConfirmBusiness = (props) => {
 				<div className="mb-3">
 					<p>Images: </p>
 					<ul>
-						<ImageGrid images={values.images} />
+						<ImageGrid images={props.BranchForm.images} />
 					</ul>
 				</div>
         
         <div className="d-grid my-4">
-					<button className="btn btn-primary full-width height-10px" type="submit" onClick={Continue} disabled={"" ? true : false}>
+					<button className="btn btn-primary full-width height-10px" type="submit" disabled={"" ? true : false}>
             { 
               "" ? 
               <div className="spinner-border" role="status">

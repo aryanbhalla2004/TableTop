@@ -22,7 +22,10 @@ const Favorites = () => {
                 <td>R3T-1P4 Winnipeg MB, Canada</td>
                 <td>9:00 AM - 12:00 PM</td>
                 <td>+1 (204)-213-3433</td>
-                <td><button className="mt-3 btn btn-primary">View</button><button className="mt-3 btn btn-primary">Remove</button></td>
+                <td>
+                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link">View</Link></button>
+                  <button className="mt-3 btn btn-primary btn-spacer">Remove</button>
+                </td>
               </tr>
             </tbody>
           </table>
