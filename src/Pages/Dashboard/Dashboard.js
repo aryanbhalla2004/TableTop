@@ -32,11 +32,7 @@ const Dashboard = (props) => {
     // </div>
     <>
       <div className="sidebar_container">
-        <Sidebar 
-          collapsedStatus={collapsedStatus} 
-          setCollapsedStatus={setCollapsedStatus}>
-          logout={props.Logout}
-        </Sidebar>
+        <Sidebar collapsedStatus={collapsedStatus} setCollapsedStatus={setCollapsedStatus} currentUserInfo={currentUserInfo} logout={props.Logout}/>
         <div className="navbar_container">
           <TopNavbar
             setCollapsedStatus={setCollapsedStatus}
