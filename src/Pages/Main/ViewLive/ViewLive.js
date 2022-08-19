@@ -1,9 +1,11 @@
 import "./ViewLive.css";
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
+
 import { getLocations } from "./MapBoxAPI";
 import * as turf from "@turf/turf";
 import restaurantImg from "./restaurant.png";
+import vendorMarker from "./location.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
@@ -99,6 +101,7 @@ const ViewLive = () => {
 
   const route = () => {
     map.current.addControl(new mapboxgl.NavigationControl());
+
     map.current.on("load", () => {
       //code
       map.current.loadImage(restaurantImg, (error, image) => {
@@ -106,11 +109,20 @@ const ViewLive = () => {
         if (!map.current.hasImage("custom-marker"))
           map.current.addImage("custom-marker", image);
       });
+      map.current.loadImage(vendorMarker, (error, image) => {
+        if (error) throw error;
+        if (!map.current.hasImage("vendorMarker"))
+          map.current.addImage("vendorMarker", image);
+      });
     });
   };
 
   const getVendorMarkers = () => {
     // Add a symbol layer
+    for (var data of geoData.features) {
+      data.properties.description = data.place_name;
+    }
+    console.log(geoData);
     map.current.addLayer({
       id: "vendorLocations",
       type: "symbol",
@@ -119,7 +131,7 @@ const ViewLive = () => {
         data: geoData,
       },
       layout: {
-        "icon-image": "custom-marker",
+        "icon-image": "vendorMarker",
         // get the title name from the source's "title" property
         "text-field": ["get", "title"],
         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
@@ -134,6 +146,7 @@ const ViewLive = () => {
     });
     //when mouseover the marker, events happen
     map.current.on("mouseenter", "vendorLocations", (e) => {
+      //console.log(e);
       // Change the cursor style as a UI indicator.
       map.current.getCanvas().style.cursor = "pointer";
 
@@ -141,7 +154,9 @@ const ViewLive = () => {
       const coordinates = e.features[0].geometry.coordinates;
       // const description = e.features[0].description;
       const description = e.features[0].properties.description;
-
+      const distance = e.features[0].properties.distance;
+      const address = e.features[0].properties.address;
+      const category = e.features[0].properties.category;
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears
       // over the copy being pointed to.
@@ -153,13 +168,17 @@ const ViewLive = () => {
       // based on the feature found.
       popup
         .setLngLat(coordinates)
-        .setHTML(`<h3>Restaurant</h3><p>Description : ....</p>`)
+        .setHTML(
+          distance
+            ? `<p>${description}</p><p>${distance.toFixed(1)}km</p>`
+            : `<p>${description}</p>`
+        )
         .addTo(map.current);
     });
     //when click vendor marker, go to the vendor page
-    map.current.on("click", "vendorLocations", (e) => {
-      window.location.href = "/vendor/2";
-    });
+    // map.current.on("click", "vendorLocations", (e) => {
+    //   window.location.href = "/vendor/2";
+    // });
     map.current.on("mouseleave", "vendorLocations", () => {
       map.current.getCanvas().style.cursor = "";
       popup.remove();
@@ -188,8 +207,8 @@ const ViewLive = () => {
         var circle = turf.circle([lon, lat], radiusValue, options);
 
         userLocationMarker.current = new mapboxgl.Marker({
-          color: "red",
-          draggable: true,
+          color: "blue",
+          draggable: false,
         })
           .setLngLat([lon, lat])
           .addTo(map.current);
@@ -239,8 +258,8 @@ const ViewLive = () => {
     );
     if (userLocationQueryResult.length > 0) {
       userLocationMarker.current = new mapboxgl.Marker({
-        color: "red",
-        draggable: true,
+        color: "blue",
+        draggable: false,
       })
         .setLngLat(userLocationQueryResult[0].center)
         .addTo(map.current);
@@ -282,8 +301,8 @@ const ViewLive = () => {
     var circle = turf.circle(location.center, radiusValue, options);
     if (userLocationQueryResult.length > 0) {
       userLocationMarker.current = new mapboxgl.Marker({
-        color: "red",
-        draggable: true,
+        color: "blue",
+        draggable: false,
       })
         .setLngLat(location.center)
         .addTo(map.current);
@@ -369,6 +388,11 @@ const ViewLive = () => {
       if (index > -1) {
         geoData.features.splice(index, 1);
       }
+    } else if (distance < radiusValue) {
+      const index = geoData.features.findIndex((data) => data.id === vendor.id);
+      if (index > -1) {
+        geoData.features[index].properties.distance = distance;
+      }
     }
 
     return result;
@@ -382,12 +406,12 @@ const ViewLive = () => {
               className="Map-Input"
               onChange={(e) => setQueryValue(e.target.value)}
               type="search"
-              placeholder="Vendor Search.."
+              placeholder="Destination"
               value={queryValue}
               autofill="true"
             ></input>
             <button type="submit" className="Map-button Location-button">
-              <i class="bi bi-search"></i>
+              <i className="bi bi-search"></i>
             </button>
           </form>
           {vendorLocations.length > 0 && (
@@ -406,8 +430,8 @@ const ViewLive = () => {
             </div>
           )}
         </div>
-        <div className="divide">
-          <h3 style={{ color: "gray" }}>|</h3>
+        <div className="Map-SearchForm Map-divide-container">
+          <div className="Map-divide">|</div>
         </div>
         <div>
           <form
@@ -440,7 +464,7 @@ const ViewLive = () => {
         </div>
         <div className="Map-SearchForm UserLocationIcon">
           <button type="submit" onClick={getCurrent} className="Map-button">
-            <i class="bi bi-geo-alt"></i>
+            <i className="bi bi-geo-alt"></i>
           </button>
         </div>
         <div className="Map-SearchForm">
@@ -453,7 +477,7 @@ const ViewLive = () => {
             value={radiusValue}
             onChange={(e) => setRadiusValue(e.target.value)}
           />
-          <label for="volume">{radiusValue}km</label>
+          <div className="km">{radiusValue}km</div>
         </div>
       </div>
       <div>
