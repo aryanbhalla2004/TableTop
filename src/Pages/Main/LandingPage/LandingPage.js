@@ -22,52 +22,13 @@ const LandingPage = (props) => {
       <div className="stories_container">
         <div className="content-sizing-box stories-wrapper">
           <ul className="horizontal-scroll">
-            <li className={category === "restaurants" && "active-category-selected"} onClick={() => setCategory("restaurants")}>
-              <RiIcons.RiRestaurant2Line/>
-              <span>restaurants</span>
-            </li>
-            <li className={category === "Beauty" && "active-category-selected"} onClick={() => setCategory("Beauty")}>
-              <MdIcons.MdOutlineHealthAndSafety/>
-              <span>Beauty & Fitness</span>
-            </li>
-            <li className={category === "Barbers" && "active-category-selected"} onClick={() => setCategory("Barbers")}>
-              <RiIcons.RiScissors2Fill/>
-              <span>Barbers</span>
-            </li>
-            <li className={category === "Autos" && "active-category-selected"} onClick={() => setCategory("Autos")}>
-              <GiIcons.GiHomeGarage/>
-              <span>Autos & Vehicles</span>
-            </li>
-            <li className={category === "Dealership" && "active-category-selected"} onClick={() => setCategory("Dealership")}>
-              <GiIcons.GiCarKey/>
-              <span>Dealership</span>
-            </li>
-            <li className={category === "Clothing" && "active-category-selected"} onClick={() => setCategory("Clothing")}>
-              <GiIcons.GiClothes/>
-              <span>Clothing & Shoes</span>
-            </li>
-            <li className={category === "Electronics" && "active-category-selected"} onClick={() => setCategory("Electronics")}>
-              <GiIcons.GiWireCoil/>
-              <span>Electronics</span>
-            </li>
-            <li className={category === "Literature" && "active-category-selected"} onClick={() => setCategory("Literature")}> 
-              <BiIcons.BiBookContent/>
-              <span>Books & Literature</span>
-            </li>
-            <li className={category === "Food" && "active-category-selected"} onClick={() => setCategory("Food")}>
-              <GiIcons.GiHamburger/>
-              <span>Fast Food</span>
-            </li>
-            <li className={category === "Medical" && "active-category-selected"} onClick={() => setCategory("Medical")}>
-              <GiIcons.GiHospital />
-              <span>Health & Medical</span>
-            </li>
-            <li className={category === "Gaming" && "active-category-selected"} onClick={() => setCategory("Gaming")}>
-              <TbIcons.TbDeviceGamepad2/>
-              <span>Gaming</span>
-            </li>
+            {props.Category && props.Category.map((item, index) => (
+              <li className={category === item.secondaryName && "active-category-selected"} onClick={() => setCategory(item.secondaryName)}>
+                {(item.icon)}
+                <span>{item.name && item.name}</span>
+              </li>
+            ))}
           </ul>
-          <button className="ghost-button-home" onClick={() => props.setShowSearchBox(!props.showSearchBox)}><i class="bi bi-sort-down-alt"></i> Search</button>
         </div>
       </div>
       <div className="slider-container">

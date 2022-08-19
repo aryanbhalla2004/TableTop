@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-
+import React, {useState} from 'react';
+import PhoneInput from 'react-phone-input-2';
 export const InformationForm = (props) => {
   const validateField = () => {
     if(props.BusinessForm.fName != "" && props.BusinessForm.lName != "" && props.BusinessForm.phone != "" && props.BusinessForm.email != "") {
@@ -30,6 +30,15 @@ export const InformationForm = (props) => {
       }
     }
   }
+
+  const handleOnChange = (res) => {
+    props.SetFieldError(prevInput => ({
+      ...prevInput, phone: false
+    }));
+    props.SetBusinessForm(prevInput => ({
+      ...prevInput, phone: res
+    }));
+  };
   
   return (
     <form className="form-container" id="form-location">
@@ -37,19 +46,19 @@ export const InformationForm = (props) => {
         <div className="mb-3 col-md-6 rm-padding-left box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Legal First Name *</label>
           <input type="Name" className={props.FieldError.fName ? 'form-control is-invalid' : 'form-control'} id="" required="" name="fName" value={props.BusinessForm.fName} onChange={props.UpdateUserForm} placeholder="John"/>
-          {props.FieldError.fName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
+          {props.FieldError.fName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid first name.</div>}
         </div>
         <div className="mb-3 col-md-6  rm-padding-left rm-padding-right box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Legal Last Name *</label>
           <input type="Name" className={props.FieldError.lName ? 'form-control is-invalid' : 'form-control'} id="" required="" name="lName" value={props.BusinessForm.lName} onChange={props.UpdateUserForm} placeholder="Smith"/>
-          {props.FieldError.lName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
+          {props.FieldError.lName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid last name.</div>}
         </div>
       </div>
       <div className="d-flex mb-3">
         <div className="mb-3 col-md-4 rm-padding-left box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Phone Number</label>
-          <input type="tel" className={props.FieldError.phone ? 'form-control is-invalid' : 'form-control'} id="" required="" name="phone" value={props.BusinessForm.phone} onChange={props.UpdateUserForm} placeholder="+1 (232)-234-3122"/>
-          {props.FieldError.phone && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
+          <PhoneInput country={'ca'} value={props.BusinessForm.businessPhone} onChange={handleOnChange} autoFormat enableSearch searchClass="form-control" inputClass={props.FieldError.phone ? 'form-control is-invalid' : 'form-control'} buttonClass="" priority={{ca: 1, us: 1, kz: 0, ru: 1}}/>
+          {props.FieldError.phone && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid phone number.</div>}
        </div>
         <div className="mb-3 col-md-8  rm-padding-left rm-padding-right  box-container-field">
           <label for="emailAddress" className="form-label review-form-lable">Email Address *</label>

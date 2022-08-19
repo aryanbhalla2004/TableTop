@@ -21,7 +21,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {
-  const accountType = "Business";
+  const accountType = props.currentUserInfo && props.currentUserInfo.accountType;
 
   return (
     <>

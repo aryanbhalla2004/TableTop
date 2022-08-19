@@ -56,20 +56,17 @@ const Inquiries = () => {
           <div className="header-profile-box">
             <h2>All Businesses</h2>
           </div>
-          <table className='activity-table'>
+          <table className='activity-table inquire-grid-table'>
             <thead>
               <th></th>
               <th>Vendor Name</th>
               <th>Vendor Email</th>
               <th>Business Name</th>
               <th>Business Category</th>
-              <th>Date</th>
               <th></th>
             </thead>
             <tbody>
-              {inquires.map(function(inquiry, i) { 
-                console.log(inquiry);
-                return ( 
+              {inquires.map((inquiry, i) =>  ( 
                   <tr>
                     <td><FaIcons.FaEnvelope/></td>
                     <td>{inquiry.data.fName} {inquiry.data.lName}</td>
@@ -77,14 +74,11 @@ const Inquiries = () => {
                     <td>{inquiry.data.businessEmail}</td>
                     <td>{inquiry.data.businessName}</td>
                     <td>{inquiry.data.businessType}</td>
-                    <td>1 day ago</td>
                     <td>
-                      <button className="mt-3 btn btn-primary btn-spacer"><Link to={`view-inquiry/${inquiry.id}`} className="signup-link">View</Link></button>
-                      <button className="mt-3 btn btn-primary btn-spacer" onClick={() => reject(inquiry.id)}>Reject</button>
+                      <button className="mt-3 btn btn-primary btn-spacer"><Link to={`view-inquiry/${inquiry.id}`} className="signup-link"><i class="bi bi-binoculars"></i> View</Link></button>
                     </td>
                   </tr>
-                )
-              })}
+              ))}
               {/* <tr>
                 <td><FaIcons.FaEnvelope/></td>
               <th>Actions</th>

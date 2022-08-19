@@ -26,3 +26,71 @@
 }
 
 /* Component Style Page Header */
+
+.inquire-grid-table > thead, .inquire-grid-table > tbody, tr{
+  display: grid !important;
+  grid-template-columns: .5fr 1fr 1.4fr 2fr 1fr 1.2fr !important;
+}
+
+.inquire-grid-table > thead > *, .inquire-grid-table > tbody, tr > *{
+  width: 100% !important;
+}
+
+.inquire-grid-table > tbody{
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup-link {
+  font-weight: 300;
+  gap: 8px;
+  transition: .3s;
+  display: flex;
+}
+
+.signup-link:hover {
+  color: #fff !important;
+}
+
+.remove-padding {
+  margin-left: -110px !important;
+}
+
+.overlay-loading {
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.855);
+  z-index: 1000;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  gap: 20px;
+  font-weight: 300;
+}
+
+.relative-box {
+  position: relative;
+}
+
+.center-spinner {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-with-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-with-space-between > i {
+  font-size: 1.3em;
+  cursor: pointer;
+}

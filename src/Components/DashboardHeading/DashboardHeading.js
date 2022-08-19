@@ -1,5 +1,5 @@
 import "../DashboardHeading/DashboardHeading.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ const DashboardHeading = (props) => {
           <p>Welcome to Intez Profile page</p>
         </div>
         <div className="path">
-          {
+          {!props.backButton && 
             pathnameArray.map((word, index) => (
               capitalizeFirstLetter(word) === currentPage ? (
               <div className="current_page" key={index}>
@@ -46,6 +46,7 @@ const DashboardHeading = (props) => {
               )
             )) 
           }
+          {props.backButton && <button className="mt-3 btn btn-primary btn-spacer"><Link to={props.backpath} className="signup-link"><i class="bi bi-arrow-left"></i> Back</Link></button>}
         </div>
       </div>
     </motion.div>
