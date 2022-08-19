@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate, Link } from "react-router-dom";
 import { firebase, auth } from "./util/Firebase";
 import Login from "./Pages/Auth/Login/Login";
-import "firebase/auth"
+import "firebase/auth";
 import Register from "./Pages/Auth/Register/Register";
 import Auth from "./Pages/Auth/Auth";
 import ForgotPassword from "./Pages/Auth/ForgotPassword/ForgotPassword";
 import Main from "./Pages/Main/Main";
 import Faq from "./Pages/Main/Faq/Faq";
+import ViewLive from "./Pages/Main/ViewLive/ViewLive";
 import ConfirmActivation from "./Pages/Auth/ConfirmActivation/ConfirmActivation";
 import ConfirmPassword from "./Pages/Auth/ConfirmPassword/ConfirmPassword";
 import EmailActivation from "./Pages/Auth/EmailActivation/EmailActivation";
@@ -37,7 +38,7 @@ import AddBusiness from "./Pages/Dashboard/Branches/AddBusiness/AddBusiness";
 import BusinessForm from "./Pages/Main/BusinessAccountForm/BusinessForm";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import EditBusiness from "./Pages/Dashboard/Branches/EditBusiness/EditBusiness";
-import ViewInquiry from './Pages/Dashboard/Inquiries/ViewInquiry/ViewInquiry';
+import ViewInquiry from "./Pages/Dashboard/Inquiries/ViewInquiry/ViewInquiry";
 import MutliFactor from "./Pages/Auth/MultiFactor/MutliFactor";
 import Logout from "./Components/Logout/Logout";
 import LogoutRedirect from "./Pages/Auth/Logout/Logout";
@@ -73,7 +74,6 @@ const App = () => {
       setInterval(() => {
         setLoading(false);
       }, 2000);
-
     });
     Category();
     return unsubscribe;
@@ -82,14 +82,23 @@ const App = () => {
   useEffect(() => {
     //! this code is checking if the returing users is email verified and has 2 factor auth.
     console.log(window.location.pathname);
-    if(window.location.pathname != "/user-auth-email-system" && currentUser != undefined && !currentUser.emailVerified && window.location.pathname != "confirm-activation") {
-      history("/auth/email-activation")
+    if (
+      window.location.pathname != "/user-auth-email-system" &&
+      currentUser != undefined &&
+      !currentUser.emailVerified &&
+      window.location.pathname != "confirm-activation"
+    ) {
+      history("/auth/email-activation");
     }
 
-    if(currentUser != undefined && currentUser.multiFactor.enrolledFactors.length === 0 && currentUser.emailVerified) {
+    if (
+      currentUser != undefined &&
+      currentUser.multiFactor.enrolledFactors.length === 0 &&
+      currentUser.emailVerified
+    ) {
       history("/auth/multi-factor-setup");
     }
-  }, [currentUser])
+  }, [currentUser]);
 
   const login = (email, password) => {
     console.log("login");
@@ -197,9 +206,15 @@ const App = () => {
             <Route path="multi-factor-setup" element={currentUser ? (currentUser.multiFactor.enrolledFactors.length === 0 ? <MutliFactor CurrentUser={currentUser}/> : <Navigate to="/"/>) : <Navigate to="/auth" />} />
             <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation} />}/>
           </Route>
-        </Routes>
-      </>
-    ) : <LoadingScreen/>
+          <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
+          <Route path="confirm-password" element={currentUser ? (<Navigate to="/" />) : (<ConfirmPassword ConfirmPassword={confirmPassword} />)}/>
+          <Route path="email-activation" element={currentUser ? (!currentUser.emailVerified ? (<EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/>) : (<Navigate to="/" />)) : (<Navigate to="/auth" />)}/>
+          <Route path="multi-factor-setup" element={currentUser ? (currentUser.multiFactor.enrolledFactors.length === 0 ? (<MutliFactor CurrentUser={currentUser} />) : (<Navigate to="/" />)) : (<Navigate to="/auth" />)}/>
+          <Route path="confirm-activation" element={<ConfirmActivation ConfirmActivation={confirmActivation} />}/>
+      </Routes>
+    </>
+  ) : 
+    <LoadingScreen />
   );
 };
 
