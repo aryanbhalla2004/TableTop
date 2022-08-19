@@ -42,14 +42,30 @@ import MutliFactor from "./Pages/Auth/MultiFactor/MutliFactor";
 import Logout from "./Components/Logout/Logout";
 import LogoutRedirect from "./Pages/Auth/Logout/Logout";
 import FinishSignUp from "./Components/FinishSignUp/FinishSignUp";
+import RegisterBusiness from "./Pages/Auth/BusinessRegistration/RegisterBusiness";
 
 const App = () => {
+  const [category, setCategory] = useState();
   const history = useNavigate();
   const [currentUser, setCurrentUser] = useState();
   const [confirmSelectedBusiness, setConfirmSelectedBusiness] = useState(false);
   const [loginMessageFromLogout, setLoginMessageFromLogout] = useState();
   const [loading, setLoading] = useState(true);
   const [finishSignup, setFinishSignup] = useState(false);
+
+  const Category = async (e) => {
+    try {
+      await firebase.firestore().collection("Categories").onSnapshot((querySnapshot) => {
+        let tempList = [];
+        querySnapshot.forEach((doc) => {
+          tempList.push(doc.data());
+        });
+        setCategory(tempList);
+      });
+    } catch(e) {
+      console.log(e.message);
+    }
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -59,7 +75,7 @@ const App = () => {
       }, 2000);
 
     });
-
+    Category();
     return unsubscribe;
   }, []);
 
@@ -150,11 +166,11 @@ const App = () => {
           </Route>
           //? Main
           
-          <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} />}>
+          <Route path="/" element={<Main CurrentUser={currentUser} Logout={logout} Category={category}/>}>
             <Route path="home" element={<Home />} />
             <Route path="favorite" element={<MyFavorite />} />
             <Route path="about-us" element={<AboutUs />} />
-            <Route path="business-profile-setup" element={<BusinessForm setConfirmSelectedBusiness={setConfirmSelectedBusiness} confirmSelectedBusiness={confirmSelectedBusiness}/>} />
+            <Route path="business-profile-setup" element={<BusinessForm setConfirmSelectedBusiness={setConfirmSelectedBusiness} confirmSelectedBusiness={confirmSelectedBusiness} Category={category}/>} />
             <Route path="faq" element={<Faq/>} />
             <Route path="/vendor/:id" element={<Vendor CurrentUser={currentUser}/>} />
           </Route>
@@ -173,6 +189,8 @@ const App = () => {
               
               {/* <Route path="account-vendor" element={<AccountVendor/>}/> */}
             </Route>
+
+            <Route path="signup/:id" element={<RegisterBusiness SignUp={signUp}/>}/>            
             <Route path="forgot-password" element={currentUser ? (<Navigate to="/" />) : (<ForgotPassword ForgotPassword={forgotPassword} />)}/>
             <Route path="confirm-password" element={currentUser ? (<Navigate to="/" />) : (<ConfirmPassword ConfirmPassword={confirmPassword} />)}/>
             <Route path="email-activation" element={currentUser ? (!currentUser.emailVerified ? (<EmailActivation CurrentUser={currentUser} EmailActivation={emailActivation}/>) : (<Navigate to="/" />)) : (<Navigate to="/auth" />)}/>

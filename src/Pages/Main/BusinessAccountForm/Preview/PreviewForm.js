@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import DocViewer, {DocViewerRenderers} from "react-doc-viewer";
+
 
 export const PreviewForm = (props) => {
+  
   const submit = () => {
-    props.NextStep('three', 'last');
+    props.NextStep('four', 'last');
     props.OnSubmit();
   }
+
+
   return (
     <form className="form-container" id="form-location">
       <div className='submition-preview'>
-        <h4>Submition Preview</h4>
+        <h4>Submission Preview</h4>
         <div className='dividing-line'>
           <div className='line-small'/>
           <span>Personal Information</span>
@@ -37,7 +42,7 @@ export const PreviewForm = (props) => {
 
         <div className='dividing-line'>
           <div className='line-small'/>
-          <span>Buiness Information</span>
+          <span>Business Information</span>
           <div className='line-big'/>
         </div>
 
@@ -86,10 +91,25 @@ export const PreviewForm = (props) => {
           <p>{props.BusinessForm && props.BusinessForm.businessDescription}</p>
         </div>
       </div>
+      <div className='dividing-line'>
+        <div className='line-small'/>
+        <span>Ownership Document Proof</span>
+        <div className='line-big'/>
+      </div>
+      <div className="d-flex mt-3 single-row">
+        <div className="mb-3 col-md-6 rm-padding-left box-container-field">
+          <label for="emailAddress" className="form-label review-form-lable">Bank Identity Proof *</label>
+          <p className='done-uploaded'><i class="bi bi-check-circle-fill"></i> {props.BusinessForm.one != "" ? "Uploaded Successfully" : "Uploading Failed"}</p>
+        </div>
+        <div className="mb-3 col-md-6  rm-padding-left rm-padding-right box-container-field">
+          <label for="emailAddress" className="form-label review-form-lable">Business Identification Documents *</label>
+          <p className='done-uploaded'><i class="bi bi-check-circle-fill"></i> {props.BusinessForm.two != "" ? "Uploaded Successfully" : "Uploading Failed"}</p>
+        </div>
+      </div>
       <div className='action-button-form-btns'>
-        <p>The information show ab</p>
+        <p>Please go over the information you entered and check for any errors before proceeding.</p>
         <div>
-          <a onClick={() => props.BackStep('two')}>Go Back</a>
+          <a onClick={() => props.BackStep('three')}>Go Back</a>
           <a className="ghost-button-home" onClick={submit}>Complete</a>
         </div>
       </div>

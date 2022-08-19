@@ -184,7 +184,7 @@ const MutliFactor = (props) => {
       {message && <div className="alert alert-success" role="alert">{message}</div>}
       {resendError && <div className="alert alert-danger mt-0" role="alert">The SMS code has expired. Please <a onClick={retryCode}>Click here</a> to re-send the verification code to try again. </div>}
       <form onSubmit={confirmCode}>
-        <AuthCode onChange={handleOnChange} containerClassName="grid-item-code-holder" inputClassName="form-control" isPassword/>
+        <AuthCode onChange={handleOnChange} containerClassName="grid-item-code-holder" inputClassName="form-control"/>
         {error && <div id="validationServer03Feedback" class="invalid-error-message mt-0 mb-0">Please provide a valid 6-digit code.</div>}
         <button class="btn btn-primary full-width height-10px mt-4" type="submit" disabled={loading ? true : false}>
             { 

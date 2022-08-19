@@ -22,7 +22,7 @@ const Main = (props) => {
       <AccountSelect SetShowAccountSelection={setShowAccountSelection} ShowAccountSelection={showAccountSelection}/>
       <Logout ShowLogoutBox={showLogoutBox} Logout={props.Logout} SetShowLogoutBox={setShowLogoutBox}/>
       <Header CurrentUser={props.CurrentUser} SetShowLogoutBox={setShowLogoutBox} SetShowAccountSelection={setShowAccountSelection}/>
-      {pathname === "/" && <LandingPage setShowSearchBox={setShowSearchBox} showSearchBox={showSearchBox}/>}
+      {pathname === "/" && <LandingPage setShowSearchBox={setShowSearchBox} showSearchBox={showSearchBox} Category={props.Category}/>}
       {pathname !== "/" && <Outlet />}
       <Footer />
     </motion.div>

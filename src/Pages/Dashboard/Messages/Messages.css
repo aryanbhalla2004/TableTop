@@ -3,9 +3,7 @@
 *:after {
   box-sizing: border-box;
 }
-.bi::before {
-  color: rgb(173, 173, 173);
-}
+
 .Message-Container {
   width: 100%;
 
