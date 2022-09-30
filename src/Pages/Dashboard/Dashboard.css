@@ -26,8 +26,17 @@
 }
 
 /* Component Style Page Header */
+.branch-table > thead, .branch-table > tbody > tr {
+  display: grid !important;
+  width: 100%;
+  grid-template-columns: 1.5fr 2fr 1fr 1.5fr!important;
+}
 
-.inquire-grid-table > thead, .inquire-grid-table > tbody, tr{
+.branch-table > thead > *, .branch-table > tbody, tr > * {
+  width: 100% !important;
+}
+
+.inquire-grid-table > thead, .inquire-grid-table > tbody > tr{
   display: grid !important;
   grid-template-columns: .5fr 1fr 1.4fr 2fr 1fr 1.2fr !important;
 }
@@ -36,7 +45,7 @@
   width: 100% !important;
 }
 
-.inquire-grid-table > tbody{
+.inquire-grid-table > tbody, .branch-table > tbody{
   display: flex !important;
   flex-direction: column;
   width: 100%;

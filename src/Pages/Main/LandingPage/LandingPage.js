@@ -1,4 +1,5 @@
-import "./LandingPage.css"
+import "./LandingPage.css";
+import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "react-multi-carousel/lib/styles.css";
@@ -13,25 +14,57 @@ import LandingPageBusinessCard from "../../../Components/LandingPageBusinessCard
 const LandingPage = (props) => {
   const [category, setCategory] = useState("");
 
+
+
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <Helmet>
         <title>Local Business Live Footage | TableTop</title>
         <script src="./main.js" defer></script>
       </Helmet>
+      <div className="search-box-slider-landing-page">
+        <div className="search-box-slider-item-wrapper-overlay">
+          <div className="content-sizing-box search-box-slider-item-wrapper">
+            <h1>Find Your Destination Before You Go</h1>
+            <p className="line-1 anim-typewriter">We give live type updates every 24 hours.</p>
+            <form className="main-search-box-header">
+              <div className="single-field-holder-landing-page">
+                <label>What's your destination</label>
+                <input placeholder="Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
+              </div>
+              <div className="single-field-holder-landing-page">
+                <label>Where?</label>
+                <div className="putting-two-in-one">
+                  <input placeholder="City, State or Zip" type="text" required ></input>
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+              </div>
+              <div className="single-field-holder-landing-page">
+                <label>Categories</label>
+                <select>
+                  <option value="0" selected>All Categories</option>
+                </select>
+              </div>
+              <button className="search-button-header">Look Up</button>
+            </form>
+            <span className="small-text-flow-form-landing">Need more search option? <Link to="/map">Advance Search</Link></span>
+          </div>
+        </div>
+      </div>
       <div className="stories_container">
         <div className="content-sizing-box stories-wrapper">
           <ul className="horizontal-scroll">
-            {props.Category && props.Category.map((item, index) => (
+          
+             {props.Category && props.Category.map((item, index) => (
               <li className={category === item.secondaryName && "active-category-selected"} onClick={() => setCategory(item.secondaryName)}>
-                {(item.icon)}
+                <i className={item.icon}></i>
                 <span>{item.name && item.name}</span>
               </li>
-            ))}
+            ))} 
           </ul>
         </div>
       </div>
-      <div className="slider-container">
+      {/* <div className="slider-container">
         <div className="slider-wrapper">
           <ul>
             <li>
@@ -57,7 +90,7 @@ const LandingPage = (props) => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
       <div className="landing-page-popular-businesses-container">
         <div className="content-sizing-box landing-page-item-wrapper">
           <div className="section-single-container">
@@ -115,10 +148,10 @@ const LandingPage = (props) => {
             <LandingPageBusinessCard name={"The Keg House"} businessInfo={{timings: "9:00 am - 1:00 am", ratings: 4.4, photo: "https://cdn.pixabay.com/photo/2017/11/06/13/50/family-2923690_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Clay Oven"} businessInfo={{timings: "9:00 am - 1:00 am", ratings: 4.4, photo: "https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Spice Circle"} businessInfo={{timings: "9:00 am - 1:00 am", ratings: 4.4, photo: "https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg"}}/>           
-         
           </div>
         </div>
       </div>
+      
     </motion.div>
   );
 };

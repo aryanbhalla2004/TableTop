@@ -79,39 +79,6 @@ const Inquiries = () => {
                     </td>
                   </tr>
               ))}
-              {/* <tr>
-                <td><FaIcons.FaEnvelope/></td>
-              <th>Actions</th>
-              <th></th>
-            </thead>
-            <tbody>
-              <tr>
-                <td><FaIcons.FaEnvelope/> 1 day ago</td>
-                <td>Jewels Richardson</td>
-                <td>info@myhairplace.com</td>
-                <td>My Hair Place</td>
-                <td>Beauty</td>
-                <td>1 day ago</td>
-                <td>
-                  <button className="mt-3 btn btn-primary">View</button>
-                  <button className="mt-3 btn btn-primary">Reject</button>
-                </td>
-              </tr>
-              <tr>
-                <td><FaIcons.FaEnvelopeOpen/></td>
-                <td>Rocky Veras</td>
-                <td>+1 (204)-345-3575</td>
-                <td>info@myworkoutplace.com</td>
-                <td>My Workout Place</td>
-                <td>Fitness</td>
-                <td>2 days ago</td>
-                <td>
-                  <button className="mt-3 btn btn-primary">View</button>
-                  <button className="mt-3 btn btn-primary">Reject</button>
-                </td>
-              </tr> 
-                <td><button className="mt-3 btn btn-primary">View</button><button className="mt-3 btn btn-primary">Reject</button></td>
-              </tr>*/}
             </tbody>
           </table>
         </div>

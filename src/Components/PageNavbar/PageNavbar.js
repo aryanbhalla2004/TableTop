@@ -16,8 +16,15 @@ const PageNavbar = (props) => {
     <>
       <div className="header-container">
         <div className="content-sizing-box header-wrapper-style">
-        <Link to="/"><img src={logo} width={160} className="logo-overflow"/></Link>
-          <div className="search-bar-header-container">
+        <Link to="/"><img src={logo} width={150} className="logo-overflow"/></Link>
+        <div>
+          <ul className="header-menu-list">
+            <li><Link to="/">About Us</Link></li>
+            <li><Link to="/">FAQ</Link></li>
+            <li><Link to="/">Support</Link></li>
+          </ul>
+          </div>
+          {/* <div className="search-bar-header-container">
             <select name="cars" id="cars">
               <option value="volvo">All Categories</option>
               <option value="saab">Saab</option>
@@ -26,7 +33,7 @@ const PageNavbar = (props) => {
             </select>
             <input placeholder="Search for local and nearby business information"/>
             <AiOutlineSearch className="search-icons"/>
-          </div>
+          </div> */}
 
           
 
@@ -37,7 +44,7 @@ const PageNavbar = (props) => {
                   to="/auth"
                   className="circle-button-header login-button-header"
                 >
-                  <i class="bi bi-people"></i> <span>Sign in</span>
+                  <span>Log in</span>
                 </Link>
               </div>
               <button

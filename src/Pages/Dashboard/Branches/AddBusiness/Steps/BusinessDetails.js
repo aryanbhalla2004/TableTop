@@ -182,34 +182,16 @@ const BusinessDetails = (props) => {
 
   return (
     <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-      
+       <div className="box-container">
+        <div className="profile-box wd-100">
       <h3 className="title-auth">1. Your Business Information</h3>
       <p className="text-muted mb-4">Please choose an account type below. Various pieces of information will be requested depending on your choice.</p>
-      {/* {fieldError.message && <div className="alert alert-danger mt-0" role="alert">{fieldError.message}</div>} */}
       <form>
-
-
-				{/* <div className="mb-3">
-          <label for="emailAddress" className="form-label">Business Name</label>
-          <input type="Name" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="businessName" value={values.businessName} onChange={Update} placeholder="Business Name"/>
-          {fieldError.businessName && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid business name.</div>}
-        </div> */}
-
         <div className="mb-3">
           <label for="emailAddress" className="form-label review-form-lable">Business Name *</label>
           <input type="Name" className={props.FieldError.businessName ? 'form-control is-invalid' : 'form-control'} id="" required="" name="businessName" value={props.BranchForm.businessName} onChange={props.UpdateUserForm} placeholder="Business Name"/>
           {props.FieldError.businessName && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please provide a valid email.</div>}
         </div>
-
-
-        {/* <div className="d-flex">
-          <div className="mb-3 col-md-6  rm-padding-left rm-padding-right">
-            <label for="emailAddress" className="form-label">Last Name</label>
-            <input type="Name" className={fieldError.lastName ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="lastName" value={userInput.lastName} onChange={updateUserInput} placeholder="Last Name"/>
-            {fieldError.lastName && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid last name.</div>}
-          </div>
-        </div> */}
-
         <small id="passwordHelpBlock" className="form-text text-muted light-under-field-text">Please use your Businesses Official Title as it appears on your legal documents.</small>
         
         <div className="mb-3">
@@ -223,18 +205,6 @@ const BusinessDetails = (props) => {
           <input type="email" className={props.FieldError.email ? 'form-control is-invalid' : 'form-control'} id="" required="" name="email" value={props.BranchForm.email} onChange={props.UpdateUserForm} placeholder="example@example.com"/>
           {props.FieldError.email && <div id="validationServer03Feedback" className=" mt-0 mb-0 error-message">Please provide a valid email.</div>}
         </div>
-
-        {/* <div className="mb-3">
-          <label for="phoneNumber" className="form-label">Phone Number</label>
-          <input type="phoneNumber" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="phoneNumber" value={values.phoneNumber} onChange={Update} placeholder="Phone Number" />
-          {fieldError.phoneNumber && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid phone number.</div>}
-        </div> */}
-
-        {/* <div className="mb-3">
-          <label for="emailAddress" className="form-label">Email Address</label>
-          <input type="email" className={"" ? 'form-control is-invalid' : 'form-control'} id="emailAddress" required="" name="email" value={values.email} onChange={Update} placeholder="Enter Your Email"/>
-          {fieldError.email && <div id="validationServer03Feedback" className="invalid-feedback mt-0 mb-0">Please provide a valid email.</div>}
-        </div> */}
         
         <div className="d-grid my-4">
           <button className="btn btn-primary full-width height-10px" type="submit" onClick={Continue} disabled={"" ? true : false}>
@@ -250,6 +220,8 @@ const BusinessDetails = (props) => {
           <p className="text-2 text-dark text-center mt-4 mb-0"><i className="bi bi-arrow-left"></i> Go Back</p>
         </Link>
       </form>
+      </div>
+      </div>
     </motion.div>
   )
 }

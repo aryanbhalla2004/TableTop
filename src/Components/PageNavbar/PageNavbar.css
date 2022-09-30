@@ -450,3 +450,10 @@
   padding: 10px;
   background-color: #fff !important; */
 }
+
+.header-menu-list {
+  display: flex;
+  list-style-type: none;
+  border: 1px solid;
+  height: 100%;
+}

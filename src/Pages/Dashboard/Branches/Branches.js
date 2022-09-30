@@ -14,11 +14,11 @@ const Branches = () => {
             <h2>All Businesses</h2>
 						<button className="mt-3 btn btn-primary"><Link to="add-business" className="signup-link">Add Business</Link></button>
           </div>
-          <table className='activity-table'>
+          <table className='activity-table branch-table'>
             <thead>
-              <th>Business</th>
-              <th>Address</th>
-              <th>Burst</th>
+              <th>Business Name</th>
+              <th>Business Address</th>
+              <th>24H Burst</th>
               <th></th>
             </thead>
             <tbody>
@@ -30,8 +30,8 @@ const Branches = () => {
                   <p>expires in: {expireTime}</p>
                 </td>
                 <td>
-                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link">View</Link></button>
-                  <button className="mt-3 btn btn-primary">Modify</button>
+                  <button className="mt-3 btn btn-primary btn-spacer"><Link to={"/vendor/2"} className="signup-link"><i class="bi bi-binoculars"></i> View</Link></button>
+                  <button className="mt-3 btn btn-dark btn-spacer"><Link to={"/vendor/2"} className="signup-link"><i class="bi bi-pen"></i> Modify</Link></button>
                 </td>
               </tr>
             </tbody>
