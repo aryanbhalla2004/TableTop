@@ -1,23 +1,10 @@
 .map-container {
-  height: 600px;
+  height: 100vh;
 }
 
-.mapboxgl-ctrl-geocoder {
-  border: 0;
-  border-radius: 0;
-  position: relative;
-  top: 0;
-  width: 800px;
-  margin-top: 0;
-}
-
-.mapboxgl-ctrl-geocoder > div {
-  min-width: 100%;
-  margin-left: 0;
-}
 .Map-SearchBox {
   position: absolute;
-  top: 130px;
+  top: 120px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -25,8 +12,9 @@
   padding: 5px;
   border-radius: 5px;
   display: flex;
-  height: 45px;
-  width: 720px;
+  justify-content: center;
+  height: 43px;
+  width: 700px;
 }
 .Map-SearchForm {
   display: flex;
@@ -94,8 +82,24 @@
 }
 
 .UserLocationSearch {
-  width: 200px;
+  width: 202px;
 }
 .UserLocationIcon {
   width: 50px;
+}
+.divide {
+  width: 50px;
+}
+.km {
+  margin-top: 4px;
+  margin-left: 3px;
+  margin-right: 5px;
+}
+.Map-divide {
+  color: gray;
+
+  margin-top: 4px;
+}
+.Map-divide-container {
+  width: 20px;
 }
