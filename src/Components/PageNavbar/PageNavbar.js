@@ -5,7 +5,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { AiOutlineUser, AiOutlineSearch } from "react-icons/ai";
 import { BsFillGearFill, BsFillGridFill } from "react-icons/bs";
-import logo from "../../util/images/logo.png";
+import logo from "../../util/images/1.png";
 
 const PageNavbar = (props) => {
   const history = useNavigate();
@@ -16,10 +16,12 @@ const PageNavbar = (props) => {
     <>
       <div className="header-container">
         <div className="content-sizing-box header-wrapper-style">
-        <Link to="/"><img src={logo} width={150} className="logo-overflow"/></Link>
-        <div>
+        
+        <div className="header-nav">
+        <Link to="/"><img src={logo} width={160} className="logo-overflow logo-tilt-fix"/></Link>
           <ul className="header-menu-list">
-            <li><Link to="/">About Us</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">What we provide</Link></li>
             <li><Link to="/">FAQ</Link></li>
             <li><Link to="/">Support</Link></li>
           </ul>
@@ -44,7 +46,7 @@ const PageNavbar = (props) => {
                   to="/auth"
                   className="circle-button-header login-button-header"
                 >
-                  <span>Log in</span>
+                  <span>Log In</span>
                 </Link>
               </div>
               <button

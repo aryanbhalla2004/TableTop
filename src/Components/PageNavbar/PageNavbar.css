@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
 
 
@@ -325,7 +326,7 @@
 
 .logo-tilt-fix {
   border: 1px ;
-  transform: rotate(5deg);
+  transform: rotate(7deg);
 }
 
 .search-bar {
@@ -454,6 +455,37 @@
 .header-menu-list {
   display: flex;
   list-style-type: none;
-  border: 1px solid;
+  border-left: 1px solid #ddd;
   height: 100%;
+  padding: 25px 0;
+  gap: 20px;
+  margin: 0;
+  margin-left: 30px;
+  padding-left: 20px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.header-menu-list > li {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.header-menu-list > li > a {
+  color: rgb(54, 54, 54);
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-weight: 350;
+  transition: .3s;
+  line-height: 27px;
+}
+
+.header-menu-list > li > a:hover {
+  color: var(--logo-color);
 }
