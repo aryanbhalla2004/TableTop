@@ -25,17 +25,21 @@ const LandingPage = (props) => {
       <div className="search-box-slider-landing-page">
         <div className="search-box-slider-item-wrapper-overlay">
           <div className="content-sizing-box search-box-slider-item-wrapper">
-            <h1>Before You Go</h1>
+            <h1></h1>
             {/* <p className="line-1 anim-typewriter">We give real time updates every 24 hours.</p> */}
             <div className="center-text-like-gg">
-              <h1>View it Live</h1>
+              <h1>Before You Go | </h1>
+              <p className="keyword-strong line-1 anim-typewriter"><h1><span className="keyword-strong">View it Live</span></h1></p>
             </div>
             
             <form className="main-search-box-header">
               
               <div className="single-field-holder-landing-page">
                 {/* <label>What's your destination</label> */}
-                <input placeholder="Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
+                <div className="putting-two-in-one">
+                  <input placeholder="e.g. Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
+                  <i class="bi bi-search"></i>
+                </div>
               </div>
               <div className="single-field-holder-landing-page">
                 <div className="putting-two-in-one">
@@ -51,6 +55,9 @@ const LandingPage = (props) => {
               </div>
               {/* <button className="search-button-header">Look Up</button> */}
             </form>
+            {/* <div className="center-text-like-gg">
+              <p className="small-text-flow-form-landing">Your Destination</p>
+            </div> */}
             <span className="small-text-flow-form-landing">Your Destination</span>
           </div>
         </div>

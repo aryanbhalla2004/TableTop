@@ -4,6 +4,7 @@
   justify-content: center;
   background-color: #f0f0f0;
   width: 100%;
+  border-top: 6px solid var(--logo-color);
 }
 
 
@@ -289,7 +290,7 @@
 .search-box-slider-landing-page {
   display: flex;
   align-items: center;
-  background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background: url("https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
   justify-content: center;
   background-repeat: no-repeat;
   background-position: center;
@@ -297,21 +298,22 @@
 }
 
 .search-box-slider-item-wrapper-overlay {
-  padding: 120px 0;
+  padding: 50px 0;
+  padding-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: rgba(30,30,30,0.87);
+  background-color: rgba(30,30,30,0.75);
 }
 
 .search-box-slider-item-wrapper {
   color: #fff !important;
 }
 
-.search-box-slider-item-wrapper > h1, .center-text-like-gg > h1 {
+.search-box-slider-item-wrapper > h1, .center-text-like-gg > p > h1, .center-text-like-gg > h1{
   color: #fff !important;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .center-text-like-gg {
@@ -319,6 +321,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.center-text-like-gg > h1 {
+  margin-right: 100px !important; 
+}
+
+.center-text-like-gg > p {
+  margin-left: 100px !important;
 }
 
 .search-box-slider-item-wrapper > p {
@@ -326,8 +337,8 @@
   color: #888;
   font-weight: 300;
   line-height: 20px;
-    display: block;
-    letter-spacing: -0.5px;
+  display: block;
+  letter-spacing: -0.5px;
 }
 
 .main-search-box-header {
@@ -354,7 +365,6 @@
   align-items: center;
   display: flex;
   position: relative;
-  font-family: Poppins;
   border: none;
   font-size: 15px;
   font-weight: 400;
@@ -414,13 +424,13 @@ input:focus {
 
 .line-1{
   position: relative;
-  width: 22em;
+  width: 10em;
   border-right: 2px solid rgba(255,255,255,.75);
   text-align: center;
   white-space: nowrap;
+  font-size: 25px;
   margin-top: 20px;
   overflow: hidden;
-  height: 25px;
 }
 
 /* Animation */
@@ -430,7 +440,7 @@ animation: typewriter 4s steps(44) 1s 1 normal both,
 }
 @keyframes typewriter{
 from{width: 0;}
-to{width: 17.8em;}
+to{width: 10em;}
 }
 @keyframes blinkTextCursor{
 from{border-right-color: rgba(255,255,255,.75);}
@@ -439,6 +449,19 @@ to{border-right-color: transparent;}
 
 
 .small-text-flow-form-landing {
-  font-size: 14px;
-  color: #cecece;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  line-height: 22px;
+  cursor: default;
+  font-weight: 400;
+  font-size: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.keyword-strong {
+  color: var(--logo-color);
+  font-weight: 400;
+
 }
