@@ -25,29 +25,33 @@ const LandingPage = (props) => {
       <div className="search-box-slider-landing-page">
         <div className="search-box-slider-item-wrapper-overlay">
           <div className="content-sizing-box search-box-slider-item-wrapper">
-            <h1>Find Your Destination Before You Go</h1>
-            <p className="line-1 anim-typewriter">We give live type updates every 24 hours.</p>
+            <h1>Before You Go</h1>
+            {/* <p className="line-1 anim-typewriter">We give real time updates every 24 hours.</p> */}
+            <div className="center-text-like-gg">
+              <h1>View it Live</h1>
+            </div>
+            
             <form className="main-search-box-header">
+              
               <div className="single-field-holder-landing-page">
-                <label>What's your destination</label>
+                {/* <label>What's your destination</label> */}
                 <input placeholder="Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
               </div>
               <div className="single-field-holder-landing-page">
-                <label>Where?</label>
                 <div className="putting-two-in-one">
                   <input placeholder="City, State or Zip" type="text" required ></input>
                   <i class="bi bi-geo-alt"></i>
                 </div>
               </div>
               <div className="single-field-holder-landing-page">
-                <label>Categories</label>
+                {/* <label>Categories</label> */}
                 <select>
                   <option value="0" selected>All Categories</option>
                 </select>
               </div>
-              <button className="search-button-header">Look Up</button>
+              {/* <button className="search-button-header">Look Up</button> */}
             </form>
-            <span className="small-text-flow-form-landing">Need more search option? <Link to="/map">Advance Search</Link></span>
+            <span className="small-text-flow-form-landing">Your Destination</span>
           </div>
         </div>
       </div>
