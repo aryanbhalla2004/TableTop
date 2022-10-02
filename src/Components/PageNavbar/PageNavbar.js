@@ -21,7 +21,7 @@ const PageNavbar = (props) => {
         <Link to="/"><img src={logo} width={75} className="logo-overflow"/></Link>
           <ul className="header-menu-list">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">What we provide</Link></li>
+            <li><Link to="/">About Us</Link></li>
             <li><Link to="/">FAQ</Link></li>
             <li><Link to="/">Support</Link></li>
           </ul>
