@@ -41,6 +41,17 @@ const PageNavbar = (props) => {
 
           {!props.CurrentUser &&
             <div className="right_section_wrapper">
+              <div className="header-nav right-side-nav">
+                <ul className="header-menu-list">
+                  <li><Link to="/">Live Gallery</Link></li>
+                </ul>
+              </div>
+              <button
+                variant="light"
+                onClick={() => props.SetShowAccountSelection(true)}
+              >
+                Create Account&nbsp;<i class="bi bi-arrow-right"></i>
+              </button>
               <div className="user_profile_wrapper">
                 <Link
                   to="/auth"
@@ -49,12 +60,7 @@ const PageNavbar = (props) => {
                   <span>Log In</span>
                 </Link>
               </div>
-              <button
-                variant="light"
-                onClick={() => props.SetShowAccountSelection(true)}
-              >
-                Become a Member&nbsp;<i class="bi bi-arrow-right"></i>
-              </button>
+              
             </div>
           }
 

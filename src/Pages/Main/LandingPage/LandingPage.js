@@ -53,8 +53,8 @@ const LandingPage = (props) => {
             </div>
             
             <form className="main-search-box-header">
-              
-              <div className="single-field-holder-landing-page">
+              <span className="small-text-flow-form-landing">Your Destination <i class="bi bi-arrow-right"></i></span>
+              <div className="single-field-holder-landing-page search-box-size">
                 {/* <label>What's your destination</label> */}
                 <div className="putting-two-in-one">
                   <input placeholder="e.g. Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
@@ -78,7 +78,7 @@ const LandingPage = (props) => {
             {/* <div className="center-text-like-gg">
               <p className="small-text-flow-form-landing">Your Destination</p>
             </div> */}
-            <span className="small-text-flow-form-landing">Your Destination</span>
+           
           </div>
         </div>
       </div>
