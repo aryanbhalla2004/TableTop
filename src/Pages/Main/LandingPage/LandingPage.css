@@ -320,7 +320,7 @@
 
 .search-box-slider-item-wrapper-overlay {
   padding: 50px 0;
-  padding-bottom: 30px;
+  padding-bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,8 +368,8 @@
   margin-top: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #fff;
-  margin-bottom: 10px;
 }
 
 .single-field-holder-landing-page {
