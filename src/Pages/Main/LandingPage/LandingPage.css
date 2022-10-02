@@ -30,13 +30,17 @@
 
 
 .horizontal-scroll {
+  scroll-behavior: smooth;
   width: 100%;
   list-style-type: none;
   display: flex;
   margin-bottom: 0;
   overflow-x: hidden;
-  gap: 25px;
+  font-size: 1.3rem;
+  gap:25px;
 }
+
+
 
 .horizontal-scroll > li {
   border-bottom: 2px solid #f0f0f0;;
@@ -44,7 +48,7 @@
   display: flex;
   align-items: center;
   padding: 10px 0;
-  min-width: 70px;
+  min-width: fit-content;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -52,6 +56,7 @@
   white-space: nowrap;
   transition: .3s;
   color: rgb(86, 86, 86);
+  
 }
 
 .horizontal-scroll > li:hover {
@@ -70,6 +75,23 @@
   font-size: 1.9rem;
 }
 
+.stories-wrapper button{
+  border: 1px solid rgb(59, 55, 55);
+  background-color: transparent;
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 8px;
+  border-radius: 50%;
+  transition: .3s;
+}
+.prev{
+  transform:translateX(-40%) ;
+}
+.forw{
+  transform:translateX(40%) ;
+}
 .horizontal-scroll > li > span {
   font-size: 12px;
   text-transform: capitalize;

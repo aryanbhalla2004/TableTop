@@ -61,6 +61,7 @@ const App = () => {
         querySnapshot.forEach((doc) => {
           tempList.push(doc.data());
         });
+        tempList.sort((a,b) => a.order - b.order);
         setCategory(tempList);
       });
     } catch(e) {

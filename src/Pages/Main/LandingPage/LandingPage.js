@@ -1,18 +1,38 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import "react-multi-carousel/lib/styles.css";
-import * as BiIcons from "react-icons/bi";
 import {Helmet} from "react-helmet";
-import * as GiIcons from "react-icons/gi";
-import * as RiIcons from "react-icons/ri";
 import * as HiIcons from "react-icons/hi";
-import * as MdIcons from "react-icons/md";
-import * as TbIcons from "react-icons/tb";
 import LandingPageBusinessCard from "../../../Components/LandingPageBusinessCard/LandingPageBusinessCard";
+
 const LandingPage = (props) => {
+  const [scrollX, setscrollX] = useState(0); // For detecting start scroll postion
+  const [scrolEnd, setscrolEnd] = useState(false); // For detecting end of scrolling
   const [category, setCategory] = useState("");
+  const scrl = useRef();
+  const slide = (shift) => {
+    scrl.current.scrollLeft += shift;
+    setscrollX(scrollX + shift); // Updates the latest scrolled postion
+
+    if (
+      Math.ceil(scrl.current.scrollWidth) - Math.ceil(scrl.current.scrollLeft) - (scrl.current.offsetWidth) <= 40
+      
+    ) {
+      setscrolEnd(true);
+    } else {
+      setscrolEnd(false);
+    }
+
+    if(shift < 0){
+      setscrolEnd(false);
+    }
+    console.log((Math.ceil(scrl.current.scrollWidth) - Math.ceil(scrl.current.scrollLeft)));
+    console.log(
+      scrl.current.offsetWidth);
+    //For checking if the scroll has ended
+  };
 
 
 
@@ -63,17 +83,26 @@ const LandingPage = (props) => {
         </div>
       </div>
       <div className="stories_container">
+       
+
         <div className="content-sizing-box stories-wrapper">
-          <ul className="horizontal-scroll">
-          
+        {scrollX !== 0 && (
+        <button class="prev" onClick={() => slide(-300)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></button>
+        )}
+          <ul className="horizontal-scroll" ref={scrl} >
              {props.Category && props.Category.map((item, index) => (
               <li className={category === item.secondaryName && "active-category-selected"} onClick={() => setCategory(item.secondaryName)}>
                 <i className={item.icon}></i>
                 <span>{item.name && item.name}</span>
               </li>
-            ))} 
+            ))}
           </ul>
+          {!scrolEnd && (
+        <button class="forw"onClick={() => slide(300)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
+         )}
+          
         </div>
+        
       </div>
       {/* <div className="slider-container">
         <div className="slider-wrapper">
