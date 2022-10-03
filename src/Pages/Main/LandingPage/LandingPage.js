@@ -135,7 +135,7 @@ const LandingPage = (props) => {
         <div className="content-sizing-box landing-page-item-wrapper">
           <div className="section-single-container">
             <div className="section-header-part"> 
-              <h2>Trending Restarunt</h2>
+              <h2>Trending Resturants</h2>
               <p>List of business show below are one of the most popular restaurent around you.</p>
             </div>
             <div className="selection-stats">
