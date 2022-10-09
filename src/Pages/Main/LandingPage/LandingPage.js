@@ -1,6 +1,7 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { useRef, useState,useEffect } from "react";
+import BusinessSearchBar from "../../../Components/MainSearchBar/BusinessSearchBar";
 import { motion } from "framer-motion";
 import "react-multi-carousel/lib/styles.css";
 import {Helmet} from "react-helmet";
@@ -52,29 +53,7 @@ const LandingPage = (props) => {
               <p className="keyword-strong line-1 anim-typewriter"><h1><span className="keyword-strong">View it Live</span></h1></p>
             </div>
             
-            <form className="main-search-box-header">
-              <span className="small-text-flow-form-landing">Your Destination <i class="bi bi-arrow-right"></i></span>
-              <div className="single-field-holder-landing-page search-box-size">
-                {/* <label>What's your destination</label> */}
-                <div className="putting-two-in-one">
-                  <input placeholder="e.g. Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
-                  <i class="bi bi-search"></i>
-                </div>
-              </div>
-              <div className="single-field-holder-landing-page">
-                <div className="putting-two-in-one">
-                  <input placeholder="City, State or Zip" type="text" required ></input>
-                  <i class="bi bi-geo-alt"></i>
-                </div>
-              </div>
-              <div className="single-field-holder-landing-page">
-                {/* <label>Categories</label> */}
-                <select>
-                  <option value="0" selected>All Categories</option>
-                </select>
-              </div>
-              {/* <button className="search-button-header">Look Up</button> */}
-            </form>
+            <BusinessSearchBar Category={props.Category}/>
             {/* <div className="center-text-like-gg">
               <p className="small-text-flow-form-landing">Your Destination</p>
             </div> */}

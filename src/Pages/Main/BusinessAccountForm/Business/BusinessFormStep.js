@@ -296,7 +296,7 @@ export const BusinessFormStep = (props) => {
           <select className="select-field-review" name='businessType' value={props.BusinessForm.businessType} onChange={props.UpdateUserForm}>
             <option default>Type of Business</option>
             {props.Category && props.Category.map((item, index) => (
-              <option value={item.secondaryName} key={index}>{item.name && item.name}</option>
+              <option value={item.name} key={index}><i className={item.icon}></i>{item.name && item.name}</option>
             ))}
           </select>
           {props.FieldError.businessType && <div id="validationServer03Feedback" className="mt-0 mb-0 error-message">Please select a type of business.</div>}
