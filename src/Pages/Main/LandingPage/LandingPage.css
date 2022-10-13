@@ -38,6 +38,8 @@
   overflow-x: hidden;
   font-size: 1.3rem;
   gap:25px;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
 }
 
 
@@ -52,10 +54,11 @@
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 15px;
   white-space: nowrap;
   transition: .3s;
   color: rgb(86, 86, 86);
+  scroll-snap-align: end;
   
 }
 
@@ -124,6 +127,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #ddd;
+  
 }
 
 .landing-page-item-wrapper {
@@ -138,6 +142,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center; */
+  scroll-behavior: smooth;
   display: grid;
   grid-auto-columns: 15.87%;
   grid-auto-flow: column;
@@ -152,7 +157,7 @@
 }
 
 .landing-page-popular-businesses > * {
-  scroll-snap-align: start;
+  scroll-snap-align: end;
 }
 
 .landing-page-item-wrapper > h2 {
@@ -232,6 +237,10 @@
   display: flex;
   overflow: hidden;
   width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .slider-wrapper > ul {
