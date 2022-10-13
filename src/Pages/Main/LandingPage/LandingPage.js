@@ -9,32 +9,36 @@ import * as HiIcons from "react-icons/hi";
 import LandingPageBusinessCard from "../../../Components/LandingPageBusinessCard/LandingPageBusinessCard";
 
 const LandingPage = (props) => {
-  const [scrollX, setscrollX] = useState(0); // For detecting start scroll postion
+  const [scrollX, setscrollX] = useState(true); // For detecting start scroll postion
   const [scrolEnd, setscrolEnd] = useState(false); // For detecting end of scrolling
   const [category, setCategory] = useState("");
-  const scrl = useRef();
-  const slide = (shift) => {
-    scrl.current.scrollLeft += shift;
-    setscrollX(scrollX + shift); // Updates the latest scrolled postion
-
+  const scrl = [useRef(), useRef(), useRef()];
+  const slide = (shift, num) => {
+    scrl[num].current.scrollLeft += shift;
+    //For checking if the scroll has ended
+    console.log("PLUS"+ (Math.ceil(scrl.current.scrollWidth) - Math.ceil(scrl.current.scrollLeft) - (scrl.current.offsetWidth)));
+     
+  };
+  
+  const checkScroll = (num) => {
+    console.log("minus"+ (Math.ceil(scrl[num].current.scrollWidth) - Math.ceil(scrl[num].current.scrollLeft) - (scrl[num].current.offsetWidth)));
+     
     if (
-      Math.ceil(scrl.current.scrollWidth) - Math.ceil(scrl.current.scrollLeft) - (scrl.current.offsetWidth) <= 40
-      
+      Math.ceil(scrl[num].current.scrollWidth) - Math.ceil(scrl[num].current.scrollLeft) - (scrl[num].current.offsetWidth) <= 10
     ) {
       setscrolEnd(true);
     } else {
       setscrolEnd(false);
     }
-
-    if(shift < 0){
+    if(Math.ceil(scrl[num].current.scrollLeft) <= 10){
+      setscrollX(true);
+    } else {
+      setscrollX(false);
+    }
+    if(Math.ceil(scrl[num].current.scrollWidth) - Math.ceil(scrl[num].current.scrollLeft) == 0){
       setscrolEnd(false);
     }
-    console.log((Math.ceil(scrl.current.scrollWidth) - Math.ceil(scrl.current.scrollLeft)));
-    console.log(
-      scrl.current.offsetWidth);
-    //For checking if the scroll has ended
-  };
-
+  }
 
 
   return (
@@ -65,10 +69,10 @@ const LandingPage = (props) => {
        
 
         <div className="content-sizing-box stories-wrapper">
-        {scrollX !== 0 && (
-        <button class="prev" onClick={() => slide(-300)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></button>
-        )}
-          <ul className="horizontal-scroll" ref={scrl} >
+        
+        <button class={`prev ${scrollX? "hidden": ""}`} onClick={() => slide(-450, 0)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></button>
+        
+          <ul className="horizontal-scroll" ref={scrl[0]} onScroll={() => checkScroll(0)}>
              {props.Category && props.Category.map((item, index) => (
               <li className={category === item.secondaryName && "active-category-selected"} onClick={() => setCategory(item.secondaryName)}>
                 <i className={item.icon}></i>
@@ -76,9 +80,9 @@ const LandingPage = (props) => {
               </li>
             ))}
           </ul>
-          {!scrolEnd && (
-        <button class="forw"onClick={() => slide(300)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
-         )}
+          
+        <button class={`forw  ${scrolEnd? "hidden": ""}`}onClick={() => slide(450, 0)}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
+         
           
         </div>
         
@@ -120,12 +124,12 @@ const LandingPage = (props) => {
             <div className="selection-stats">
               <a>Show (12)</a>
               <div className="navigation-button">
-                <button><HiIcons.HiChevronLeft/></button>
-                <button><HiIcons.HiChevronRight/></button>
+                <button onClick={() => slide(-300, 1)}><HiIcons.HiChevronLeft/></button>
+                <button onClick={() => slide(+300, 1)}><HiIcons.HiChevronRight/></button>
               </div>
             </div>
           </div>
-          <div className="landing-page-popular-businesses">
+          <div ref={scrl[1]}  className="landing-page-popular-businesses">
             <LandingPageBusinessCard name={"My Burger Place"} businessInfo={{timings: "9:00 AM - 12:00 PM", ratings: 4.5, photo: "https://cdn.pixabay.com/photo/2016/11/29/10/09/bakery-1868925_1280.jpg"}}/>
             <LandingPageBusinessCard name={"My Tire Place"} businessInfo={{timings: "7:00 am - 5:00 pm", ratings: 4.2, photo: "https://cdn.pixabay.com/photo/2016/11/19/15/40/clothes-1839935_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Macdonald House"} businessInfo={{timings: "9:00 am - 12:00 am", ratings: 3.7, photo: 'https://cdn.pixabay.com/photo/2016/11/29/09/00/doughnuts-1868573_1280.jpg'}}/>
@@ -152,12 +156,12 @@ const LandingPage = (props) => {
             <div className="selection-stats">
               <a>Show (12)</a>
               <div className="navigation-button">
-                <button><HiIcons.HiChevronLeft/></button>
-                <button><HiIcons.HiChevronRight/></button>
+                <button onClick={() => slide(-300, 2)}><HiIcons.HiChevronLeft/></button>
+                <button onClick={() => slide(300, 2)}><HiIcons.HiChevronRight/></button>
               </div>
             </div>
           </div>
-          <div className="landing-page-popular-businesses">
+          <div ref={scrl[2]} className="landing-page-popular-businesses">
             <LandingPageBusinessCard name={"Spice Circle"} businessInfo={{timings: "9:00 am - 1:00 am", ratings: 4.4, photo: "https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg"}}/>            
             <LandingPageBusinessCard name={"My Burger Place"} businessInfo={{timings: "9:00 AM - 12:00 PM", ratings: 4.5, photo: "https://cdn.pixabay.com/photo/2016/11/29/10/09/bakery-1868925_1280.jpg"}}/>
             <LandingPageBusinessCard name={"Macdonald House"} businessInfo={{timings: "9:00 am - 12:00 am", ratings: 3.7, photo: 'https://cdn.pixabay.com/photo/2016/11/29/09/00/doughnuts-1868573_1280.jpg'}}/>
