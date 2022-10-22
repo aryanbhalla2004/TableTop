@@ -124,8 +124,8 @@ const LandingPage = (props) => {
             <div className="selection-stats">
               <a>Show (12)</a>
               <div className="navigation-button">
-                <button onClick={() => slide(-300, 1)}><HiIcons.HiChevronLeft/></button>
-                <button onClick={() => slide(+300, 1)}><HiIcons.HiChevronRight/></button>
+                <button onClick={() => slide(-500, 1)}><HiIcons.HiChevronLeft/></button>
+                <button onClick={() => slide(+500, 1)}><HiIcons.HiChevronRight/></button>
               </div>
             </div>
           </div>
@@ -156,8 +156,8 @@ const LandingPage = (props) => {
             <div className="selection-stats">
               <a>Show (12)</a>
               <div className="navigation-button">
-                <button onClick={() => slide(-300, 2)}><HiIcons.HiChevronLeft/></button>
-                <button onClick={() => slide(300, 2)}><HiIcons.HiChevronRight/></button>
+                <button onClick={() => slide(-500, 2)}><HiIcons.HiChevronLeft/></button>
+                <button onClick={() => slide(500, 2)}><HiIcons.HiChevronRight/></button>
               </div>
             </div>
           </div>

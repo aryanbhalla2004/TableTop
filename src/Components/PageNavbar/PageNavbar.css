@@ -111,7 +111,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .right_section_wrapper > div {
@@ -121,6 +120,8 @@
 
 .user_profile_wrapper {
   display: flex;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
   gap: 10px;
   align-items: center;
   justify-content: space-between;
@@ -141,7 +142,6 @@
 .login-button-header {
   transition: .3s;
   border-radius: 3px;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,6 +154,17 @@
   display: flex;
 }
 
+.profile-Button-wrapper {
+  padding: 8px 15px;
+  display: flex;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  background-color: #ddd;
+  color: #000;
+}
+
+
 .login-button-header > span {
   font-weight: 500;
   font-size: 14px;
@@ -162,10 +173,10 @@
 .login-button-noti-btn {
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
   justify-content: space-between;
   border-radius: 3px;
-  padding: 5px;
+
+  padding-right: 20px;
   gap: 10px;
   color: rgb(126, 126, 126);
   cursor: pointer;
@@ -199,23 +210,21 @@
   position: absolute;
   background-color: #fff;
   transition: .3s;
-  top: 100%;
-  right: 0;
-  border-radius: 3px;
+  top: 120%;
+  right: -30px;
   display: none;
+  border-radius: 3px;
   max-width: 400px;
   border: 1px solid #ddd;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
 }
 
-.show-box {
-  opacity: 1;
+.showProfileBox {
   display: block;
 }
 
 .account-box {
   width: 250px;
-  right: 0;
   margin-right: 15px;
   z-index: 99999;
 }
@@ -320,6 +329,7 @@
   color: rgb(126, 126, 126);
   font-size: 1.5rem;
   transition: .3s;
+  padding-right: 15px;
 }
 
 .like-button-header:hover {
