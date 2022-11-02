@@ -11,7 +11,7 @@ import LandingPageBusinessCard from "../../../Components/LandingPageBusinessCard
 const LandingPage = (props) => {
   const [scrollX, setscrollX] = useState(true); // For detecting start scroll postion
   const [scrolEnd, setscrolEnd] = useState(false); // For detecting end of scrolling
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState({name: "All Categories"});
   const scrl = [useRef(), useRef(), useRef()];
   const slide = (shift, num) => {
     scrl[num].current.scrollLeft += shift;

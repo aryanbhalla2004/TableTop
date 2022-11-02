@@ -11,6 +11,7 @@ export const BusinessSearchBar = (props) => {
         <div className="putting-two-in-one">
           <input placeholder="e.g. Pizza Place, Hair Salon, Garage" type="text" className="left-radius" required></input>
           <i class="bi bi-search"></i>
+          <div className='absolute-value-behind-search'>Search Here</div>
         </div>
       </div>
       <div className="single-field-holder-landing-page">
